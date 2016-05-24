@@ -1,0 +1,13 @@
+﻿; (function ($) {
+    $.Frame.Config.Constant =
+        {
+			//Android中需要用到的
+        	//ServerUrl:"http://10.5.2.100:40081/"
+
+			//h5中用到的
+            ServerUrl: "http://localhost:5401/"
+            //ServerUrl:"http://appcs.jumeiyiyun.com/"
+
+
+        }
+}(jQuery));

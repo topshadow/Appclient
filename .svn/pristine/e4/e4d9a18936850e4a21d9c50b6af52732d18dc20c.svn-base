@@ -1,0 +1,58 @@
+﻿<!--科室成员-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="OfficePatientList" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">科室成员</div>
+                    </div>
+                </div>
+
+                <div class="Search-bar">
+                    <input type="search" placeholder="搜索医生姓名/所在地址/擅长项目">
+                    <a><img src="css/images/search-icon.png" /></a>
+                </div>
+
+                <div class="page-content OfficeList">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img src="img/fbb.png" /><br />
+                                        <label>主治医师</label>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">曾山鹰 湖北省第三人民医院</div>
+                                        </div>
+                                        <div class="item-subtitle">梁医生，我想咨询一下双眼皮的问题</div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

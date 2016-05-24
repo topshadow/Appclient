@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>聚美医</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+	<link rel="stylesheet" href="css/framework7.ios.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.css">
+	<!-- Path to your custom app styles-->
+	<link rel="stylesheet" href="css/my-app.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+	<meta name="msapplication-square70x70logo" content="img/smalltile.png">
+	<meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+	<meta name="msapplication-wide310x150logo" content="img/widetile.png">
+	<meta name="msapplication-square310x310logo" content="img/largetile.png">
+
+	<style>
+		#switch {
+			padding: 90px;
+			padding-top: 50px;
+			padding-bottom: 40px;
+			background: #f2f3f4;
+			z-index: 11;
+		}
+
+
+	</style>
+
+</head>
+<body onmousewheel="return false;"  style="background: #f2f3f4;">
+	<div class="views">
+		<div class="view view-main">
+
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="left">
+						<a href="#" class="back link"><i class="icon icon-back"></i></a>
+					</div>
+					<div class="center sliding">添加患者</div>
+					<div class="right">
+						<img src="img/save.png" style=" position: absolute; right: 30px; height: 19px; width: 19px;" id="save">
+						<img src="img/fenxiang.png" id="fenxiang" style="height: 19px; width: 19px;" />
+
+					</div>
+
+
+				</div>
+
+				<div class="subnavbar" id="switch">
+					<div class="buttons-row sao">
+						<a href="#tab1" class="button tab-link active">扫一扫</a>
+						<a href="#tab2" class="button tab-link">手机号</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="pages navbar-through addcust">
+				<!-- Pag has additional "with-subnavbar" class -->
+				<div data-page="home" class="page with-subnavbar">
+					<div class="page-content hide-bars-on-scroll">
+						<div class="tabs">
+
+							<div id="tab1" class="tab active">
+								<div class="content-block" id="doctormessage">
+									<!--<div style="text-align: center;">
+										<img src="img/WeChatBackground.png" style="margin-top: -60px; height: 560px; width: 305px; "/>
+										<img src="img/code.png" style="position: relative; top: -390px; width: 185px; height: 195px; " />
+									</div>
+									<div style=" margin-top: -335px; text-align: center;">
+										<img src="img/doctorphoto.png" style=" margin-left: -150px;" />
+
+										<div style="margin-top: -48px; margin-left: 65px;">
+											<div>
+												<span>医生姓名</span>
+												<span>医生职称</span>
+												<img src="img/attestation.png" />
+											</div>
+
+											<div style=" margin-left: -22px; padding: 5px;">
+												<span>医院名称</span>
+												<span> | </span>
+												<span>科室名称</span>
+											</div>
+										</div>
+									</div>-->
+								</div>
+							</div>
+
+							<div id="tab2" class="tab">
+								<div class="content-block" style=" padding: 0 46.5px;">
+
+									<div class="list-block" style="box-shadow: 3px 3px 3px #e1e1e1; margin-top: 65px;">
+										<ul>
+											<li>
+												<div class="item-content">
+													<div class="item-inner">
+														<div class="item-input">
+															<input id="tx_phonenumber" type="number" placeholder="Phone number">
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+
+									<div style="text-align: center;">
+										<span style="color: #aaaaaa; font-size: 14px;">同时将短信提醒患者用微信扫描加我</span>
+									</div>
+
+									<div id="contains" onclick="window.location.href = 'ContactTest.html?doctorsno=' + localStorage.getItem('doctorSno')">
+										<img src="img/contacts.png" style="height: 35px; width: 213px; position: absolute; left: 50%; margin-left: -106.5px; bottom: 39px;" />
+									</div>
+
+									<!--<h1>通讯录</h1>
+									<div id="contacts"></div>
+									<div id="detail" style="display:none">
+										姓名：<span id="name"></span><br />
+										手机号：<span id="number"></span><br />
+										<div style="text-align:center;margin-top:10px"><button id="back" style="width:90px;height:60px;">返回</button></div>
+									</div> -->
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Path to Framework7 Library JS-->
+	<script type="text/javascript" src="js/framework7.min.js"></script>
+	<!-- Path to your app js-->
+	<script type="text/javascript" src="js/my-app.js"></script>
+	<script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="Scripts/jquery.tmpl.min.js"></script>
+	<script src="Scripts/FrameJs/global.js"></script>
+	<script src="Scripts/FrameJs/frame.ajax2.js"></script>
+	<script src="cordova.js"></script>
+
+
+<script type="text/x-jquery-tmpl" id="itemdata">
+	<!-- <div class="content-block">
+
+		<div style="text-align: center;">
+			<img src="img/WeChatBackground.png" style="width: 320px; margin: -30px;"/>
+		</div>
+
+		<div style="text-align: center; position: relative; bottom: 345px;">
+			<img src="${qrurl}" style="width: 215px;"/>
+		</div>
+
+		<div style=" position: absolute; bottom: 50px; left: 80px;">
+			<img src="${picsrc}" style=" width: 45px; height: 45px; position: absolute;"/>
+
+			<div style=" position: relative; left: 60px;">
+				<div>
+					<span>${truename}</span>
+					<span>${postname}</span>
+					<img src="img/attestation.png"/>
+				</div>
+
+				<div style=" padding: 5px; margin-left: -5px; color: #888888; font-size: 13px;">
+					<span>${workunit}</span>
+					<span> | </span>
+					<span>${department}</span>
+				</div>
+			</div>
+		</div>
+
+	</div>-->
+
+
+	<div class="content-block">
+
+		<div style="text-align: center;">
+			<img src="img/WeChatBackground.png" style="width: 320px; margin: -30px;" />
+		</div>
+
+		<div style="text-align: center; position: relative; bottom: 345px;">
+			<img src="${qrurl}" style="width: 215px;" />
+		</div>
+
+		<div style=" position: absolute; bottom: 5%; left: 22%;">
+			<img src="${picsrc}" style=" width: 47px; height: 47px; position: absolute; border-radius: 25px;" />
+
+			<div style=" position: relative; left: 60px;">
+				<div>
+					<span>${truename}</span>
+					<span>${postname}</span>
+					<img src="img/attestation.png" />
+				</div>
+
+				<div style=" padding: 5px; margin-left: -5px; color: #888888; font-size: 13px;">
+					<span>${workunit}</span>
+					<span> | </span>
+					<span>${department}</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</script>
+
+	<script type="text/javascript">
+
+		var dl = "";
+
+		$(".left").click(function () {
+		    history.back();
+		})
+		$(function (e) {
+
+			more();
+		});
+
+		function more() {
+			$.Frame.Ajax.Ajax({
+				url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctormessage.go",
+				postdata: {
+					doctorsno: GetQueryString("doctorsno")
+					/*doctorsno: "f82245a1-1dfb-4dfe-bb45-f464b344571b"*/
+				},
+				success: function (rtn) {
+					if (rtn.issuccess) {
+						dl = rtn.data[0];
+
+						$("#more").remove();
+						$("#itemdata").tmpl(dl).appendTo("#doctormessage");
+
+					} else {
+						$.Frame.Message.ShowMsg(rtn.msg);
+					}
+				}
+			});
+		}
+
+
+
+		$("#save").click(function () {
+			window.location.href = 'doctorshareinfo.html'
+		});
+
+		$("#fenxiang").on('click', function() {
+
+			if (typeof ShareSDK === "undefined" ) {
+				
+				var buttons1 = [
+					{
+						text: '<li>分享到</li>' +
+							'<img id="session" src="img/session.png" style="height:65px; width: 49px; padding-right: 55px;" /> ' +
+							'<img id="timeline" src="img/timeline.png" style = "height:65px; width: 59px; padding-right:57px;"/> ' +
+							'<img id="iconfont-qq" src="img/iconfont-qq.png" style = "height:65px; width:45px;"/>',
+
+						color: 'black'
+					}
+				];
+				var buttons2 = [
+					{
+						text: '取消',
+						color: 'black'
+					}
+				];
+				var groups = [buttons1, buttons2];
+				myApp.actions(groups);
+
+
+				$("#session").click(function () {
+
+					WeChat.isInstalled(function (installed) {
+						console.log('WeChat installed=' + installed);
+					}, function (reason) {
+						console.log(reason);
+					});
+
+					WeChat.share({
+						type: WeChat.ShareType.webpage,
+						title: "我是" + dl.truename + "，扫二维码关注我的公众号",
+						description: '关注我的公众号，您可以通过微信预约我；还可以线上与我沟通咨询。',
+						url: dl.qrurl
+					}, WeChat.Scene.session, function () {
+					}, function (reason) {
+						// 分享失败
+						console.log(reason);
+					});
+				});
+
+				$("#timeline").click(function () {
+
+					WeChat.isInstalled(function (installed) {
+						console.log('WeChat installed=' + installed);
+					}, function (reason) {
+						console.log(reason);
+					});
+
+					WeChat.share({
+						type: WeChat.ShareType.webpage,
+						title: "我是" + dl.truename + "，扫二维码关注我的公众号",
+						description: '关注我的公众号，您可以通过微信预约我；还可以线上与我沟通咨询。',
+						url: dl.qrurl
+					}, WeChat.Scene.timeline, function () {
+						console.log('分享成功~');
+					}, function (reason) {
+						// 分享失败
+						console.log(reason);
+					});
+				});
+
+				$("#iconfont-qq").click(function () {
+					myApp.alert("专属定制 资料勿泄");
+				});
+
+
+			} else {
+
+				var message = {
+					title: "我是" + dl.truename + "，扫二维码关注我的公众号",
+					content: '关注我的公众号，您可以通过微信预约我；还可以线上与我沟通咨询。',
+					url: dl.qrurl,
+					imagePath: "http://ac-p9y5fh0m.clouddn.com/c28cb93e9a0eae4b3b11.jpg"
+				};
+				ShareSDK.share(message, null, null);
+
+				
+			}
+		});
+
+		
+
+/*		$("#contains").click(function () {
+			
+		});*/
+
+		/**
+		*监听软键盘按键对应的ascII码
+		*/
+		/*	$(document).keydown(function (event) {
+				alert(event.keyCode);
+			});*/
+
+		document.onkeydown = function (e) {
+			//捕捉回车事件
+			var ev = (typeof event != 'undefined') ? window.event : e;
+			if (ev.keyCode == 13 || ev.keyCode == 9) {
+
+				$.Frame.Ajax.Ajax({
+					url: $.Frame.Config.Constant.ServerUrl + "customer.sendmsg.go",
+					postdata: {
+						doctorsno: GetQueryString("doctorsno"),
+						msg: "您现在可以通过聚美医预约我哦！快来看看吧！预约地址“”您也可以直接关注微信公众号预约我：协和整形美容医院",
+						phone: $("#tx_phonenumber").val()
+
+					},
+					success: function (rtn) {
+						if (rtn.issuccess) {
+							myApp.alert("发送成功");
+
+						} else {
+							$.Frame.Message.ShowMsg(rtn.msg, "错误");
+						}
+					}
+				});
+
+			}
+		}
+
+
+
+
+		/*	$("#sendmessage").click(function() {
+				var num = $("#tx_phonenumber").val();
+				url = "sms:" + $("#tx_phonenumber").val() + "?body=我是医生";
+				alert(num);
+				alert(url);
+			});*/
+
+
+
+	</script>
+
+</body>
+</html>

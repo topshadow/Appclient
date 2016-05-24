@@ -1,0 +1,199 @@
+﻿<!--科室患者-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="OfficePatientIndex" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <!--<div class="left tab-link ">
+                            <a href="#tab1" class="tab-link active">我的患者</a>
+                        </div>
+                        <div class="right tab-link">
+                            <a href="#tab2" class="tab-link ">科室患者</a>
+                        </div>-->
+                        <div class="row OfficePatientTab">
+                            <div class="col-50 txtRight">
+                                <a href="#tab2" class="tab-link">我的患者</a>
+                            </div>
+                            <div class="col-50 txtLeft">
+                                <a href="#tab1" class="tab-link active">科室患者</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <!-- Tabs, 标签内容区容器 -->
+                    <div class="tabs">
+                        <!-- 科室患者 -->
+                        <div id="tab1" class="tab active OfficePatientList">
+                            <div class="Search-bar">
+                                <input type="search" placeholder="搜索">
+                                <a><img src="css/images/search-icon.png" /></a>
+                            </div>
+
+                            <div class="OfficePatientNav">
+                                <div class="row">
+                                    <div class="col-33">
+                                        <a href="OfficePatientList.html"><img src="css/images/officemember.png" /></a><br />
+                                        <a href="OfficePatientList.html">科室成员</a>
+                                    </div>
+                                    <div class="col-33">
+                                        <a><img src="css/images/allpatient.png" /></a><br />
+                                        <a>全部患者</a>
+                                    </div>
+                                    <div class="col-33">
+                                        <a href="NoMessage.html"><img src="css/images/nomsg.png" class="NoMsg" /></a><br />
+                                        <a href="NoMessage.html">消息拒收</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="content-block-title">最近消息</div>
+
+                            <div class="list-block media-list">
+                                <ul>
+                                    <!-- li上额外的“swipeout”类 -->
+                                    <li class="swipeout">
+                                        <!-- 被“swipeout-content”包裹起来的普通列表元素 -->
+                                        <div class="swipeout-content">
+                                            <!-- 你的列表元素放在这里 -->
+                                            <a class="item-link" href="AddMyPatient.html">
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <img src="img/fbb.png" />
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">范冰冰</div>
+                                                            <div class="item-after">
+                                                                <label>11:08</label><br />
+                                                                <label class="MsgNo">10</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-subtitle">梁医生，我想咨询一下双眼皮的问题</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            
+                                        </div>
+                                        <!-- Swipeout actions right -->
+                                        <div class="swipeout-actions-right">
+                                            <!-- Swipeout actions links/buttons -->
+                                            <a href="#" class="ToTop">置顶</a>
+                                            <a href="#" class="NoRead">标记未读</a>
+                                            <a href="#" class="Delete">删除</a>
+                                            <!--<a class="swipeout-close" href="#">Action 2</a>-->
+                                        </div>
+                                    </li>
+                                    <li class="swipeout">
+                                        <!-- 被“swipeout-content”包裹起来的普通列表元素 -->
+                                        <div class="swipeout-content">
+                                            <!-- 你的列表元素放在这里 -->
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <img src="img/fbb.png" />
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">范冰冰</div>
+                                                        <div class="item-after">
+                                                            <label>11:08</label><br />
+                                                            <label class="MsgNo">10</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-subtitle">梁医生，我想咨询一下双眼皮的问题</div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- Swipeout actions right -->
+                                        <div class="swipeout-actions-right">
+                                            <!-- Swipeout actions links/buttons -->
+                                            <a href="#" class="ToTop">置顶</a>
+                                            <a href="#" class="NoRead">标记未读</a>
+                                            <a href="#" class="Delete">删除</a>
+                                            <!--<a class="swipeout-close" href="#">Action 2</a>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- Tab 2 -->
+                        <div id="tab2" class="tab OfficePatientList">
+                            <div class="Search-bar">
+                                <input type="search" placeholder="搜索">
+                                <a><img src="css/images/search-icon.png" /></a>
+                            </div>
+
+
+                            <div class="list-block media-list">
+                                <ul>
+                                    <li>
+                                        <div class="item-content" style="text-align:center">
+                                            <div class="item-inner">
+                                                当前医生：我<img src="css/images/arrow-down.png">
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <img src="img/fbb.png" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">范冰冰</div>
+                                                    <div class="item-after">
+                                                        <label>11:08</label><br />
+                                                        <label class="MsgNo">10</label>
+                                                    </div>
+                                                </div>
+                                                <div class="item-subtitle">梁医生，我想咨询一下双眼皮的问题</div>
+
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <img src="img/fbb.png" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">范冰冰</div>
+                                                    <div class="item-after">
+                                                        <label>11:08</label><br />
+                                                        <label class="MsgNo">10</label>
+                                                    </div>
+                                                </div>
+                                                <div class="item-subtitle">梁医生，我想咨询一下双眼皮的问题</div>
+
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

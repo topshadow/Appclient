@@ -1,0 +1,728 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>聚美医</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+	<link rel="stylesheet" href="css/framework7.ios.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.css">
+	<!-- Path to your custom app styles-->
+	<link rel="stylesheet" href="css/my-app.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+	<link rel="stylesheet" href="Scripts/PhotoSwipe-master/dist/photoswipe.css">
+	<link rel="stylesheet" href="Scripts/PhotoSwipe-master/dist/default-skin/default-skin.css">
+    <!--<link rel="stylesheet" type="text/css" href="Scripts/MPreview.mobile-master/css/MPreview.mobile.css" />-->
+	<meta name="msapplication-square70x70logo" content="img/smalltile.png">
+	<meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+	<meta name="msapplication-wide310x150logo" content="img/widetile.png">
+	<meta name="msapplication-square310x310logo" content="img/largetile.png">
+	<style>
+		.message-text img {
+			width: 70px;
+		}
+		.upload {
+			opacity: 0;
+			position: absolute;
+			z-index: 10;
+			left: -68px;
+			top: 16px;
+		}
+		.right {
+			opacity: 0;
+		}
+		.message-textarea {
+			position: relative;
+			z-index: 11;
+		}
+		
+	</style>
+
+</head>
+<body >
+	<div class="navbar" id="historymessage">
+		<div class="navbar-inner">
+			<div class="left sliding">
+				<a href="#" class="back link" id = "back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding fromname"></div>
+			<div class="right">
+				<a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="pages navbar-through">
+		<div data-page="messages" class="page toolbar-fixed no-tabbar">
+			<div class="toolbar messagebar" style="bottom: 44px">
+				<div class="toolbar-inner ">
+					<input type="file" id="fileInput" multiple accept="image/*" capture="camera" class="upload" onclick="" />
+					<a id="message-photo" href="#" class="link icon-pic icon-only "><i class="iconfont icon-tupian  message-send"></i></a>
+					<!--<a href="#" class="link icon-voice icon-only"><i class="iconfont icon-yuyin"></i></a>-->
+					<textarea id="chat-content" placeholder="" class="message-textarea" ></textarea><a href="#" class="link send-message">发送</a>
+				</div>
+			</div>
+			<div id ="page" class="page-content messages-content">
+				<div class="messages" style="margin-bottom: 100px">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="delivery-confirmation-background">
+	</div>
+
+	<div id="delivery-confirmation">
+		<img id="preview">
+		<div class="delivery-confirmation-top">
+			<button id="send-cancel">取消</button>
+			<button id="uploadImage">发送</button>
+		</div>
+	</div>
+	<!--<div class="overlay" id="overlay"></div>-->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<div class="pswp__scroll-wrap">
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<div class="pswp__ui pswp__ui--hidden">
+				<div class="pswp__top-bar">
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="js/framework7.min.js"></script>
+	<!-- Path to your app js-->
+	<script type="text/javascript" src="js/my-app.js"></script>
+
+	<!--<script type="text/x-jquery-tmpl" id="itemdata">
+		<li>
+			<div class="swipeout-content">
+				<a href="message.html" class="item-content">
+					<div class="item-media">
+						<img src=${url} height="50" width="50" alt="">
+					</div>
+					<div class="item-inner">
+						<div class="item-title-row">
+							<div class="item-title">${fromname}</div>
+							<div class="item-after">
+								<div class="item-time">${createtime}</div>
+							</div>
+						</div>
+						<div class="item-text">${msg}</div>
+
+						<div class="message-badge"><span class="badge bg-red">4</span></div>
+					</div>
+				</a>
+			</div>
+			<div class="swipeout-actions-right">
+				<a href="#" class="demo-actions">置顶</a><a href="#" class="demo-mark bg-orange">标记未读</a><a href="#" data-confirm="你确定删除该条信息吗?" class="swipeout-delete swipeout-overswipe">删除</a>
+			</div>
+		</li>
+
+	</script>-->
+	<script src="Scripts/jquery-1.11.3.js"></script>
+	<script src="js/framework7.min.js"></script>
+	<script src="Scripts/FrameJs/global.js"></script>
+	<script src="Scripts/jquery.tmpl.js"></script>
+	<script src="Scripts/jquery.tmpl.min.js"></script>
+	<script src="Scripts/web-im/sdk/easemob.im-1.0.7.js"></script>
+	<script src="Scripts/web-im/sdk/strophe.js"></script>
+	<script src="Scripts/blockui-master/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="Scripts/web-im/sdk/easemob.im-1.0.7.js"></script>
+	<script src="Scripts/localResizeIMG-master/dist/lrz.bundle.js"></script>
+
+	<script src="Scripts/bootstrap.min.js"></script>
+	<script src="Scripts/jquery.tmpl.min.js"></script>
+	<script type='text/javascript' src='Scripts/web-im/sdk/strophe.js'></script>
+	<script type='text/javascript' src='Scripts/web-im/sdk/json2.js'></script>
+	<script src="Scripts/FrameJs/frame.ajax.js"></script>
+	<script src="Scripts/FrameJs/base64.js"></script>
+	<!--<script type="text/javascript" src="Scripts/MPreview.mobile-master/js/quo.js"></script>
+	<script type="text/javascript" src="Scripts/MPreview.mobile-master/js/MPreview.mobile.js"></script>-->
+	<script src="Scripts/PhotoSwipe-master/dist/photoswipe.min.js"></script>
+	<script src="Scripts/PhotoSwipe-master/dist/photoswipe-ui-default.min.js"></script>
+	<script src="cordova.js"></script>
+
+	<script type="text/javascript">
+
+		function showOverlay() {
+			$.blockUI({
+				message: '<p><img src="css/images/wait.jpg" style="width:32px;height:32px"/></p><p id="overlaymsg">请稍候...</p>',
+				css: {
+					backgroundColor: 'rgba(0,0,0,0)',
+					color: '#fff',
+					border: "0px",
+					opacity: 1,
+					filter: "alpha(opacity=57)"
+				}
+			});
+		}
+
+		function changOverlaymsg(tx) {
+			$("#overlaymsg").text(tx);
+		}
+
+		function closeOverlay() {
+			$.unblockUI();
+		}
+	</script>
+
+	<script type="text/x-jquery-tmpl" id="itemdata">
+		{{if isshowtime}}
+		{{if flag == "0"}}
+		<div class="messages-date">
+			<span>${nowtime}</span>
+		</div>
+		{{else}}
+		<div class="messages-date">
+			<span>${createdtstr}</span>
+		</div>
+		{{/if}}
+		{{/if}}
+		{{if fromtype == 'd2c'}}
+		{{if type== 'img'}}
+		<div class="message message-sent message-with-avatar">
+			<img src="${doctorpic}" alt="" class="message-avatar  message-img">
+			<div class="message-text">
+				<img src="${url}" style="border-radius: 0;" onclick=" showfull('${url}') " />
+			</div>
+		</div>
+		{{else}}
+		<div class="message message-sent message-with-avatar">
+			<img src="${doctorpic}" alt="" class="message-avatar message-img">
+			<div class="message-text">${msg}</div>
+		</div>
+		{{/if}}
+		{{else}}
+		<div class="message message-received message-with-avatar">
+			<img src="${customerpic}" alt="" class="message-avatar">
+			<div class="message-text">
+				{{if type == 'img'}}
+				<img src="${url}" class="message-img" style="border-radius: 0;" onclick=" showfull('${url}') " />
+				{{else}}
+				${msg}
+				{{/if}}
+			</div>
+		</div>
+		{{/if}}
+	</script>
+
+	<script type="text/javascript">
+		var lastdate = "";
+		var isprocess = false;
+		var userid = "";
+		var password = "";
+		var conn = null;
+		var to = "";
+		var doctorsno = "";
+		var customersno = "";
+		var curdt = null;
+		var customerpic = "";
+		var doctorpic = "";
+		var accesstoken = "";
+		var appkey = "";
+		var fromname = "";
+		var cuspic = "";
+		var nowtime = null;
+		var flag = "1";
+
+
+		$(".left").click(function () {
+		    history.go(-1);
+		})
+		$(function (e) {
+
+			//to = GetQueryString("from");
+			//cuspic = GetQueryString("headpic");
+			//URI解码fromname
+			//var reg = new RegExp("(^|&)" + "fromname" + "=([^&]*)(&|$)");
+			//var r = window.location.search.substr(1).match(reg);
+			//fromname = decodeURIComponent(r[2]);
+			customersno = GetQueryString("customersno");
+			doctorsno = GetQueryString("drsno");
+
+			conn = new Easemob.im.Connection();
+			showOverlay();
+			changOverlaymsg("加载用户信息...");
+			$.Frame.Ajax.Ajax({
+				url: $.Frame.Config.Constant.ServerUrl + "webim.imload_app.go",
+				postdata: {
+					doctorsno: doctorsno,
+					customersno: customersno
+				},
+				success: function (rtn) {
+					if (rtn.issuccess) {
+						userid = rtn.doctor_webim_userid;
+						password = rtn.doctor_webim_pass;
+						to = rtn.customer_webim_userid;
+						fromname = rtn.customer_name;
+						customerpic = rtn.customer_headpic;
+						doctorpic = rtn.doctor_headpic;
+						accesstoken = rtn.accesstoken;
+						appkey = rtn.appkey;
+
+						$(".fromname").text(fromname);
+						if (rtn.data) {
+							for (var i = 0; i < rtn.data.length; i++) {
+								if (curdt == null) {
+									curdt = rtn.data[i].createdt;
+									rtn.data[i].isshowtime = true;
+								} else {
+									if (curdt.dateDiff("n", rtn.data[i].createdt) > 20) {
+										rtn.data[i].isshowtime = true;
+										curdt = rtn.data[i].createdt;
+									}
+								}
+								rtn.data[i].createdtstr = rtn.data[i].createdt.format("yyyy-MM-dd HH:mm");
+								rtn.data[i].fromtype = rtn.data[i].from == userid ? "d2c" : "c2d";
+								rtn.data[i].customerpic = customerpic;
+								rtn.data[i].doctorpic = doctorpic;
+							}
+							$("#itemdata").tmpl(rtn.data).appendTo('.messages');
+							scrollBottomLate();
+							auto2anchor();
+						} else {
+							curdt = new Date();
+						}
+
+						changOverlaymsg("聊天系统初始化...");
+						conn.init({
+							onOpened: function () {
+								conn.setPresence();
+								closeOverlay();
+								scrollBottomLate();
+								var id1 = setInterval(function () {
+									document.getElementById('page').scrollTop = document.getElementById('page').scrollHeight;
+									clearInterval(id1);
+								}, 5000);
+								var id2 = setInterval(function () {
+									document.getElementById('page').scrollTop = document.getElementById('page').scrollHeight;
+									clearInterval(id2);
+								}, 10000);
+							},
+							onTextMessage: function (message) {
+								var from = message.from; //消息的发送者
+								if (from == to) {
+									var mestype = message.type; //消息发送的类型是群组消息还是个人消息
+									var messageContent = message.data; //文本消息体
+									if (mestype == 'groupchat') {
+										//进行群组消息页面处理
+									} else {
+										//进行个人消息页面处理
+									}
+									var list = new Array();
+									list[0] = {
+										isshowtime: false,
+										fromtype: 'c2d',
+										type: 'txt',
+										msg: messageContent,
+										customerpic: customerpic,
+										doctorpic: doctorpic
+									}
+									if (curdt.dateDiff("n", new Date()) > 20) {
+										list[0].isshowtime = true;
+										curdt = new Date();
+										flag = "0";
+										nowtime = curdt.format("yyyy-MM-dd HH:mm");
+									}
+									$("#itemdata").tmpl(list).appendTo('.messages');
+									scrollBottomLate();
+									auto2anchor();
+								}
+							},
+							onPictureMessage: function (message) {
+								var filename = message.filename; //文件名称，带文件扩展名
+								var from = message.from; //文件的发送者
+								var ext = message.ext; //获取用户的扩展信息（群聊用法相同）
+								var mestype = message.type; //消息发送的类型是群组消息还是个人消息
+								var options = message;
+								if (from != to) {
+									return;
+								}
+								var list = new Array();
+								list[0] = {
+									isshowtime: false,
+									fromtype: 'd2c',
+									type: 'img',
+									thumb: message.thumb,
+									url: message.url,
+									customerpic: customerpic,
+									doctorpic: doctorpic
+								}
+								$("#itemdata").tmpl(list).appendTo('.messages');
+								scrollBottomLate();
+								auto2anchor();
+							},
+							onClosed: function () {
+								conn.clear();
+								conn.onClosed();
+							}
+						});
+						conn.open({
+							user: userid,
+							pwd: password,
+							appKey: appkey
+							//accessToken:accesstoken
+						});
+					} else {
+						closeOverlay();
+						$.Frame.Message.ShowMsg(rtn.msg);
+					}
+				},
+				fail: function () {
+					myApp.alert("消息发送失败");
+					closeOverlay();
+				},
+				complete: function () {
+					scrollBottomLate();
+					closeOverlay();
+
+				}
+			});
+
+		});
+
+		function scrollBottomLate() {
+			//延迟执行
+			var id = setInterval(function () {
+				document.getElementById('page').scrollTop = document.getElementById('page').scrollHeight;
+				clearInterval(id);
+			}, 1000);
+		}
+
+		function scrollBottomNow() {
+			//正常执行
+			document.getElementById('page').scrollTop = document.getElementById('page').scrollHeight;
+		}
+
+	
+		/**
+		 *输入框获取焦点显示内容到底部
+		 */
+		$("#chat-content").click(function () {
+			var id = setInterval(function () {
+					document.getElementById('page').scrollTop = document.getElementById('page').scrollHeight;
+					clearInterval(id);
+				}, 400);
+		});
+
+		/**
+		*cordova Activity调用返回
+		*/
+		var flagback = GetQueryString("flagback");
+		$(".back").click(function() {
+			if(flagback == 1) {
+				navigator.app.exitApp();
+			}
+		});
+
+		/**
+		*图片按钮点击事件
+		*/
+		$("#message-photo").click(function () {
+			$("#fileInput").onClick();
+		});
+
+		/**
+		*图片发送点击事件
+		*/
+		$("#uploadImage").click(function () {
+			sendPic();
+		});
+
+		function previewFile() {
+			var preview = document.querySelector('#preview');
+			var reader = new FileReader();
+			var file = document.querySelector('#fileInput').files[0];
+			document.body.style.padding = '0';
+			document.body.style.marginTop = '0';
+			reader.addEventListener("load", function () {
+				preview.src = reader.result;
+				preview.style.width = '100%';
+				var a = window.screen.availHeight;
+				var b = window.screen.availWidth;
+				var c = preview.height;
+				var d = preview.width;
+				b1 = a / b;
+				b2 = c / d;
+				if (b1 > b2) {
+					var e = -c / 2;
+					preview.style.position = 'fixed';
+					preview.style.marginTop = e + 'px';
+					preview.style.top = '50%';
+					preview.style.zIndex = '502';
+					document.querySelector('.navbar-through').style.display = 'none';
+					document.querySelector('#historymessage').style.display = 'none';
+				}
+				else {
+					preview.style.position = 'static';
+					preview.style.marginTop = 0 + 'px';
+					document.querySelector('.navbar-through').style.display = 'none';
+					document.querySelector('#historymessage').style.display = 'none';
+				}
+			}, false);
+			if (file) {
+				reader.readAsDataURL(file);
+			}
+		}
+
+		document.querySelector('#fileInput').addEventListener('change', function () {
+			lrz(this.files[0])
+				.then(function (rst) {
+					showOverlay();
+					changOverlaymsg("图片发送中...");
+					sendPic();
+				})
+				.catch(function (err) {
+
+				});
+		});
+
+		/**
+		 *发送图片取消
+		 */
+		$("#send-cancel").click(function () {
+			document.querySelector('#delivery-confirmation-background').style.display = 'none';
+			document.querySelector('#delivery-confirmation').style.display = 'none';
+			$('#preview').removeAttr("src");
+			$('#preview').removeAttr("style");
+			document.querySelector('.navbar-through').style.display = 'block';
+			document.querySelector('#historymessage').style.display = 'block';
+			document.getElementsByTagName('BODY')[0].scrollTop = document.getElementsByTagName('BODY')[0].scrollHeight;
+		});
+
+		/**
+		 *发送图片
+		 */
+		function sendPic() {
+			//fileInputId：文件选择输入框的Id，sdk自动根据id自动获取文件对象（含图片，或者其他类型文件）
+			var fileObj = Easemob.im.Helper.getFileUrl("fileInput");
+			if (fileObj.url == null || fileObj.url == '') {
+				$.Frame.Message.ShowMsg("请选择发送图片");
+				return;
+			}
+			var filetype = fileObj.filetype;
+			var filename = fileObj.filename;
+			if (filetype in {
+							"jpg": true,
+							"gif": true,
+							"png": true,
+							"bmp": true,
+							"jpeg": true
+			}) {
+				showOverlay();
+				var opt = {
+					fileInputId: "fileInput",
+					to: to,
+					onFileUploadError: function (error) {
+						closeOverlay();
+						$.Frame.Message.ShowMsg("图片发送失败");
+					},
+					onFileUploadComplete: function (data) {
+						$("#send-cancel").click();
+						var list = new Array();
+						list[0] = {
+							isshowtime: false,
+							fromtype: 'd2c',
+							type: 'img',
+							thumb: fileObj.url,
+							url: fileObj.url,
+							customerpic: customerpic,
+							doctorpic: doctorpic
+						}
+
+						closeOverlay();
+						$.Frame.Ajax.Ajax({
+							url: $.Frame.Config.Constant.ServerUrl + "webim.updatelast.go",
+							postdata: {
+								doctorsno: doctorsno,
+								customersno: customersno,
+								content: "",
+								msgtype: "img"
+							},
+							success: function(rtn) {
+								closeOverlay();
+								$("#itemdata").tmpl(list).appendTo(".messages");
+								scrollBottomNow();
+								if (rtn.issuccess) {
+								} else {
+									$.Frame.Message.ShowMsg(rtn.msg);
+								}
+							},
+							fail: function() {
+								closeOverlay();
+							},
+							complete: function() {
+								closeOverlay();
+							}
+						});
+						//处理图片上传成功，如本地消息显示
+					}
+					// ext:{"extmsg":"extends messages"}//用户自扩展的消息内容（群聊用法相同）
+				};
+				conn.sendPicture(opt);
+
+				return;
+			}
+			$.Frame.Message.ShowMsg("不支持此图片类型" + filetype);
+			closeOverlay();
+		};
+
+
+		/*
+		 *发送文本消息
+		 */
+		$(".send-message").click(function () {
+			var msg = $('#chat-content').val();
+			if (msg.trim() == "") {
+				myApp.alert("不能发送空消息", "提示", function () {
+					$('#chat-content')[0].focus();
+				});
+				return;
+			}
+			console.log("消息的内容" + msg);
+			var options = {
+				to: to,
+				msg: msg,
+				type: "chat"
+			};
+			conn.sendTextMessage(options);
+			$('#chat-content').val("");
+			var list = new Array();
+			list[0] = {
+				isshowtime: false,
+				fromtype: 'd2c',
+				type: 'msg',
+				msg: msg,
+				customerpic: customerpic,
+				doctorpic: doctorpic
+			}
+			if (curdt.dateDiff("n", new Date()) > 20) {
+				list[0].isshowtime = true;
+				curdt = new Date();
+				flag = "0";
+				nowtime = curdt.format("yyyy-MM-dd HH:mm");
+			}
+
+			$.Frame.Ajax.Ajax({
+				url: $.Frame.Config.Constant.ServerUrl + "webim.updatelast.go",
+				postdata: {
+					doctorsno: doctorsno,
+					customersno: customersno,
+					content: msg,
+					msgtype: "text"
+				},
+				success: function (rtn) {
+					closeOverlay();
+					$("#itemdata").tmpl(list).appendTo(".messages");
+					scrollBottomNow();
+					if (rtn.issuccess) {
+					} else {
+						$.Frame.Message.ShowMsg(rtn.msg);
+					}
+				},
+				fail: function () {
+					closeOverlay();
+				},
+				complete: function () {
+					closeOverlay();
+					scrollBottomNow();
+				}
+			});
+		});
+
+
+		/**
+		 *图片预览
+		 */
+		function showfull(url) {
+			var img = new Image();
+			img.src = url;
+			var openPhotoSwipe = function () {
+				var pswpElement = document.querySelectorAll('.pswp')[0];
+				var items = [
+					{
+						src: url,
+						w: img.width,
+						h: img.height
+					}
+				];
+				var options = {
+					history: false,
+					focus: false,
+					showAnimationDuration: 0,
+					hideAnimationDuration: 0
+				};
+				var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+				gallery.init();
+			};
+
+			openPhotoSwipe();
+			//MPreview({
+			//    data: [url],
+			//    wrap: '#overlay',
+			//    title: '',
+			//});
+		}
+
+		function auto2anchor() {
+			if ($(".myself").size() > 0 && $(".other").size() > 0) {
+				if ($(".myself").last().offset().top > $(".other").last().offset().top) {
+					$("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000);
+				} else {
+					$("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000);
+				}
+			} else if ($(".myself").size() > 0) {
+				$("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000);
+			} else if ($(".other").size() > 0) {
+				$("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000);
+			}
+		}
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/yangjie.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+    <style>
+        .page-content-inner {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <div class="views tabs toolbar-through">
+        <div id="view-home" class="view view-main tab active">
+            <div class="pages">
+                <div data-page="index-home" class="page index-home">
+                    <div class="page-content">
+                        <div class="user-info">
+                            <div class="user-info-header">
+                                <div class="user-photo"><a href=""><img src="" class="people-photo"></a></div>
+                                <div class="user-text">
+                                    <h3 class="user-name"></h3>
+                                    <i class="iconfont icon-yiyuan" style="float:left;margin-right:5px;"></i>
+                                    <p class="user-hospital"></p>
+                                </div>
+                                <div class="user-intro"><i class="iconfont icon-bianjiziliao" style="float:left"></i><a href="#" class="external user-intro-click">写上你的个性签名…</a></div>
+                                <div class="user-data">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <h4>我的美币</h4>
+                                            <p class="numb user-integral"></p>
+                                        </li>
+                                        <li>
+                                            <h4>我的患者</h4>
+                                            <p class="numb user-patient"></p>
+                                        </li>
+                                        <li>
+                                            <h4>预约单数</h4>
+                                            <p class="numb user-indent"></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="user-info-content">
+                                <div class="user-home-list">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="" class="external my-time">
+                                                <i class="icon-pic icon-pic-shijian"></i>
+                                                <h3>我的时间</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="window.location.href='reservation-status.html'">
+                                                <i class="icon-pic icon-pic-rili"></i>
+                                                <h3>预约状态</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" onclick="window.location.href = 'MyPatient.html?doctorsno=' + localStorage.getItem('doctorSno')">
+                                                <i class="icon-pic icon-pic-kehu"></i>
+                                                <h3>我的患者</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+	                                        <a href="" id="fenxiang" onclick="window.location.href = 'addcustomer.html?doctorsno=' + localStorage.getItem('doctorSno')">
+		                                        <i class="icon-pic icon-pic-addyonghu"></i>
+		                                        <h3>添加患者</h3>
+	                                        </a>
+
+											<!--<a href="" id="fenxiang" onclick="window.location.href='ContactTest.html'">
+												<i class="icon-pic icon-pic-addyonghu"></i>
+												<h3>添加患者</h3>
+											</a>-->
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Tabbar-->
+        <div class="toolbar tabbar tabbar-labels bottom-tabbar">
+            <div class="toolbar-inner">
+                <a href="index.html" class="tab-link active view1"><i class="iconfont icon-home"></i><span class="tabbar-label">首页</span></a>
+                <a href="" class="tab-link view2">
+	                <i class="icon iconfont icon-dongtai"></i>
+                    <span class="tabbar-label">消息</span></a>
+                <a href="" class="tab-link external view3">
+	                <i class="icon iconfont icon-zixun"></i>
+                    <span class="tabbar-label">动态</span></a>
+                <a href="" class="tab-link external view4"><i class="iconfont icon-gengduo"></i><span class="tabbar-label">更多</span></a></div>
+        </div>
+    </div>
+    <div class="login-screen">
+        <div class="view">
+            <div data-page="login" class="page login-page">
+                <div class="page-content">
+                    <div class="login-logo">聚美医</div>
+                    <form class="login-form">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-media"><i class="iconfont icon-denglu"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="phone" id="phone" placeholder="手机号">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-media"><i class="iconfont icon-mima"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="password" name="password" id="password" placeholder="密码">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="login-button"><a href="#" class="button btn-login">登录</a></div>
+                    </form>
+                    <div class="login-link clearfix"><a href="forgot-password.html" class="left external">忘记密码?</a><a href="register.html" class="right external">快速注册</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.min.js"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+<script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);      
+     
+// device APIs are available    //      
+function onDeviceReady() {        // Register the event listener          
+    document.addEventListener("backbutton", onBackKeyDown, false);    }      
+    // Handle the back button    //      
+    function onBackKeyDown() {      
+  			navigator.app.exitApp();
+    }
+    
+	$(function () {
+	    var mypic = "";
+	    if (localStorage.getItem("messPhone") == null && localStorage.getItem("messPwd") == null) {
+			$$('.login-screen').addClass('modal-in');
+	    }
+
+	    if (localStorage.getItem("doctorSno") != null && localStorage.getItem("doctorSno") != "") {
+	        $.Frame.Ajax.Ajax({
+	            url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctorinfo.go",
+	            postdata: {
+	                doctorsno: localStorage.getItem("doctorSno")
+	            },
+	            success: function (rtn) {
+	                if (rtn.issuccess) {
+	                    var data = rtn.data;
+	                    mypic = data.picsrc;
+	                    $('.user-name').text(data.truename);
+	                    $('.user-hospital').text(data.workunit);
+	                    if (data.pointcount == "") {
+	                        $('.user-integral').text("0美币");
+	                    }
+	                    else {
+	                        $('.user-integral').text(data.pointcount + "美币");
+	                    }
+	                    $('.user-patient').text(rtn.customersum + "人");
+	                    $('.user-indent').text(rtn.ordersum + "单");
+	                    $('.user-intro-click').text(data.psignature);
+	                    $('.people-photo').attr("src", data.picsrc);
+	                    $('.view2').attr("href", "MsgHome.html?drsno=" + data.sno);
+	                    $('.view3').attr("href", "trends.html?drsno=" + data.sno);
+	                    $('.view4').attr("href", "more.html?drsno=" + data.sno);
+	                    $('.my-time').attr("href", "my-time.html?doctorsno=" + data.sno);
+	                    $('.user-info-header').css("background", "url(http://filecs.jumeiyiyun.com" + "/Files" + data.indexbackgroundpic + ") center center no-repeat");
+	                    $('.user-info-header').css("background-size", "cover");
+	                    $(".user-intro-click").click(function () {
+	                        $(".user-intro-click").attr("href", "user-signature.html?doctorsno=" + data.sno);
+	                    })
+	                    var myPhotoBrowserStandalone = myApp.photoBrowser({
+	                        photos: [
+                                mypic,
+	                        ],
+	                        theme: 'dark',
+	                    });
+	                    $$('.user-photo a').on('click', function () {
+	                        myPhotoBrowserStandalone.open();
+	                    });
+	                }
+	            }
+	        });
+	    }
+	    
+	    //$(".user-intro-click").click(function () {
+	    //    $(".user-intro-click").attr("src", "user-signature.html");
+	    //})
+
+		if (localStorage.getItem("messPhone") != "" && localStorage.getItem("messPwd") == "") {
+			$("#phone").val(function () { return localStorage.getItem("messPhone"); });
+		}
+		$(".login-button").click(function () {
+			var password = $("#password").val();
+			var phone = $("#phone").val();
+			if (!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(phone))) {
+				//if (localStorage.getItem("messPhone") != "") {
+				//    localStorage.setItem("messPhone", "");
+				//}
+				myApp.alert('请输入正确的手机号', "提示", function () {
+					$("#phone")[0].focus();
+				});
+				return;
+			}
+			$.Frame.Ajax.Ajax({
+				url: $.Frame.Config.Constant.ServerUrl + "doctor.doctorlogin.go",
+				postdata: {
+					phoneNo: phone,
+					authCode: password,
+					uid: "",
+					pwd: "",
+					userType: "Doctor",
+					recommendNo: "",
+					deviceType: G_DEVICE_TYPE,
+					registrationId: G_JPUSH_REGISTR_ID
+				},
+				success: function (rtn) {
+					if (rtn.issuccess) {
+
+						//将手机号存入缓存
+						var targetPhone = $("#phone").val();
+						localStorage.setItem("messPhone", targetPhone);
+
+						//将密码存入缓存
+						var targetPwd = $("#password").val();
+						localStorage.setItem("messPwd", targetPwd);
+
+						//将医生编号存入缓存
+						var dotorsno = rtn.retdocsno;
+						localStorage.setItem("doctorSno", rtn.retdocsno);
+
+						$$('.login-screen').removeClass('modal-in');
+						$.Frame.Ajax.Ajax({
+							url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctorinfo.go",
+							postdata: {
+								doctorsno: localStorage.getItem("doctorSno")
+							},
+							success: function (rtn) {
+								if (rtn.issuccess) {
+								    var data = rtn.data;
+								    mypic = data.picsrc;
+								    $('.user-name').text(data.truename);
+								    $('.user-hospital').text(data.workunit);
+								    if (data.pointcount == "") {
+								        $('.user-integral').text("0美币");
+								    }
+								    else {
+								        $('.user-integral').text(data.pointcount + "美币");
+								    }
+								    $('.user-patient').text(rtn.customersum + "人");
+								    $('.user-indent').text(rtn.ordersum + "单");
+								    $('.user-intro-click').text(data.psignature);
+								    $('.people-photo').attr("src", data.picsrc);
+								    $('.view2').attr("href", "MsgHome.html?drsno=" + data.sno);
+								    $('.view3').attr("href", "trends.html?drsno=" + data.sno);
+								    $('.view4').attr("href", "more.html?drsno=" + data.sno);
+								    $('.my-time').attr("href", "my-time.html?doctorsno=" + data.sno);
+								    $('.user-info-header').css("background", "url(http://filecs.jumeiyiyun.com" + "/Files" + data.indexbackgroundpic + ") center center no-repeat");
+								    $('.user-info-header').css("background-size", "cover");
+								    $(".user-intro-click").click(function () {
+								        $(".user-intro-click").attr("href", "user-signature.html?doctorsno=" + data.sno);
+								    })
+								    var myPhotoBrowserStandalone = myApp.photoBrowser({
+								        photos: [
+                                            mypic,
+								        ],
+								        theme: 'dark',
+								    });
+								    $$('.user-photo a').on('click', function () {
+								        myPhotoBrowserStandalone.open();
+								    });
+								}
+							}
+						})
+					} else {
+						if (localStorage.getItem("messPwd") != null) {
+							localStorage.setItem("messPwd", "");
+						}
+						if (rtn.msg == "用户密码错误!") {
+						    myApp.confirm("", "密码错误，请重新设置密码？", function () {
+						        window.location = 'forgot-password.html';
+						    }, function () {
+						        $("#password").val("");
+						        $("#password")[0].focus();
+						        return false;
+						    })
+						}
+						else {
+						    myApp.alert(rtn);
+						}
+					}
+				}
+			})
+		})
+	})
+</script>
+</body>
+</html>

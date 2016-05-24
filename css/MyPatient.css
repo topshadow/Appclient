@@ -1,0 +1,193 @@
+﻿.page-content {background-color:#f2f3f4}
+.list-block .item-inner::after {height:0 !important}
+.list-block .list-group ul::after {height:0}
+
+
+/**===我的患者===**/
+
+.Search-bar {padding: 10px 13px 10px 13px;background-color: #f2f3f4;position: relative;margin-top:44px;border-bottom: 1px solid #ccc;}
+.Search-bar label {position: absolute;top: 14px;left: 18px;color:#82bdff;font-size:16px;cursor:pointer;}
+.Search-bar a {position: absolute;top: 16px;right: 18px;}
+.Search-bar a img {width:20px;}
+.Search-bar input {border:1px solid #ccc;border-radius:8px;width:100%;height:30px;font-size:14px;text-align:center;padding:0 25px;}
+
+/*.Search-bar {margin:54px 13px 20px 13px;background-color:#f2f3f4;position:relative;}
+.Search-bar label {position: absolute;top: 4px;left: 10px;color:#82bdff;font-size:16px;cursor:pointer;}
+.Search-bar a {position: absolute;top: 4px;right: 10px;}
+.Search-bar a img {width:20px;}
+.Search-bar input {border:1px solid #ccc;border-radius:8px;width:100%;height:30px;font-size:14px;text-align:center;}*/
+
+
+/**===箭头===**/
+.Search-box {position: absolute; border: 1px solid #ccc; background-color:#ffffff; color:#777777;z-index: 9999;
+box-shadow: 3px 2px 3px #a1a1a1;width: 100px;text-align: center;border-radius: 4px;top: 40px;display:none;
+}
+.arrow{position:absolute; left:30px;top: -32px; width: 0; height: 0; font-size: 0; border-width: 16px; border-style: dashed dashed solid dashed; border-color: transparent transparent #ccc transparent;
+}
+.arrow2 { position:absolute;left:30px;top: -30px; width: 0; height: 0; font-size: 0; border-width: 16px; border-style: dashed dashed solid dashed; border-color: transparent transparent #FFF transparent;
+}
+.Search-box li {line-height: 24px;}
+.Search-box li:nth-child(1) {border-bottom:1px solid #ccc}
+.Search-box li:hover {color:#222;}
+
+
+
+.PatientToolBar {background-color:#fff;padding:110px 35px 0 35px;}
+.PatientToolBar .col-33 {text-align:center;}
+.PatientToolBar .col-33:nth-child(2){margin-top: 7px;}
+.PatientToolBar img {width:35px;}
+
+.PatientToolTxt {background-color:#fff;padding:0px 35px 20px 35px;}
+.PatientToolTxt .col-33 {text-align:center;font-size:1em;padding: 5px 0px;}
+
+
+
+/**===字母排序===**/
+.list-group .item-after {margin-right:15px;font-size:14px;}
+.list-group .item-content {border:1px #eeeeee solid;}
+.list-group .item-inner {border:0;}
+.list-group .item-inner img {width:16px;position:relative;top:3px;}
+.list-group .item-media img {width:50px;}
+
+
+/**===最新添加===**/
+.NewAddPatient .item-content {border:1px #eeeeee solid;}
+.NewAddPatient .item-after {margin-right:15px;font-size:14px;}
+.NewAddPatient .item-media img {width:50px;}
+.NewAddPatient .item-inner img {width:16px;position:relative;top:3px;}
+
+
+/**===分组管理===**/
+.GroupManage{margin-top:40px;}
+.GroupManage .item-media img {width:25px;}
+
+/**===添加新分组===**/
+.AddNewGroup {margin-top:20px;}
+.AddNewGroup .list-block textarea {height:50px;}
+.AddMember {margin: 15px 15px 10px;}
+
+.AddList {background-color:#ffffff;padding:20px;}
+.AddList img {width:100%;border-radius:50%;background-color: #f2f2f2;}
+    
+.AddList .col-20 {text-align:center;padding:5px 0;position:relative   }
+.AddList a {color:#777777;margin-top:5px;}
+.PlusList {min-height:85px;}
+
+/**===所有联系人===**/
+
+.AllPatient {}
+.AllPatient .item-media img {width:40px;margin-left:15px;}
+
+/**===我的资料===**/
+.PatientInfo {margin-top:40px;}
+.PatientInfos .item-media img {width:50px;margin-left:15px;}
+.PatientInfos  ul::after {height:0}
+.PatientInfos  ul::before {height:0;}
+.PatientInfos .item-content {padding:10px;}
+.PatientInfos .item-title span {font-size:14px;padding :0 5px;}
+.PatientInfos .item-inner img {width:16px;position:relative;top:3px;}
+
+.InfoItems .item-media img {width:30px;}
+.InfoItems .item-title {font-size:15px;}
+.InfoItems  ul::after {height:0}
+.InfoItems  ul::before {height:0;}
+.InfoItems a {margin-right:5px;}
+
+
+.InfoRecord .item-media img {width:30px;}
+.InfoRecord li {border-bottom:1px solid #ccc;}
+.InfoRecord .item-title {font-size:15px;}
+.InfoRecord .item-title span {color:#aaaaaa;font-size:14px;margin-left:10px;}
+.TimeSiver {color:#aaaaaa;}
+.ItemBlue {color:#38b3ff}
+
+/*底部工具栏*/
+.PItoolBar {text-align: center;}
+.PItoolBar .toolbar-inner {padding: 0;}
+.PItoolBar a.link {font-size: 15px;display: block;color: #f9f9f9;}
+.PItoolBar-save {background: #f27a7a;width:30%;}
+.PItoolBar-message {background: #4d98eb;width:70%;}
+
+/**===科室患者===**/
+.OfficePatientTab {width:100%;}
+.txtRight {text-align:right}
+.txtLeft {text-align:left}
+.txtLeft .active,  .txtRight .active{border-bottom:2px solid #fff;}
+.OfficePatientNav {background-color:#ffffff;padding:15px 20px;}
+.OfficePatientNav .col-33 {text-align:center}
+.OfficePatientNav img {width:40px;margin-bottom:6px;}
+.NoMsg{ margin-bottom:0px !important; }
+.OfficePatientNav a {color:#777777;margin-top:5px;}
+.OfficePatientList .content-block-title {margin:20px 15px;}
+.OfficePatientList .item-media img {width:50px;}
+.OfficePatientList .item-subtitle {font-size:14px;color:#999999;line-height:34px;}
+.OfficePatientList .MsgNo {background-color:#fe3f30;border-radius:6px;color:#fff;padding: 0px 5px;position: absolute;right: 15px;bottom: 15px;}
+.OfficePatientList .item-content {border:1px #eeeeee solid;}
+
+.swipeout-actions-right .ToTop {background-color:#c7c7cc !important;}
+.swipeout-actions-right .NoRead {background-color:#ff9500 !important;}
+.swipeout-actions-right .Delete {background-color:#fe3f30 !important;}
+
+.AddPatientBar {padding:0 30px;}
+.AddPatientBar::before {height:0}
+
+/**===科室成员===**/
+.OfficeList .item-media img {width:50px;margin-left:15px;margin-bottom:15px;}
+.OfficeList .item-media label {position:absolute;background-color:#fe3f30;border-radius:6px;color:#fff;padding: 0px 5px;
+left: 25px;font-size:12px;bottom:20px;}
+.OfficeList .item-content {padding:20px 15px;}
+
+/*默认分组与自定义分组的显示*/
+#binddiagnosislist .item-media img{ width:50px;}
+#bindtreatlist .item-media img{width:50px;}
+#bindcollectlist .item-media img{width:50px;}
+/*性别图标*/
+#binddiagnosislist .item-title img {
+    width: 16px;
+    position: relative;
+    top: 3px;
+}
+#bindtreatlist .item-title img {
+    width: 16px;
+    position: relative;
+    top: 3px;
+}
+#bindcollectlist .item-title img {
+    width: 16px;
+    position: relative;
+    top: 3px;
+}
+
+#docdefinedgroupindex .item-media img{
+    width:50px;
+} 
+
+#docdefinedgroupindex .item-title img{
+    width:16px;
+}
+/*收藏取消收藏图标*/
+.collectstylediv{
+    position:absolute;color:#38b3ff;right:10px;width:50px;
+}
+
+.collectstylediv img{
+width:20px;
+margin:auto;
+display:block;
+margin-top:10px;
+}
+
+#forcollect{font-size:0.9em;text-align:center;}
+
+
+/*删除分组Button的样式*/
+#btndelgroup {
+    width: 80%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #4d98eb;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

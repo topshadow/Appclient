@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>留言板</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            background-color: #dff2f9;
+        }
+
+        .message-all {
+            width: 100%;
+            height: 100%;
+        }
+
+        .message-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            z-index: 1;
+            background-color: #75cfcd;
+            color: white;
+        }
+
+            .message-top a {
+                text-decoration: none;
+                color: white;
+            }
+
+        .message-top-middle {
+            position: absolute;
+            left: 50%;
+            margin-left: -20px;
+            z-index: 2;
+        }
+
+        .message-content {
+            position: relative;
+            width: 100%;
+            background-color: white;
+            margin: 0 0 10px 0;
+            padding: 0 0 5px 0;
+        }
+
+        .message-all-name {
+            margin-left: 5px;
+            padding: 0;
+        }
+
+        .message-content-time {
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .message-content div {
+            border: 0;
+            font-size: 16px;
+            word-break: normal;
+            line-height: 20px;
+            margin: 8px 10px 8px 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+        }
+
+        .message-content p {
+            text-align: right;
+            color: #4593dc;
+            margin: 0 5px 0 0;
+        }
+
+        .message-content a {
+            text-decoration: none;
+            color: #4593dc;
+        }
+
+            .message-content a:visited {
+                color: #4593dc;
+            }
+
+        .message-content:last-child {
+            margin: 0 0 0 0;
+        }
+    </style>
+    <script src="../Scripts/jquery-1.11.3.js"></script>
+    <script src="../Scripts/FrameJs/global.js"></script>
+    <script src="../Scripts/jquery.tmpl.min.js"></script>
+    <script src="../cordova.js"></script>
+</head>
+<body>
+    <div class="message-all">
+        <p class="message-top">
+            <!--<a href="javascript:back()">〈&nbsp;返回</a>-->
+            <span class="message-top-middle">消息</span>
+        </p>
+        <div style="margin-top:40px" id="historylist">
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/x-jquery-tmpl" id="itemdata">
+    <div class="message-content">
+        <span class="message-all-name">${fromname}</span>
+        <span class="message-content-time">${createdatestr}</span>
+        <div>
+            ${msg}
+        </div>
+        <p>
+            <a href="javascript:replay('${from}')">
+                回复
+            </a>
+        </p>
+    </div>
+</script>
+<script type="text/javascript">
+    var nextkey = "";
+    $(function (e) {
+        more();
+    })
+
+    function more() {
+        $.Frame.Ajax.Ajax({
+            url: $.Frame.Config.Constant.ServerUrl + "webim.getuserhistorylist.go",
+            postdata: {
+                usersno: GetQueryString("drsno"),
+                usertype: "Doctor",
+                nextkey: nextkey
+            },
+            success: function (rtn) {
+                if (rtn.issuccess) {
+                    $("#points").text(rtn.points);
+
+                    var dl = rtn.data;
+                    for (var i = 0; i < dl.length; i++) {
+                        dl[i].createdatestr = dl[i].createdt.format("yyyy-MM-dd HH:mm");
+                        dl[i].createtime = dl[i].createdt.format("HH:mm");
+                    }
+                    $("#more").remove();
+                    $("#itemdata").tmpl(dl).appendTo("#historylist");
+                    nextkey = rtn.nextkey;
+
+                    $("#initflag").val("0");
+
+                } else {
+                    $.Frame.Message.ShowMsg(rtn.msg);
+                }
+            }
+        })
+    }
+
+    function replay(from) {
+        location.href = "im.html?drsno=" + GetQueryString("drsno") + "&from=" + from;
+    }
+    function back() {
+        navigator.app.backHistory();
+        navigator.app.exitApp();
+    }
+</script>

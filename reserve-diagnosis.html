@@ -1,0 +1,59 @@
+<!--这里是就诊记录显示页面   正确的进入方式是 reserve 默认进入->reserve-status 就诊记录->这里diagnosis        -->
+<div data-page="diagnosis" class="page navbar-fixed toolbar-fixed ">
+
+        <!-- 导航 -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="row OfficePatientTab">
+                    <div class="col-50 txtRight">
+                        <a href="MsgMyPatientIndex.html" class="tab-link active">我的患者</a>
+                    </div>
+                    <div class="col-50 txtLeft">
+                        <a href="MsgGroupPatientIndex.html" class="tab-lin">科室患者</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--<div class="navbar " >-->
+        <!--<div class="navbar-inner">-->
+           <!--<div class="left"><i class="icon back icon-back"></i></div>-->
+            <!--<div class="center font-white">就诊主页</div>-->
+            <!--<div class="right"></div>-->
+        <!--</div>-->
+<!--</div>-->
+        <div class=" page-content">
+
+                <div class="list-block project ">
+                    <ul>
+                        <li>
+                            <div class="item-link">
+                                <div class="item-content ">
+                                    <div class="item-inner ">
+                                        <div class="item-input "><input type="text" readonly value="美容项目" /></div>
+                                        <div class="item-title label "><a href="beauty-project.html" id="select">双眼皮</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <textarea class="no-record textarea-placeholder" placeholder="输入就诊记录"></textarea>
+                <div class="content-block ">
+                    <div class="row">
+                        <div class="add-image">
+
+                            <img src="img/record-add.png" />
+
+                        </div>
+                    </div>
+                    <input type="file" id="inputFile" hidden />
+
+                </div>
+
+
+                <div class=" content-block del-image">
+                    <p><a href="#" class="button color-gray button-big active">删除</a></p>
+                </div>
+            </div>
+
+    </div>

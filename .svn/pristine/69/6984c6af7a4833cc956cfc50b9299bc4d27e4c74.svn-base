@@ -1,0 +1,161 @@
+﻿<!--新建随访模板-->
+<div data-page="VisitTemplateBase" class="page navbar-fixed toolbar-fixed">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i></a></div>
+            <div class="center sliding">预约项目</div>
+        </div>
+    </div>
+    <div class="page-content TemplateBase">
+            <div class="TemplateBaseTitle">请选择你要的随访模板</div>
+            <div class="project-list clearfix">
+
+                <div class="project-navbar">
+                    <ul id="ProductList"></ul>
+                </div>
+                <div class="project-content tabs" id="ProductList2">
+                </div>
+
+            </div>
+            <!--<div class="project-list clearfix">
+                <div class="project-navbar">
+                    <ul>
+                        <li class="active"><a href="#tab1" class="active tab-link"><i class="iconfont icon-yanqing"></i>眼部</a></li>
+                        <li><a href="#tab2" class="tab-link"><i class="iconfont icon-icon11"></i>鼻部</a></li>
+                        <li><a href="#tab3" class="tab-link"><i class="iconfont icon-icon12"></i>面颈部</a></li>
+                        <li><a href="#tab4" class="tab-link"><i class="iconfont icon-bosom"></i>胸部</a></li>
+                        <li><a href="#tab5" class="tab-link"><i class="iconfont icon-shentimei"></i>瘦身塑形</a></li>
+                        <li><a href="#tab6" class="tab-link"><i class="iconfont icon-female118"></i>私密</a></li>
+                        <li><a href="#tab7" class="tab-link"><i class="iconfont icon-brunette"></i>毛发</a></li>
+                        <li><a href="#tab8" class="tab-link"><i class="iconfont icon-zhenguan"></i>微创美容</a></li>
+                        <li><a href="#tab9" class="tab-link"><i class="iconfont icon-zhongyao"></i>中医美容</a></li>
+                        <li><a href="#tab10" class="tab-link"><i class="iconfont icon-brunette"></i>激光美肤</a></li>
+                        <li><a href="#tab11" class="tab-link"><i class="iconfont icon-zhenguan"></i>皮肤病</a></li>
+                    </ul>
+                </div>
+                <div class="project-content tabs">
+                    <ul id="tab1" class="tab active">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">激光去眼袋</a></li>
+                        <li><a href="">开内眼角</a></li>
+                        <li><a href="">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab2" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab3" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab4" class="tab">
+                        <li><a href="uc-pay.html">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab5" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab6" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab7" class="tab">
+                        <li><a href="uc-pay.html">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab8" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab9" class="tab">
+                        <li><a href="uc-pay.html">激光去黑眼圈</a></li>
+                        <li><a href="">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab10" class="tab">
+                        <li><a href="uc-pay.html">开外眼角</a></li>
+                        <li><a href="">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                    <ul id="tab11" class="tab">
+                        <li><a href="uc-pay.html">埋线双眼皮</a></li>
+                        <li><a href="">切开双眼皮</a></li>
+                        <li><a href="">手术矫正眼睑</a></li>
+                        <li><a href="">手术去眼袋</a></li>
+                        <li><a href="">吸脂去眼袋</a></li>
+                        <li><a href="">眼部双眼皮修复</a></li>
+                        <li><a href="">眼角提升</a></li>
+                    </ul>
+                </div>
+            </div>-->
+
+        
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,130 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/yangjie.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+</head>
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <div class="page" data-page="index-background">
+                    <div class="page-content">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="left"><a class="form-back link"><i class="icon icon-back"></i></a></div>
+                                <div class="center sliding">首页背景图</div>
+                                <div class="right"><a href="#" class="link background-save">保存</a></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background1.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background2.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background3.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background4.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background5.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background6.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background7.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background8.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                            <div class="big-img">
+                                <img src="http://filecs.jumeiyiyun.com/Files/Files/System/background/index-background9.png" class="background-img">
+                                <div class="background-check">
+                                    <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.min.js"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+    <script src="Scripts/FrameJs/frame.ajax2.js"></script>
+
+    
+
+
+    <script type="text/javascript">
+        var myApp = new Framework7();
+        // Export selectors engine
+        var $$ = Dom7; 
+    </script>
+</body>
+</html>

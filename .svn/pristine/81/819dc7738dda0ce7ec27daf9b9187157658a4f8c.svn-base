@@ -1,0 +1,75 @@
+﻿<!--添加到我的患者-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="AddAllPatient" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a  class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">范冰冰</div>
+
+                    </div>
+                </div>
+                <div class="page-content contacts-content" style="margin-top:40px;">
+                    <div class="list-block PatientInfos">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img src="img/fbb.png" />
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">
+                                            范冰冰<span>29岁</span>
+                                            <img src="img/male.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block  InfoItems">
+                        <ul>
+                            <li>
+                                <a class="item-link">
+                                    <div class="item-content">
+
+                                        <div class="item-media">
+                                            <img src="img/info-telphone.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                电话
+                                            </div>
+                                            <div class="item-title">
+                                                13554441454
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- Bottom Tabbar-->
+                <div class="toolbar AddPatientBar" style="padding:0 30px;">             
+                        <a href="#" class="button active">添加到我的患者</a>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

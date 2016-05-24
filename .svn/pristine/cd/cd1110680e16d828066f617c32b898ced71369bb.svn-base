@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+    <style>
+        #updatepostname {
+            text-align: right;
+            font-size: 15px;
+            color: #8e8e93;
+        }
+
+        .itemlist a {
+            font-size: 0.8rem;
+            color: #222;
+        }
+        .big-img {
+            position:relative;
+            float:left;
+            width:30.6%;
+            margin:1% 0 0 2%;
+            padding:0;
+        }
+        .background-img{
+            position:relative;
+            width:100%;      
+               
+        }
+        .background-check {
+            position:absolute;
+            width:100%;
+            height:20px;
+            bottom:5px;
+            background-color:white;
+            text-align:center;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="views">
+        <div class="view view-main">
+
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i></a></div>
+                    <div class="center sliding">完善资料</div>
+                </div>
+            </div>
+            <div class="pages navbar-through toolbar-through">
+                <div data-page="user-info" id="user-info" class="page user-info-list no-tabbar">
+                    <div class="page-content">
+
+                        <div class="list-block" style="margin-top: 40px;">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link user-avatar">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">头像</div>
+                                                <div class="item-media avt"><img id="picsrc" src="" /></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link user-name">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">姓名</div>
+                                                <div class="item-after" id="truename"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index-background.html" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">更换首页背景</div>
+                                                <div class="item-after" id=""></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">实名认证</div>
+                                                <div class="item-after" id="iscanuse"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link user-hospital">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">医院</div>
+                                                <div class="item-after" id="hospitalname"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link user-department">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">科室</div>
+                                                <div class="item-after" id="department"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link user-title">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">职称</div>
+                                                <div class="item-after" id="postname"><input id="updatepostname" value="主治医师" readonly type="text" class="item-after" /></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="goodat.html" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">擅长项目</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="user-description.html" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">医生简介</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="file" id="files" onchange="previewImg()" capture="microphone" multiple="multiple" hidden>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-jquery-tmpl" id="datalist">
+        <div class="item" style="white-space: nowrap;">
+            <div class="list-title"><i class="iconfont ${typeicon}"></i>${typename}</div>
+            <ul class="clearfix" id="${typename}">
+                {{each(i,arg) items}}
+                {{if i==8}}
+                <li class="view-more"><i class="iconfont icon-shuangjianxia"></i></li>
+                <li class="itemlist"><a itemno="${arg.sno}">${arg.name}</a></li>
+                {{else}}
+                <li class="itemlist"><a itemno="${arg.sno}">${arg.name}</a></li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+    <!--<script type="text/x-jquery-tmpl" id="piclist">
+        <div class="big-img" onclick="alertpic('${pic}')">
+            <img src="${pic}" class="background-img">
+            <div class="background-check">
+                <img src="img/iconfont-check.png" style="height:14px;margin-top:3px;">
+            </div>
+        </div>
+    </script>-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+    <script src="Scripts/jquery.tmpl.js"></script>
+    <script src="Scripts/FrameJs/frame.ajax2.js"></script>
+    <script src="cordova.js"></script>
+    <script type="text/javascript">
+        // Initialize your app
+        var myApp = new Framework7();
+        // Export selectors engine
+        var $$ = Dom7;
+        var pagedata;
+        var goodat;
+        var mainView = myApp.addView('.view-main', {
+            dynamicNavbar: true
+        });
+        var doctorsno = GetQueryString("drsno");
+        function previewImg() {
+            var imgFile = document.getElementById("files").files[0];
+            $("#picsrc")[0].src = URL.createObjectURL(document.getElementById("files").files[0]);
+            uploadImg();
+        }
+        function uploadImg() {
+            var file = document.getElementById("files").files[0];
+            $.Frame.Ajax.AjaxUpload({
+                url: $.Frame.Config.Constant.ServerUrl + "Doctor.savedoctorimg.go",
+                postdata: {
+                    doctorsno: doctorsno,
+                    picsrc: file,//$("#files").val() != "" ? document.getElementById("files").files[0] : ""
+                },
+                contenttype: false,
+                processdata: false,
+                success: function (rtn) {
+                    if (rtn.issuccess) {
+                        $.Frame.Message.ShowMsg(rtn.msg);
+                    } else {
+                        $.Frame.Message.ShowMsg(rtn.msg);
+                    }
+                }
+            })
+        }
+        window.onload = function () {
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "doctor.querydoctorinfo.go",
+                postdata: {
+                    //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3"
+                    doctorsno: doctorsno
+                },
+                success: function (rtn) {
+                    //发送成功
+                    if (rtn.issuccess) {
+
+                        pagedata = rtn;
+
+                        $("#truename").text(rtn.data0.truename);
+                        $("#updatepostname").val(rtn.data0.postname);
+                        $("#hospitalname").text(rtn.data0.workunit);
+                        if (rtn.data0.iscanuse == "1") {
+                            $("#iscanuse").text("已认证");
+                        }
+                        else {
+                            $("#iscanuse").text("未认证");
+                        }
+                        $("#department").text(rtn.data0.department);
+                        $("#picsrc").attr("src", rtn.data0.picsrc);
+                    } else {
+                        pagedata = rtn;
+                        myApp.alert(rtn.msg, "提示");
+                    }
+                },
+                async: true
+            })
+        }
+
+
+        $(".left").click(function () {
+            history.go(-1);
+        })
+        //index-background页面初始化
+        myApp.onPageInit("index-background", function () {
+            //$.Frame.Ajax.Ajax({
+            //    url: $.Frame.Config.Constant.ServerUrl + "doctor.getindexbackground.go",
+            //    success: function (rtn) {
+            //        //发送成功
+            //        if (rtn.issuccess) {
+            //            var dl = new Array();
+            //            for (i = 0; i < 9; i++) {
+            //                dl[i] = {
+            //                    pic: rtn.prefix + "/Files/System/background/index-background" + (i + 1) + ".png"
+            //                }
+            //            }
+            //            $("#piclist").tmpl(dl).appendTo(".content");
+            //        } else {
+            //            $.Frame.Message.ShowMsg(rtn.msg);
+            //        }
+            //    },
+            //})
+            var imgsrc = "";
+            $(".big-img").click(function(){
+                $(".background-check").css("display", "none");
+                $(this).find(".background-check").css("display", "block");
+                imgsrc = $(this).find(".background-img").attr("src").substr(34, 46);
+            })
+
+            $(".left").click(function () {
+                mainView.router.back();
+            });
+
+            $(".background-save").click(function () {
+                if (imgsrc == "") {
+                    $.Frame.Message.ShowMsg("请先选择需要更改的背景图片");
+                }
+                else {
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "doctor.setindexbackground.go",
+                        postdata: {
+                            doctorsno: doctorsno,
+                            imgsrc: imgsrc
+                        },
+                        success: function (rtn) {
+                            //发送成功
+                            if (rtn.issuccess) {
+                                myApp.alert('设置成功', function () {
+                                    mainView.router.back();
+                                });
+                            } else {
+                                $.Frame.Message.ShowMsg(rtn.msg);
+                            }
+                        },
+                    })
+                }
+            })
+        });
+
+
+        // 头像
+        $$('.user-avatar').on('click', function () {
+            var buttons1 = [
+                {
+                    text: '拍照',
+                    color: 'black',
+                    onClick: function () {
+                        var pictureSource;      //图片来源
+
+                        var destinationType;        //设置返回值的格式
+                        // 等待PhoneGap连接设备
+                        document.addEventListener("deviceready", onDeviceReady, false);
+                        // PhoneGap准备就绪，可以使用！
+                        function onDeviceReady() {
+
+                            pictureSource = navigator.camera.PictureSourceType;
+
+                            destinationType = navigator.camera.DestinationType;
+
+                        }
+                        navigator.camera.getPicture(onSuccess, onFail, {
+                            quality: 20,
+                            destinationType: Camera.DestinationType.DATA_URL
+                        });
+
+                        function onSuccess(imageData) {
+                            var image = document.getElementById('picsrc');
+                            image.src = "data:image/jpeg;base64," + imageData;
+                            //发送ajax请求，将图片存到数据库中
+                            $.Frame.Ajax.Ajax({
+                                url: $.Frame.Config.Constant.ServerUrl + "doctor.convertimg.go",
+                                postdata: {
+                                    //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3"
+                                    doctorsno: doctorsno,
+                                    imageData: imageData
+                                },
+                                success: function (rtn) {
+                                    //发送成功
+                                    if (rtn.issuccess) {
+                                        myApp.alert("修改图像成功！");
+                                    } else {
+                                        myApp.alert("修改图像失败！");
+                                    }
+                                },
+                                async: true
+                            })
+                            console.log(image.src);
+                        }
+                        function onFail(message) {
+                            //alert('Failed because: ' + message);
+                        }
+                        //navigator.camera.getPicture(onSuccess, onFail, {
+                        //    quality: 50,
+                        //    destinationType: Camera.DestinationType.FILE_URI
+                        //});
+
+                        //function onSuccess(imageURI) {
+                        //    var image = document.getElementById('picsrc');
+                        //    image.src = imageURI;
+                        //    console.log(imageURI);
+                        //}
+
+                        //function onFail(message) {
+                        //    alert('Failed because: ' + message);
+                        //}
+                    }
+                },
+                {
+                    text: '<label for="files"  style="display:block;">从相册选取</label>',
+                    color: 'black',
+                    onClick: function () {
+                        console.log("相册");
+
+                        console.log("相册调用完成");
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    color: 'black'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            myApp.actions(groups);
+        });
+
+        $$('.user-name').on('click', function () {
+            var userName = pagedata.data0.truename;
+            myApp.modal({
+                title: '姓名',
+                text: '',
+                afterText: '<div class="modal-input-wrap"><input type="text" class="modal-text-input" id="upname" value="' + userName + '"><i class="clear-value iconfont icon-shanchu"></i></div>',
+                buttons: [
+                {
+                    text: '取消'
+                },
+                {
+                    text: '确定',
+                    bold: true,
+                    onClick: function () {
+                        if ($("#upname").val().trim().length>12) {
+                            myApp.alert("姓名长度不能超过12");
+                            return false;
+                        }
+                        if ($("#upname").val().trim()== "") {
+                            myApp.alert("姓名不能为空");
+                            return false;
+                        }
+                        // 保存姓名,发送Ajax请求
+                        $.Frame.Ajax.Ajax({
+                            url: $.Frame.Config.Constant.ServerUrl + "doctor.savedoctorname.go",
+                            postdata: {
+                                doctorsno: doctorsno,
+                                updatename: $("#upname").val().trim()
+
+                            },
+                            success: function (rtn) {
+                                //发送成功
+                                if (rtn.issuccess) {
+                                    $("#truename").text($("#upname").val());
+                                    pagedata.data0.truename = $("#upname").val();
+                                } else {
+                                    myApp.alert("修改失败!", "提示");
+                                }
+                            },
+                            async: true
+                        })
+
+                    }
+                }]
+            });
+            $$('.modal-input-wrap .clear-value').on('click', function () {
+                $$(this).prev().val('');
+            });
+        });
+
+
+        $$('.user-hospital').on('click', function () {
+            var userHospital = pagedata.data0.workunit;
+            myApp.modal({
+                title: '医院信息',
+                text: '',
+                afterText: '<div class="modal-input-wrap"><input type="text" class="modal-text-input" id="updatehospital" value="' + userHospital + '"></div>',
+                buttons: [
+                {
+                    text: '取消'
+                },
+                {
+                    text: '确定',
+                    bold: true,
+                    onClick: function () {
+                        if ($("#updatehospital").val().trim().length > 12) {
+                            myApp.alert("医院名长度不能超过12");
+                            return false;
+                        }
+                        if ($("#updatehospital").val().trim() == "") {
+                            myApp.alert("医院名不能为空");
+                            return false;
+                        }
+                        $.Frame.Ajax.Ajax({
+                            url: $.Frame.Config.Constant.ServerUrl + "doctor.savedoctorhospitalname.go",
+                            postdata: {
+                                doctorsno: doctorsno,
+                                updatehospital: $("#updatehospital").val().trim()
+                            },
+                            success: function (rtn) {
+                                //发送成功
+                                if (rtn.issuccess) {
+                                    $("#hospitalname").text($("#updatehospital").val());
+                                    pagedata.data0.workunit = $("#updatehospital").val();
+                                } else {
+                                    myApp.alert("修改失败!", "提示");
+                                }
+                            },
+                            async: true
+                        })
+                    }
+                }]
+            });
+            $$('.modal-input-wrap .clear-value').on('click', function () {
+                $$(this).prev().val('');
+            });
+        });
+
+        $$('.user-department').on('click', function () {
+            var userDepartment = pagedata.data0.department;
+            myApp.modal({
+                title: '科室信息',
+                text: '',
+                afterText: '<div class="modal-input-wrap"><input type="text" class="modal-text-input" id="updatedepartment" value="' + userDepartment + '"></div>',
+                buttons: [
+                {
+                    text: '取消'
+                },
+                {
+                    text: '确定',
+                    bold: true,
+                    onClick: function () {
+                        if ($("#updatedepartment").val().trim().length > 12) {
+                            myApp.alert("科室长度不能超过12");
+                            return false;
+                        }
+                        if ($("#updatedepartment").val().trim() == "") {
+                            myApp.alert("科室名不能为空");
+                            return false;
+                        }
+                        $.Frame.Ajax.Ajax({
+                            url: $.Frame.Config.Constant.ServerUrl + "doctor.savedoctordepartment.go",
+                            postdata: {
+                                doctorsno: doctorsno,
+                                //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3"
+                                updatedepartment: $("#updatedepartment").val().trim()
+                            },
+                            success: function (rtn) {
+                                //发送成功
+                                if (rtn.issuccess) {
+                                    $("#department").text($("#updatedepartment").val());
+                                    pagedata.data0.department = $("#updatedepartment").val();
+                                } else {
+                                    myApp.alert("修改失败!", "提示");
+                                }
+                            },
+                            async: true
+                        })
+                    }
+                }]
+            });
+            $$('.modal-input-wrap .clear-value').on('click', function () {
+                $$(this).prev().val('');
+            });
+        });
+        $("#updatepostname").click(function () {
+
+            var pikeWorkName = myApp.picker(
+            {
+                input: "#updatepostname",
+                cols: [
+                    {
+                        values: ["主任医师", "副主任医师", "主治医师", "住院医师"]
+                    }
+                ],
+                onClose: function (picker) {
+
+                    pikeWorkName.destroy();
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "doctor.savedoctorpostname.go",
+                        postdata: {
+                            doctorsno: doctorsno,
+                            //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3"
+                            updatepostname: $("#updatepostname").val()
+                        },
+                        success: function (rtn) {
+                            //发送成功
+                            if (rtn.issuccess) {
+                                $("#postname").val($("#updatepostname").val());
+                            } else {
+                                myApp.alert("修改失败!", "提示");
+                            }
+                        },
+                        async: true
+                    })
+                }
+            });
+
+            pikeWorkName.open();
+
+        });
+
+
+
+
+
+        $$('.user-title').on('click', function () {
+            var userTitle = pagedata.data0.postname;
+
+            //pickWorkname.open();
+        });
+
+        //======================================= goodat.html页面初始化
+        myApp.onPageInit("goodat", function () {
+
+            $(".left").click(function () {
+                mainView.router.back();
+            });
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "baike.loadpro.go",
+                postdata: {
+                    //doctorsno: "f82245a1-1dfb-4dfe-bb45-f464b344571b"
+                    doctorsno: doctorsno
+                },
+                success: function (rtn) {
+                    myApp.hidePreloader();
+                    $(".list-block").show();
+                    $("#textinfo").show();
+                    if (rtn.issuccess) {
+                        $(".goodat-list").empty();
+                        $("#datalist").tmpl(rtn.data).appendTo(".goodat-list");
+
+
+                        BindActive(rtn.orderdata)
+                        //console.log($("[data-isactive]").text());
+                        //$("[data-isactive]")
+                        ////console.log($("[data-isactive]").each(function () { console.log($(this).text()+" :class:"+$(this).attr("class"));}));
+
+                        $('.goodat-list ul').each(function () {
+                            $(this).find('.view-more').nextAll().hide();
+                        });
+                        $('.goodat-list ul li.view-more').click(function () {
+
+                            var viewMore = $(this);
+                            var viewLess = $(this).clone().addClass("view-less").removeClass("view-more").css("-webkit-transform", "rotate(180deg)", "-moz-transform", "rotate(180deg)");
+
+                            //后面元素显示出来,并且隐藏自身,显示后面的列表
+                            $(this).nextAll().show();
+                            $(this).parent().find(".none").remove();
+                         // $(this).after("<li class='none'>.</li><li class='none'>.</li>");
+                            $(this).hide();
+                            viewLess.appendTo($(this).parent()).show();
+
+                            viewLess.click(function () {
+                                viewMore.nextAll().hide();
+                                viewMore.show();
+                                $(this).remove();
+                            });
+
+
+                        });
+
+                        $("ul.clearfix li").not(".view-more").click(function () {
+                            $(this).toggleClass("active");
+                        });
+                    } else {
+                        $.Frame.Message.ShowMsg(rtn.msg);
+                    }
+                },
+                before: function (rtn) {
+                    myApp.showPreloader('加载中...')
+                }
+
+            })
+
+
+            $$('.goodat-save').on('click', function () {
+                var docinputpro = $("#doctorinput").val();
+                var arr = [];
+                if ($(".active").length > 10) {
+                    myApp.alert("您最多只能选择10个擅长项目");
+                    return;
+                }
+
+                $(".active").each(function (index) {
+                    arr.push($(this).text());
+                });
+                var orderprodata = arr.join(",");
+                console.log(orderprodata);
+                myApp.confirm('', '是否保存修改？',
+                    function () {
+                        // myApp.alert('已保存');
+                        $.Frame.Ajax.Ajax({
+                            url: $.Frame.Config.Constant.ServerUrl + "baike.editdocpro.go",
+                            postdata: {
+                                //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3",
+                                doctorsno: doctorsno,
+                                orderprodata: orderprodata,
+                                docinputpro: docinputpro
+                            },
+                            success: function (rtn) {
+                                if (rtn.issuccess) {
+                                    if ($("#doctorinput").val().trim() == "") {
+                                        myApp.alert('您的擅长项目保存成功！', '提示', function () { mainView.router.back(); });
+                                    }
+                                    else {
+                                        myApp.alert('您的擅长项目已提交,包含的自定义项我们会尽快为您审核', "提示", function () { mainView.router.back(); });
+                                    }
+                                } else {
+                                    $.Frame.Message.ShowMsg(rtn.msg);
+                                }
+                            }
+                        })
+                        
+                    },
+                    function () {
+                        return false;
+                    }
+                );
+            });
+
+            function BindActive(vdata) {
+                for (sdata in vdata) {
+                    $(".itemlist").find("a").each(function () {
+                        if ($(this).attr("itemno") == vdata[sdata].sno) {
+                            $(this).parent().addClass("active");
+                        }
+
+                    });
+                }
+            }
+        });
+        //========================================user-description.html页面初始化
+        myApp.onPageInit("user-description", function () {
+            $("#description").text(pagedata.data0.contents);
+            $('.left').click(function () {
+                if ($("#description").text() != $("#description").val()) {
+                    myApp.confirm('', '您的修改未保存确认退出？', function () {
+                        mainView.router.back();
+                    }, function () {
+                        return false ;
+                    })
+                }
+                else {
+                    mainView.router.back();
+                }
+            });
+            $$('#savedescription').on('click', function () {
+                myApp.confirm('', '您是否要保存修改？', function () {
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "doctor.savedoctordescription.go",
+                        postdata: {
+                            doctorsno: doctorsno,
+                            //doctorsno: "1fc0aa39-cd6b-4786-b078-8b4c59cebdc3"
+                            updatedescription: $("#description").val()
+                        },
+                        success: function (rtn) {
+                            //发送成功
+                            if (rtn.issuccess) {
+                                myApp.alert("修改成功!", "提示", function () {
+                                    pagedata.data0.contents = $("#description").val();
+                                    mainView.router.back();
+                                });
+                            } else {
+                                myApp.alert("修改失败!", "提示", function () {
+                                    mainView.router.back();
+                                });
+                            }
+                        },
+                        async: true
+                    })
+                }, function () { mainView.router.back(); })
+            })
+        })
+    </script>
+</body>
+
+</html>

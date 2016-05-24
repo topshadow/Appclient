@@ -1,0 +1,441 @@
+﻿<!--2016-01-26 12:00:00.000-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/yangjie.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+	<link rel="stylesheet" href="css/my-app.css"/>
+
+<style>
+        .page-content-inner {
+            height: 100%;
+           
+        }
+        .cancel-btn{
+        	    display: block;
+    height: 45px;
+    margin: 0 15px;
+    line-height: 45px;
+    color: #fff;
+    background: #ff3b30;
+    border-radius: 3px;
+    border: none;
+    font-size: 17px;
+    margin-top: 20px;
+        }
+        .box-content{
+        	color:black;
+        }
+    .hehe {
+        width: 100%;
+        text-align: left;
+        font-size: 1.5em;
+        color: blue;
+        padding-left: 50px;
+        text-decoration: underline;
+    }
+            .hehe a {
+            color:blue;
+            }
+    .box-content {
+    color:black;
+    }
+    .tabs-animated-wrap > .tabs > .tab {
+     margin-top: 88px;
+     margin-bottom:88px;
+    }
+    .itemlist a{
+        white-space: nowrap;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <div class="views tabs toolbar-through">
+        <div id="view-home" class="view view-main tab active">
+                <div class="navbar">
+                <div class="navbar-inner">
+                	
+                    <!--left--> <div class="left"><a href="index.html" style="width:100%"  class="external"><i class="icon icon-back"></i></a></div>
+                    <!--center sliding-->   <div class="center" style="">预约状态</div>
+              			<div class="right"></div>
+              			 </div>
+              			  <div class="tabs-navbar ">
+                                <div class="buttons-row"><a href="#tab1" class="active tab-link">待就诊</a><a href="#tab2" class="tab-link">已就诊</a><a href="#tab3" class="tab-link">待治疗</a><a href="#tab4" class="tab-link">已治疗</a></div>
+                            </div>
+                             </div>
+                <div class="pages navbar-through">
+                    <div data-page="reservation-status" class="page no-tabbar">
+                        <div class="page-content " data-distance="100">
+                            <div class="tabs-animated-wrap" style="height:auto;">
+                                <div class="tabs reserve-content">
+                                    <div id="tab1" class="tab active" style="
+    margin-top: 100px;
+">
+                                    </div>
+                                    <div id="tab2" class="tab">
+                                    </div>
+                                    <div id="tab3" class="tab">
+                                    </div>
+                                    <div id="tab4" class="tab">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/x-jquery-tmpl" id="todiagnosis">
+                   <div class="reserve-item">
+                       {{if num=='1'|| (num=='1'&&bookdatetime=='下午') }}
+                        <div class="reserve-time">${bookdate}</div>
+                       {{/if}}
+                        <div class="box">
+                            <div class="box-content">
+                                <div class="avt"><img alt="" src="${picsrc}"></div>
+                                <div class="reservation-info">
+                                    <p><span>姓名：</span>${customername}</p>
+                                    <p><span>项目：</span>${productname}</p>
+                                    <p><span>待就诊时间：</span><span class="time">${bookdatetime}  第${num}单</span></p>
+                                </div>
+                            </div>
+                            <div class="box-footer" >
+                                <div class="number"></div>
+                                <div class="after"><a class="button btn-default cancel-reserve"  data-ordersno="${ordersno}">因故取消</a></div>
+                            </div>
+                        </div>
+
+                    </div>
+               
+			
+                </script>
+
+                <script type="text/x-jquery-tmpl" id="diagnosis">
+                    <div class="reserve-item">
+                   {{if num=='1'|| (num=='1'&&bookdatetime=='下午') }}
+                        <div class="reserve-time">${bookdate}</div>
+            					{{/if}}            
+                        <div class="box">
+                            <div class="box-content">
+                                <div class="avt"><img src="${picsrc}" alt="" /></div>
+                                <div class="reservation-info">
+                                    <p><span>姓名：</span>${customername}</p>
+                                    <p><span>项目：</span>${productname}</p>
+                                    <p><span>就诊时间：</span><span class="time"> ${bookdatetime} 第${num}单</span></p>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <div class="number"></div>
+                                <div class="after">
+                                    <a   onclick="window.location.href='diagnosis-record.html?ordersno='+$(this).data('ordersno')+'&&showTab=tab2&&doctorsno='+doctorsno"
+                                    	data-ordersno="${ordersno}"
+                                    	class=" button button-inline btn-orange diagnosis-record"  data-tab="tab2">
+                                    	         {{if isempty }}上传记录 {{else}}  查看记录 {{/if}}
+                                      
+                                    </a>
+                                      <a class="button button-inline btn-green reserve-treatment" data-ordersno="${ordersno}">预约治疗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+                <script type="text/x-jquery-tmpl" id="totreat">
+                    <div class="reserve-item">
+                   {{if num=='1'|| (num=='1'&&treatdatetime=='下午') }}
+                        <div class="reserve-time">${treatdate}</div>
+            					{{/if}}            
+                       <div class="box">
+                            <div class="box-content">
+                                <div class="avt"><img src="${picsrc}" alt="" /></div>
+                                <div class="reservation-info">
+                                    <p><span>姓名：</span>${customername}</p>
+                                    <p><span>项目：</span>${productname}</p>
+                                    <p class="treat-time"><span>待治疗时间：</span><span class="time">${treatdatetime}</span>   </p>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <div class="number"></div>
+                                <div class="after">
+                                    <a class="button button-inline btn-orange diagnoss-record"  onclick="window.location.href = 'diagnosis-record.html?ordersno=' + $(this).data('ordersno')+'&&showTab=tab3&&doctorsno='+doctorsno"  data-ordersno="${ordersno}" >
+                                             {{if isempty }}上传记录 {{else}}  查看记录 {{/if}}
+                                      </a>
+                                    <a href="#" class="button button-inline btn-green reserve-edit" data-ordersno="${ordersno}">修改时间</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+                <script type="text/x-jquery-tmpl" id="treat">
+                    <div class="reserve-item">
+                   {{if num=='1'|| (num=='1'&&treatdatetime=='下午') }}
+                        <div class="reserve-time">${treatdate}</div>
+            					{{/if}}            
+            					<div class="box">
+                            <div class="box-content">
+                                <div class="avt"><img src="${picsrc}" alt="" /></div>
+                                <div class="reservation-info">
+                                    <p><span>姓名：</span>${customername}</p>
+                                    <p><span>项目：</span>${productname}</p>
+                                    <p><span>治疗时间：</span><span class="time">${treatdatetime}</span></p>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <div class="number"></div>
+                                <div class="after">
+                                    <a class="button button-inline btn-orange treat-record" data-recordtype="${recordtype}"
+                                       data-medicalhistorysno="${medicalhistorysno}"
+                                       onclick="window.location.href='treat-record.html?ordersno='+$(this).data('ordersno')+'&&showTab=tab4'+'&&doctorsno='+doctorsno"
+ data-ordersno="${ordersno}">
+          {{if isempty }}上传记录 {{else}}  查看记录 {{/if}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+        <script type="text/x-jquery-tmpl" id="remind">
+       <div id="remind" class="" style="padding: 0px 0px;" > 
+       	<div class="" style="text-align:center;">                                                 <div style="color: #CDCDCD;">
+    <h2 class="" style="     margin: 0px 0px;     padding: 0px 0px; ">                                                         你还没有待就诊患者                                                     </h2>                                                     <h2 style="     margin: 0px 0px;     padding: 0px 0px;  ">
+        给自己打打气,
+    </h2>  <h2 style="     margin: 0px 0px;     padding: 0px 0px; ">
+        入驻聚美医，咱们也是名医 !
+    </h2>
+</div> <br><br>                                                
+       	<div style="font-size: 1.5em; width: 100%; padding-left: 50px; color: #CDCDCD; text-align: left; font-weight: 600; " >   您可以    </div>
+
+<div class="hehe"> <a  onclick="window.location.href='user-info.html?drsno='+doctorsno" class="external">完善自己的资料</a></div>
+<div class="hehe"><a href="#" onclick="location.href = 'ContactTest.html?doctorsno=' + doctorsno">添加通讯录患者</a></div>
+<div class="hehe "accesskey=" "  onclick="window.location.href = 'tel:027-87001170'">联系我们</div>
+                                             </div>                                         </div>
+        
+ </script>
+                <script type="text/javascript" src="Scripts/jquery-1.11.3.min.js"></script>
+                <script type="text/javascript" src="Scripts/jquery.tmpl.min.js"></script>
+                <script type="text/javascript" src="Scripts/FrameJs/global.min.js"></script>
+                <script type="text/javascript" src="Scripts/FrameJs/frame.ajax2.js"></script>
+                <script type="text/javascript" src="js/framework7.min.js"></script>
+                <script type="text/javascript" src="Scripts/FrameJs/configs/constant.config.js"></script>
+                <script src="Scripts/order-common.js"></script>
+                <script src="cordova.js"></script>
+                <script src="cordova_plugins.js"></script>
+                <script src="plugins/cordova-plugin-camera/www/camera.js"></script>
+                <script src="plugins/cordova-plugin-whitelist/whitelist.js"></script>
+                <script type="text/javascript">
+
+              document.addEventListener("deviceready", onDeviceReady, false);
+
+              // device APIs are available    //      
+              function onDeviceReady() {        // Register the event listener          
+                  document.addEventListener("backbutton", onBackKeyDown, false);
+              }
+              // Handle the back button    //      
+              function onBackKeyDown() {
+                  if (isOrderCanceling) {
+                      myApp.closeModal();
+                  } else {
+                      window.location.href = "index.html";
+                  }
+              }
+//======================================================Cordova代码    END=========================================
+ $(function(){
+//导航栏重构
+ if(myApp.device.os=="ios"){
+ $(".view-main .navbar:first").css("margin-top","34px");
+ $(".page-content").css("margin-top","34px");
+ }
+ var showTab = GetQueryString("showTab");
+       	if(showTab){
+       		myApp.showTab("#"+showTab);
+       	}
+       });
+
+
+              $(".reserve-content .tab").on("show", function () {
+                  $(this).find("*").show();
+                  $(".reserve-content .tab").not($(this)).find("*").hide();
+                  $(".page-content").scrollTop(0);
+              });
+                    //处于取消订单页面
+              var isOrderCanceling = false;
+
+                    //当有上午第一单的时候，下午第一单隐藏
+              var autoHideAfternoonFirstOrder = function () {
+                  $("#tab1 .reserve-item").each(function () {
+                      //  console.log("条目" + $(this).find(".time").text());
+                      if ($(this).find(".time").text() == " 上午 第1单") {
+                          var time = $(this).find(".reserve-time").text();
+                          // console.log("上午第一单的条目"+time);
+                          //找出有没有当天的 下午 第1单  并隐藏时间
+                          $("#tab1 .reserve-item").each(function () {
+                              // console.log("当前条目的时间"+$(this).find(".time").text());
+                              if ($(this).find(".reserve-time").text() == time) {
+                                  if ($(this).find(".time").text() == " 下午 第1单") {
+                                      //                console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
+                                      $(this).find(".reserve-time").hide()
+                                  }
+                              }
+                          });
+                      }
+                  });
+                  $("#tab2 .reserve-item").each(function () {
+                      if ($(this).find(".time").text() == " 上午 第1单") {
+                          var time = $(this).find(".reserve-time").text();
+                          // console.log("上午第一单的条目"+time);
+                          //找出有没有当天的 下午 第1单  并隐藏时间
+                          $("#tab2 .reserve-item").each(function () {
+                              // console.log("当前条目的时间"+$(this).find(".time").text());
+                              if ($(this).find(".reserve-time").text() == time) {
+                                  if ($(this).find(".time").text() == " 下午 第1单") {
+                                      console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
+                                      $(this).find(".reserve-time").hide()
+                                  }
+                              }
+                          });
+                      }
+                  });
+                  $("#tab3 .reserve-item").each(function () {
+                      if ($(this).find(".time").text() == " 上午 第1单") {
+                          var time = $(this).find(".reserve-time").text();
+                          // console.log("上午第一单的条目"+time);
+                          //找出有没有当天的 下午 第1单  并隐藏时间
+                          $("#tab2 .reserve-item").each(function () {
+                              // console.log("当前条目的时间"+$(this).find(".time").text());
+                              if ($(this).find(".reserve-time").text() == time) {
+                                  if ($(this).find(".time").text() == " 下午 第1单") {
+                                      console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
+                                      $(this).find(".reserve-time").hide()
+                                  }
+                              }
+                          });
+                      }
+                  });
+                  var times = new Map();
+
+                  $("#tab4 .reserve-item").each(function () {
+                      if (times.get($(this).find(".reserve-time").text())) {
+                          $(this).find(".reserve-time").hide();
+                      } else {
+                          times.set($(this).find(".reserve-time").text(), true);
+                      }
+                  });
+
+              };
+              $(function(){
+              	 myApp.showIndicator();
+              
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "myorder.list.go",
+                        postdata: {
+                            doctorsno: doctorsno,
+                        },
+                         //'9b503080-4649-4e5f-8a15-11007951f9b1'},
+                        success: function (rtn){
+              	 myApp.hideIndicator();
+              //发送成功
+                            if (rtn.issuccess) {
+                                 prefix = rtn.prefix;
+                                var todiagnosis = $("#todiagnosis");
+                                var diagnosis = $("#diagnosis");
+                                var totreamt = $("#totreamt");
+                                var treamt = $("#treamt");
+                                var tab1 = $("#tab1");
+                                var tab2 = $("#tab2");
+                                var tab3 = $("#tab3");
+                                var tab4 = $("#tab4");
+                                var todiagnosis = $("#todiagnosis");
+                                var diagnosis = $("#diagnosis");
+                                var totreat = $("#totreat");
+                                var treat = $("#treat");
+                                var tab1 = $("#tab1");
+                                var tab2 = $("#tab2");
+                                var tab3 = $("#tab3");
+                                var tab4 = $("#tab4");
+                                //这里第二个参数用数组写，然后修改数组里的数据
+                                changePicSrc(prefix,rtn.todiagnosis);
+                                changePicSrc(prefix,rtn.diagnosis);
+                                changePicSrc(prefix,rtn.totreat);
+                                changePicSrc(prefix,rtn.treat);
+                              
+                                
+                                todiagnosis.tmpl(rtn.todiagnosis).appendTo(tab1);
+                                
+                               
+                                 
+                                diagnosis.tmpl(rtn.diagnosis).appendTo(tab2);
+                                
+                                totreat.tmpl(rtn.totreat).appendTo(tab3);
+                                treat.tmpl(rtn.treat).appendTo(tab4);
+                                //重设页面高,否则只有一部分数据显示出来
+                                if($("#tab1 .reserve-item").size()<1){	
+                                	$("#remind").tmpl({}).appendTo("#tab1");
+                                };
+                                if($("#tab2 .reserve-item").size()<1){	
+                                	$("#remind").tmpl({}).appendTo("#tab2");
+                                };
+                                if($("#tab3 .reserve-item").size()<1){	
+                                	$("#remind").tmpl({}).appendTo("#tab3");
+                                };
+                                if($("#tab4 .reserve-item").size()<1){	
+                                	$("#remind").tmpl({}).appendTo("#tab4");
+                                };
+                                
+                                
+                                $(".tabs-animated-wrap").css("height", "auto");
+                                //固定导航栏和菜单栏
+                                $(".navbar").css("position", "fixed");
+                                $(".tabs-navbar").css({
+                                    "position": "relative",
+                                    "margin-top": "44px"
+                                });
+                                $(".toolbar-hidden").removeClass("toolbar-hidden");
+
+                                autoHideAfternoonFirstOrder();
+                                AddCancelReserve();//取消预约
+                                AddReserveTreatment();//预约时间
+                            } else {
+                                myApp.alert("错误的请求");
+                            }
+                        }
+                    });
+              });      
+                    function changePicSrc(prefix,datalist){
+                    	for(var i=0;i<datalist.length;i++){
+                    			datalist[i].picsrc=prefix+datalist[i].picsrc;
+                    	}
+                    }
+                    
+
+                </script>
+
+</body>
+</html>

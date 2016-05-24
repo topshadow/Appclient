@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title id="title"></title>
+
+    <!-- Bootstrap -->
+    <!--<link href="/css/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../css/weixin/chat/style.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://g.alicdn.com/aliww/ww/json/json.js" charset="utf-8"></script>
+    <![endif]-->
+    <!-- 自动适配移动端与pc端 -->
+    <script src="https://g.alicdn.com/aliww/??h5.openim.sdk/0.1.4/scripts/wsdk.js,h5.openim.kit/0.0.5/scripts/kit.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="chat-screen">
+    </div>
+
+
+
+    <div id="chat-input">
+        <input type="text" id="chat-content" placeholder='输入回复内容'>
+        <button class="btn btn-primary " id="send">发送</button>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../Scripts/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/FrameJs/global.js"></script>
+    <script src="../Scripts/jquery.tmpl.min.js"></script>
+    <script src="../Scripts/blockui-master/jquery.blockUI.js"></script>
+    <script type="text/javascript">
+        function showOverlay() {
+            $.blockUI({
+                message: '<p><img src="../css/images/wait.jpg" style="width:32px;height:32px"/></p><p id="overlaymsg">请稍候...</p>',
+                css: {
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    color: '#fff',
+                    border: "0px",
+                    opacity: 1,
+                    filter: "alpha(opacity=57)"
+                }
+            });
+        }
+        function changOverlaymsg(tx) {
+            $("#overlaymsg").text(tx);
+        }
+        function closeOverlay() {
+            $.unblockUI();
+        }
+    </script>
+</body>
+</html>
+<script type="text/x-jquery-tmpl" id="itemdata">
+    {{if isshowtime}}
+    <li class="time-record"><time>${createdtstr}</time></li>
+    {{/if}}
+    {{if fromtype == 'd2c'}}
+    <li class="myself" style="height:49px">
+        <!-- other -->
+        <img src="${customerpic}" alt="">
+        <p style="margin-bottom:20px">${msg}</p>
+    </li>
+    {{else}}
+    <li class="other">
+        <!-- other -->
+        <p>${msg}</p>
+        <img src="${doctorpic}" alt="">
+    </li>
+    {{/if}}
+</script>
+<script type="text/javascript">
+    
+</script>
+<script type="text/javascript">
+    var userid = "";
+    var password = "";
+    var to = "";
+    var doctorsno = "";
+    var curdt = null;
+    var customerpic = "";
+    var doctorpic = "";
+    var sdk = null;
+    var appid = "";
+    var nextkey = "";
+    var islogin = false;
+
+    $(function (e) {
+        to = GetQueryString("from");
+        sdk = new WSDK();
+        //showOverlay();
+
+        //changOverlaymsg("加载用户信息...");
+        $.Frame.Ajax.Ajax({
+            url: $.Frame.Config.Constant.ServerUrl + "webim.doctoriminit.go",
+            postdata: {
+                doctorsno: GetQueryString("drsno"),
+                customerid: to
+            },
+            success: function (rtn) {
+                if (rtn.issuccess) {
+                    userid = rtn.webim_userid;
+                    password = rtn.webim_pass;
+                    customerpic = rtn.to_headpic;
+                    doctorpic = rtn.headpic;
+                    appid = rtn.appid;
+
+                    WKIT.init({
+                        uid: userid,
+                        appkey: appid,
+                        credential: password,
+                        touid: to,
+                        onMsgReceived: function (data) {
+                            console.log(data);
+                        },
+                        onMsgSent: function (data) {
+                            console.log(data);
+                        },
+                        autoMsg: '这是默认用户打开页面给客服发的第一条消息',
+                        titleBar: true,
+                        title: '聚美医',
+                        customUrl: '',
+                        onBack: function () {
+                            console.log('back');
+                        },
+                        onUploaderError: function (error) {
+                            console.log(error);
+                        }
+                    });
+
+                    
+
+                    //changOverlaymsg("聊天系统初始化...");
+                    //sdk.Base.login({
+                    //    uid: userid,
+                    //    appkey: appid,
+                    //    credential: password,
+                    //    timeout: 4000,
+                    //    success: function (data) {
+                    //        islogin = true;
+                    //    },
+                    //    error: function (error) {
+                    //        islogin = false;
+                    //    }
+                    //});
+
+                    ////接收对方发来的消息
+                    //sdk.Event.on('CHAT.MSG_RECEIVED', function (data) {
+                    //    console.log(data);
+                    //    if (data.msgs) {
+                    //        for (var i = 0; i < data.msgs.length; i++) {
+                    //            data.msgs[i].fromtype = "c2d";
+                    //            data.msgs[i].creatdt = new Date(data.msgs.time);
+                    //            data.msgs[i].createdtstr = data.msgs[i].creatdt.format("yyyy-MM-dd HH:mm");
+                    //            if (curdt == null) {
+                    //                curdt = data.msgs[i].creatdt;
+                    //                rtn.data[i].isshowtime = true;
+                    //            } else {
+                    //                if (curdt.dateDiff("n", data.msgs[i].creatdt) > 30) {
+                    //                    rtn.data[i].isshowtime = true;
+                    //                    curdt = data.msgs[i].creatdt;
+                    //                }
+                    //            }
+                    //        }
+                    //    }
+                    //});
+
+                    //sdk.Chat.startListenMsg({ touid: to });
+                    //changOverlaymsg("聊天系统加载历史记录...");
+                    //var handler = setInterval(function () {
+                    //    if (islogin) {
+                    //        sdk.Chat.getHistory({
+                    //            touid: to,
+                    //            nextkey: nextkey,
+                    //            count: 10,
+                    //            success: function (data) {
+                    //                console.log('get history msg success', data);
+                    //                clearInterval(handler);
+                    //                nextkey = (data.data && data.data.next_key) ? data.data.next_key : "";
+
+                    //                if (data.data.msgs) {
+                    //                    var list = new Array();
+                    //                    for (var i = data.data.msgs.length - 1; i >= 0; i--) {
+                    //                        //回传的from和to都会自动带一个前缀
+                    //                        data.data.msgs[i].fromtype = data.data.msgs[i].from.indexOf(userid.toLowerCase()) >= 0 ? "c2d" : "d2c";
+                    //                        data.data.msgs[i].creatdt = new Date(data.data.msgs[i].time);
+                    //                        data.data.msgs[i].createdtstr = data.data.msgs[i].creatdt.format("yyyy-MM-dd HH:mm");
+                    //                        if (curdt == null) {
+                    //                            curdt = data.data.msgs[i].creatdt;
+                    //                            data.data.msgs[i].isshowtime = true;
+                    //                        } else {
+                    //                            if (curdt.dateDiff("n", data.data.msgs[i].creatdt) > 30) {
+                    //                                data.data.msgs[i].isshowtime = true;
+                    //                                curdt = data.data.msgs[i].creatdt;
+                    //                            }
+                    //                        }
+
+                    //                        list[list.length] = data.data.msgs[i];
+                    //                    }
+
+                    //                    $("#itemdata").tmpl(list).appendTo("#chat-screen");
+                    //                    auto2anchor();
+                    //                }
+
+                    //                closeOverlay();
+                    //            },
+                    //            error: function (error) {
+                    //                console.log("加载失败，可能原因：" + error.resultText);
+                    //                closeOverlay();
+                    //                //如果未登陆
+                    //                if (error.resultText == "NOT_LOGIN") {
+                    //                    islogin = false;
+                    //                    //autocheklogin();
+                    //                } else {
+                    //                    $.Frame.Message.ShowMsg("加载失败，可能原因：" + error.resultText);
+                    //                }
+                    //            }
+                    //        });
+                    //    }
+                    //}, 1000);
+
+                    //setInterval(autocheklogin, 10000);
+                } else {
+                    closeOverlay();
+                    $.Frame.Message.ShowMsg(rtn.msg);
+                }
+            },
+            fail: function () {
+                closeOverlay();
+            },
+            complete: function () {
+                //closeOverlay();
+            }
+        })
+
+
+        $("#send").click(function () {
+            var msg = $('#chat-content').val();
+            showOverlay();
+            sdk.Chat.sendMsg({
+                touid: to,
+                msg: msg,
+                success: function (data) {
+                    closeOverlay();
+                    $('#chat-content').val("");
+                    var list = new Array();
+                    list[0] = {
+                        isshowtime: false,
+                        fromtype: 'c2d',
+                        msg: msg,
+                        customerpic: customerpic,
+                        doctorpic: doctorpic
+                    }
+                    if (curdt == null) {
+                        curdt = new Date();
+                    }
+                    if (curdt.dateDiff("n", new Date()) > 30) {
+                        list[0].isshowtime = true;
+                        curdt = new Date();
+                    }
+                    $("#itemdata").tmpl(list).appendTo("#chat-screen");
+                    auto2anchor();
+                },
+                error: function (error) {
+                    closeOverlay();
+                    $.Frame.Message.ShowMsg("发送失败,可能原因：" + error.resultText);
+
+                }
+            });
+            
+        })
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == "13") {
+                $("#send").trigger("click");
+            }
+        });
+    })
+
+    function autocheklogin() {
+        if (!islogin) {
+            sdk.Base.login({
+                uid: userid,
+                appkey: appid,
+                credential: password,
+                timeout: 4000,
+                success: function (data) {
+                    islogin = true;
+                },
+                error: function (error) {
+                    islogin = false;
+                }
+            });
+        }
+
+        //sdk.Chat.getUserStatus({
+        //    uids: ["i24enl83"+userid],
+        //    hasPrefix: true,
+        //    success: function (data) {
+        //        console.log(data.data.status[0]);
+        //        if(data.data.status[0] == 1){
+        //            islogin = true;
+        //        }else{
+        //            islogin = false;
+        //        }
+                
+        //        if (!islogin) {
+                    
+        //        }
+        //    },
+        //    error: function () {
+        //        islogin = false;
+        //        console.log('getUserStatus fail');
+        //    }
+        //});
+    }
+
+    function auto2anchor() {
+        if ($(".myself").size() > 0 && $(".other").size() > 0) {
+            if ($(".myself").last().offset().top > $(".other").last().offset().top) {
+                $("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000)
+            } else {
+                $("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000)
+            }
+        } else if ($(".myself").size() > 0) {
+            $("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000)
+        } else if ($(".other").size() > 0) {
+            $("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000)
+        }
+    }
+</script>

@@ -1,0 +1,152 @@
+﻿<!--新建随访模板-->
+    <div data-page="AddVisitTemplate" class="page navbar-fixed toolbar-fixed">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="center">新建随访模板</div>
+                <div class="right">
+                    <a class="link" href="#" id="SaveVisitPlan">保存</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="page-content AddVisitTemplate">
+            
+            <div class="list-block AddVisitTemplateTitle">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img src="img/icon-addtemp.png" />
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请给随访模板留个名称呗！" id="AddTempName" onblur="ValidateTemplateName(this)">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            <div class="AddTempList">
+                <!--默认新增第一项-->
+                <div class="AddTempItem">
+                    <div class="list-block-title">
+                        随访事项1
+                    </div>
+                    <div class="list-block AddVisitList">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">随访周期</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="选择术后随访的日期（必填）" readonly="readonly" onclick="ShowPickerDate(this)" class="AddTmpl FirstAdd" name="tintervaldate" mode="start" data-tintervaldate="" data-ttype="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">提醒时间</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="设置好随访提醒的推送时间（必填）" readonly="readonly" onclick="ShowPickerTime(this)" class="AddTmpl" name="ttime">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">随访事项</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="填写该随访事项的名称（必填）" onblur="ValidateTtitle(this)" class="AddTmpl" name="ttitle">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">消息内容</div>
+                                        <div class="item-input">
+                                            <input type="hidden" class="AddTmpl" name="templatename" id="templateidtxt" />
+                                            <input type="text" placeholder="输入发送给求美者的随访内容（必填）" onblur="ValidateContent(this)" class="AddTmpl" name="tcontent" mode="end">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--克隆模板不显示-->
+                <div class="MoreTempItem" style="display:none;">
+                    <div class="list-block-title">
+                        <label>随访事项2</label>                        
+                        <img src="img/iconfont-shanchu.png" onclick="DelTempItem(this)" />
+                    </div>
+                    <div class="list-block AddVisitList">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">随访周期</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="选择术后随访的日期（必填）" onclick="ShowPickerDate(this)" class="AddTmpl OtherAdd" name="tintervaldate" mode="start" data-tintervaldate="" data-ttype="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">提醒时间</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="设置好随访提醒的推送时间（必填）" onclick="ShowPickerTime(this)" class="AddTmpl" name="ttime">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">随访事项</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="填写该随访事项的名称（必填）" onblur="ValidateTtitle(this)" class="AddTmpl" name="ttitle" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">消息内容</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="输入发送给求美者的随访内容（必填）" onblur="ValidateContent(this)" class="AddTmpl" name="tcontent" mode="end">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>           
+            <div class="list-block AddTemp" id="addvisitrecord">
+                    <img src="img/iconfont-tianjia.png" />
+                    <label>增加随访事项</label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+

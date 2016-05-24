@@ -1,0 +1,63 @@
+<!-- 这里是 科室患者-免打搅 page, 实际的母页是 MsgHome.html -->
+
+<div data-page="Msg_PatientDetail" class="page navbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center" id="headName"> </div>
+
+            <div class="right"></div>
+        </div>
+    </div>
+    <div class="page-content contacts-content" style="margin-top:45px;">
+        <div class="list-block PatientInfos">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img id="imgHeadpic" src="" style="width: 50px;border-radius: 25px;" />
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title">
+                                <label id="lbName"></label>
+                                <span id="lbAge"></span>
+                                <img id="imgSex" src="" style="width:15px;" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="list-block  InfoItems">
+            <ul>
+                <li>
+                    <a class="item-link external" id="alink" href="">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img src="img/info-telphone.png" style="width: 25px;" />
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    电话
+                                </div>
+                                <div class="item-title" id="lbphone">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="toolbar invisibletoolbar">
+        <div class="toolbar-inner">
+            <a href="#" class="button active" style="width: 100%" id="btnAddFollowing">添加到我的患者</a>
+        </div>
+    </div>
+</div>

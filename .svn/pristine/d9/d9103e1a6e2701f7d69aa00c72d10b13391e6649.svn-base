@@ -1,0 +1,89 @@
+﻿<!-- 消息-home页 -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title id="title">聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1452742378_2935014.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/my-msg.css">
+</head>
+<body id="body">
+<!-- 状态栏 提示栏 -->
+<div class="statusbar-overlay"></div>
+<!-- View列表 -->
+<div class="views">
+    <!-- 第一个View  -->
+    <div class="view view-main">
+        <!-- 这里应该放头部 nav,但是我们没有 -->
+        <!-- 这里 Page 列表-->
+        <div class="pages">
+            <!-- 这里可以放一个或多个page, 这里什么都不写是因为会载入其他页面 -->
+            <div data-page="none" class="page">
+                <div class="page-content">
+
+                </div>
+            </div>
+        </div>
+        <!-- 这里应该放底部 Toolbar,但是我们没有 -->
+    </div>
+</div>
+
+<!-- JS 写在最下面可以提高载入速度 -->
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/LocalResizeIMG.js"></script>
+<script type="text/javascript" src="js/patch/mobileBUGFix.mini.js"></script>
+<script type="text/javascript" src="Scripts/FrameJs/global.js"></script>
+<script type="text/javascript" src="js/my-msg.js"></script>
+<script>
+	myApp.onPageInit("Msg_MyPatientIndex", function () {
+		var url = removeQueryStringParm("loadpagename");
+		$('.view2').attr("href", "MsgHome.html?" + url);
+		$('.view3').attr("href", "trends.html?" + url);
+		$('.view4').attr("href", "more.html?" + url);
+	});
+    myApp.onPageInit("Msg_GroupPatientIndex", function () {
+        var url = removeQueryStringParm("loadpagename");
+        $('.view2').attr("href", "MsgHome.html?" + url);
+        $('.view3').attr("href", "trends.html?" + url);
+        $('.view4').attr("href", "more.html?" + url);
+    });
+
+    myApp.onPageInit("Msg_SecretarySetting", function () {
+        var url = removeQueryStringParm("loadpagename");
+        $('.view2').attr("href", "MsgHome.html?" + url);
+        $('.view3').attr("href", "trends.html?" + url);
+        $('.view4').attr("href", "more.html?" + url);
+    });
+
+</script> 
+
+</body>
+</html>

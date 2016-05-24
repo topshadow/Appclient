@@ -1,0 +1,48 @@
+﻿<!--最新添加-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="NewAddPatient" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left" onclick="ReturnPatientIndex()">
+                            <a  class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center" id="sharedpagetitle">最新添加</div>
+                    </div>
+                </div>
+
+                <div class="Search-bar">
+                    <label id="searchtype">姓名<img src="css/images/arrow-down.png" /></label>
+                    <input type="searchcontent" placeholder="搜索姓名、项目">
+                    <a id="sharesearch"><img src="css/images/search-icon.png" /></a>
+                    <div class="Search-box" id="sharesearchbox">
+                        <span class="arrow"></span>
+                        <span class="arrow2">
+                        </span>
+                        <ul>
+                            <li>姓名</li>
+                            <li>项目</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="page-content contacts-content  NewAddPatient">
+                    <div class="list-block">
+                        <ul id="bindsearchoraddlist">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

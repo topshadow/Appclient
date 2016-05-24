@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+</head>
+<body>
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages navbar-through">
+                <div data-page="user-signature" class="page no-tabbar">
+                    <div class="page-content" style="padding-top:0;">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="left"><a href="#" class="form-back link"><i class="icon icon-back"></i></a></div>
+                                <div class="center sliding">个性签名</div>
+                                <div class="right"><a href="#" class="save link">保存</a></div>
+                            </div>
+                        </div>
+                        <div class="list-block">
+                            <p class="register-info-tips">一句话描述您自己吧，患者在您的主页上可以看到哦！</p>
+                            <div class="list-block-title">选择个性签名</div>
+                            <ul>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="my-radio" id="radio1" value="我，技术精湛，服务厚道" checked="checked"/>
+                                        <div class="item-inner">
+                                            <div class="item-title">我，技术精湛，服务厚道</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="my-radio" id="radio2" value="辛苦属于我，美丽属于你" />
+                                        <div class="item-inner">
+                                            <div class="item-title">辛苦属于我，美丽属于你</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <div class="list-block-title">自己写个性签名</div>
+                            <ul>
+                                <li class="align-top">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <textarea class="new-textarea"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.min.js"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+    <script src="Scripts/FrameJs/frame.ajax.js"></script>
+    <script type="text/javascript">
+        $.Frame.Ajax.Ajax({
+            url: $.Frame.Config.Constant.ServerUrl + "doctor.getusersignature.go",
+            postdata: {
+                doctorsno: GetQueryString("doctorsno")
+            },
+            success: function (rtn) {
+                if (rtn.issuccess) {
+                    if (rtn.data.psignature != "") {
+                        if (rtn.data.psignature == "我，技术精湛，服务厚道") {
+                            $("#radio1").attr("checked", "checked");
+                            $(".new-textarea").text("");
+                        }
+                        else if (rtn.data.psignature == "辛苦属于我，美丽属于你") {
+                            $("#radio2").attr("checked", "checked");
+                            $(".new-textarea").text("");
+                        }
+                        else {
+                            $("input:radio").removeAttr("checked");
+                            $(".new-textarea").text(rtn.data.psignature);
+                            $("input:radio").attr("disabled", "disabled");
+                        }
+                    }
+                    
+                    //$(".new-textarea").click(function () {
+                    //    $(".new-textarea").text("");
+                    //})
+                }
+                else {
+                    myApp.alert(rtn.msg);
+                }
+            }
+        });
+        var usersignature = "";
+
+        $(".new-textarea").bind('input propertychange', function () {
+            if ($(".new-textarea").val() != "") {
+                $("input:radio").attr("disabled", "disabled");
+                $("input:radio").removeAttr("checked");
+            }
+            else {
+                $("input:radio").attr("disabled", false);
+            }
+        });
+
+        $$('.left').on('click', function () {
+            if ($(".new-textarea").val() == "") {
+                usersignature = $("input[type='radio']:checked").val();
+            }
+            else {
+                $(".new-textarea").val($(".new-textarea").val().replace(/[ ]/g, ""));
+                $(".new-textarea").val($(".new-textarea").val().replace(/[\r\n]/g, ""));
+                usersignature = $(".new-textarea").val();
+                if (usersignature == "") {
+                    myApp.alert("请勿输入非法字符");
+                    return false;
+                }
+                else if (usersignature.length > 30) {
+                    myApp.alert("个性签名不得超过30个字");
+                    return false;
+                }
+            }
+            myApp.confirm('', '是否保存编辑？',
+                function () {
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "doctor.setusersignature.go",
+                        postdata: {
+                            doctorsno: GetQueryString("doctorsno"),
+                            usersignature: usersignature
+                        },
+                        success: function (rtn) {
+                            if (rtn.issuccess) {
+                                window.location.href = "index.html";
+                            }
+                            else {
+                                myApp.alert(rtn.msg);
+                            }
+                        }
+                    });
+                },
+                function () {
+                    window.location.href = "index.html";
+                }
+            );
+        });
+        
+        $$('.save').on('click', function () {
+            if ($(".new-textarea").val() == "") {
+                usersignature = $("input[type='radio']:checked").val();
+            }
+            else {
+                $(".new-textarea").val($(".new-textarea").val().replace(/[ ]/g, ""));
+                $(".new-textarea").val($(".new-textarea").val().replace(/[\r\n]/g, ""));
+                usersignature = $(".new-textarea").val();
+                if (usersignature == "") {
+                    myApp.alert("请勿输入非法字符");
+                    return false;
+                }
+                else if (usersignature.length > 30) {
+                    myApp.alert("个性签名不得超过30个字");
+                    return false;
+                }
+            }
+            myApp.confirm('', '是否保存编辑？',
+                function () {
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "doctor.setusersignature.go",
+                        postdata: {
+                            doctorsno: GetQueryString("doctorsno"),
+                            usersignature: usersignature
+                        },
+                        success: function (rtn) {
+                            if (rtn.issuccess) {
+                                window.location.href = "index.html";
+                            }
+                            else {
+                                myApp.alert(rtn.msg);
+                            }
+                        }
+                    });
+                },
+                function () {
+                    
+                }
+            );
+        });
+    </script>
+</body>
+</html>

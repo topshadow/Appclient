@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title id="title"></title>
+
+    <!-- Bootstrap -->
+    <!--<link href="/css/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../css/weixin/chat/style.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="chat-screen">
+    </div>
+    <div id="delivery-confirmation-background">
+    </div>
+    <div id="delivery-confirmation">
+        <img id="preview">
+        <div class="delivery-confirmation-top">
+            <button id="send-cancel">取消</button>
+            <button id="uploadImage">发送</button>
+        </div>
+    </div>
+
+
+    <div id="chat-input">
+        <input type="file" id="fileInput" multiple accept="image/*" hidden />
+        <button class="send-images" id="chooseImage"><img src="../css/weixin/chat/images/photo.jpg" /></button>
+        <input type="text" id="chat-content" placeholder='输入回复内容'>
+        <button class="btn btn-primary " id="send">发送</button>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../Scripts/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/FrameJs/global.js"></script>
+    <script src="../Scripts/jquery.tmpl.min.js"></script>
+    <script type='text/javascript' src='../Scripts/web-im/sdk/strophe.js'></script>
+    <script type='text/javascript' src='../Scripts/web-im/sdk/json2.js'></script>
+    <script type="text/javascript" src="../Scripts/web-im/sdk/easemob.im-1.0.7.js"></script>
+    <script src="../Scripts/blockui-master/jquery.blockUI.js"></script>
+    <script src="../Scripts/localResizeIMG-master/dist/lrz.bundle.js"></script>
+    <script type="text/javascript">
+        function showOverlay() {
+            $.blockUI({
+            	message: '<p><img src="../css/images/wait.jpg" style="width:32px;height:32px"/></p><p id="overlaymsg">请稍候...</p>',
+                css: {
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    color: '#fff',
+                    border: "0px",
+                    opacity: 1,
+                    filter: "alpha(opacity=57)"
+                }
+            });
+        }
+        function changOverlaymsg(tx) {
+            $("#overlaymsg").text(tx);
+        }
+        function closeOverlay() {
+            $.unblockUI();
+        }
+    </script>
+</body>
+</html>
+<script type="text/x-jquery-tmpl" id="itemdata">
+    {{if isshowtime}}
+    <li class="time-record"><time>${createdtstr}</time></li>
+    {{/if}}
+    {{if fromtype == 'd2c'}}
+        {{if type == 'img'}}
+            <li class="myself">
+                <!-- other -->
+                <img src="${customerpic}" alt="">
+                <p>
+                    <img src="${thumb}"  style="border-radius:0;" onclick="showfull('${url}')" />
+                </p>
+            </li>
+        {{else}}
+            <li class="myself">
+                <!-- other -->
+                <img src="${customerpic}" alt="">
+                <p>
+                    ${msg}
+                </p>
+            </li>
+        {{/if}}
+    {{else}}
+    <li class="other">
+        <!-- other -->
+        <p>
+            {{if type == 'img'}}
+            <img src="${thumb}" style="border-radius:0;" onclick="showfull('${url}')" />
+            {{else}}
+            ${msg}
+            {{/if}}
+        </p>
+        <img src="${doctorpic}" alt="">
+    </li>
+    {{/if}}
+</script>
+<script type="text/javascript">
+    var lastdate = "";
+    var isprocess = false;
+    var userid = "";
+    var password = "";
+    var conn = null;
+    var to = "";
+    var doctorsno = "";
+    var curdt = null;
+    var customerpic = "";
+    var doctorpic = "";
+    var accesstoken = "";
+    var appkey = "";
+
+    $(function (e) {
+        to = GetQueryString("from");
+
+        conn = new Easemob.im.Connection();
+        showOverlay();
+        changOverlaymsg("加载用户信息...");
+        $.Frame.Ajax.Ajax({
+            url: $.Frame.Config.Constant.ServerUrl + "webim.doctoriminit.go",
+            postdata: {
+                doctorsno: GetQueryString("drsno"),
+                customerid: to
+            },
+            success: function (rtn) {
+                if (rtn.issuccess) {
+                    userid = rtn.webim_userid;
+                    password = rtn.webim_pass;
+                    customerpic = rtn.to_headpic;
+                    doctorpic = rtn.headpic;
+                    accesstoken = rtn.accesstoken;
+                    appkey = rtn.appkey;
+
+                    if (rtn.data) {
+                        
+                        for (var i = 0; i < rtn.data.length; i++) {
+                            if (curdt == null) {
+                                curdt = rtn.data[i].createdt;
+                                rtn.data[i].isshowtime = true;
+                            } else {
+                                if (curdt.dateDiff("n", rtn.data[i].createdt) > 30) {
+                                    rtn.data[i].isshowtime = true;
+                                    curdt = rtn.data[i].createdt;
+                                }
+                            }
+
+                            rtn.data[i].createdtstr = rtn.data[i].createdt.format("yyyy-MM-dd HH:mm");
+                            rtn.data[i].fromtype = rtn.data[i].from == userid ? "d2c" : "c2d";
+                            rtn.data[i].customerpic = customerpic;
+                            rtn.data[i].doctorpic = doctorpic;
+                        }
+
+                        $("#itemdata").tmpl(rtn.data).appendTo("#chat-screen");
+                        auto2anchor();
+                    } else {
+                        curdt = new Date();
+                    }
+
+                    changOverlaymsg("聊天系统初始化...");
+                    conn.init({
+                        onOpened: function () {
+                            conn.setPresence();
+                            closeOverlay();
+                        },
+                        onTextMessage: function (message) {
+                            var from = message.from;//消息的发送者
+                            if (from == to) {
+                                var mestype = message.type;//消息发送的类型是群组消息还是个人消息
+                                var messageContent = message.data;//文本消息体
+                                if (mestype == 'groupchat') {
+                                    //进行群组消息页面处理
+                                } else {
+                                    //进行个人消息页面处理
+                                }
+                                var list = new Array();
+                                list[0] = {
+                                    isshowtime: false,
+                                    fromtype: 'c2d',
+                                    msg: messageContent,
+                                    customerpic: customerpic,
+                                    doctorpic: doctorpic
+                                }
+                                if (curdt.dateDiff("n", new Date()) > 30) {
+                                    list[0].isshowtime = true;
+                                    curdt = new Date();
+                                }
+                                $("#itemdata").tmpl(list).appendTo("#chat-screen");
+                                auto2anchor();
+                            }
+                        },
+                        onPictureMessage: function (message) {
+                            var filename = message.filename;//文件名称，带文件扩展名
+                            var from = message.from;//文件的发送者
+                            var ext = message.ext;//获取用户的扩展信息（群聊用法相同）
+                            var mestype = message.type;//消息发送的类型是群组消息还是个人消息
+                            var options = message;
+                            if (from != to) {
+                                return;
+                            }
+
+                            var list = new Array();
+                            list[0] = {
+                                isshowtime: false,
+                                fromtype: 'd2c',
+                                type: 'img',
+                                thumb: message.thumb,
+                                url: message.url,
+                                customerpic: customerpic,
+                                doctorpic: doctorpic
+                            }
+                            $("#itemdata").tmpl(list).appendTo("#chat-screen");
+                            auto2anchor();
+                        },
+                        onClosed: function () {
+                            conn.clear();
+                            conn.onClosed();
+                        }
+                    });
+
+                    conn.open({
+                        user: userid,
+                        pwd: password,
+                        appKey: appkey
+                        //accessToken:accesstoken
+                    });
+
+
+                } else {
+                    closeOverlay();
+                    $.Frame.Message.ShowMsg(rtn.msg);
+                }
+            },
+            fail: function () {
+                closeOverlay();
+            },
+            complete: function () {
+                closeOverlay();
+            }
+        })
+        
+        function showfull(url){
+            
+        }
+
+        $("#chooseImage").click(function () {
+            $("#fileInput").click();
+        });
+        $("#uploadImage").click(function () {
+            sendPic();
+        })
+
+        function previewFile() {
+            var preview = document.querySelector('#preview');
+            var reader = new FileReader();
+            var file = document.querySelector('#fileInput').files[0];
+            document.body.style.padding = '0';
+            document.body.style.marginTop = '0';
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+                var a = window.screen.availHeight;
+                var b = window.screen.availWidth;
+                var c = preview.height;
+                var d = preview.width;
+                b1 = a / b;
+                b2 = c / d;
+                if (b1 > b2) {
+                    var e = -c / 2;
+                    preview.style.position = 'fixed';
+                    preview.style.marginTop = e + 'px';
+                    preview.style.top = '50%';
+                    preview.style.zIndex = '2';
+                    document.querySelector('#chat-screen').style.display = 'none';
+                }
+                else {
+                    preview.style.position = 'static';
+                    preview.style.width = '100%';
+                    preview.style.marginTop = 0 + 'px';
+                    document.querySelector('#chat-screen').style.display = 'none';
+                }
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.querySelector('#fileInput').addEventListener('change', function () {
+            lrz(this.files[0])
+                   .then(function (rst) {
+                       document.querySelector('#delivery-confirmation-background').style.display = 'block';
+                       document.querySelector('#delivery-confirmation').style.display = 'block';
+                       document.getElementsByTagName('BODY')[0].scrollTop = 0;
+                       previewFile();
+                   })
+                   .catch(function (err) {
+
+                   })
+        });
+
+        //点击取消
+        $("#send-cancel").click(function () {
+            document.querySelector('#delivery-confirmation-background').style.display = 'none';
+            document.querySelector('#delivery-confirmation').style.display = 'none';
+            $('#preview').removeAttr("src");
+            $('#preview').removeAttr("style");
+            document.body.style.padding = '0 10px';
+            document.body.style.marginTop = '10px';
+            document.querySelector('#chat-screen').style.display = 'block';
+            document.getElementsByTagName('BODY')[0].scrollTop = document.getElementsByTagName('BODY')[0].scrollHeight;
+        });
+
+        $("#send").click(function () {
+            var msg = $('#chat-content').val();
+            var options = {
+                to: to,
+                msg: msg,
+                type: "chat"
+            };
+            conn.sendTextMessage(options);
+            $('#chat-content').val("");
+            var list = new Array();
+            list[0] = {
+                isshowtime: false,
+                fromtype: 'd2c',
+                msg: msg,
+                customerpic: customerpic,
+                doctorpic: doctorpic
+            }
+            if (curdt.dateDiff("n", new Date()) > 30) {
+                list[0].isshowtime = true;
+                curdt = new Date();
+            }
+            $("#itemdata").tmpl(list).appendTo("#chat-screen");
+            auto2anchor();
+        })
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == "13") {
+                $("#send").trigger("click");
+            }
+        });
+    })
+
+    function sendPic() {
+        //fileInputId：文件选择输入框的Id，sdk自动根据id自动获取文件对象（含图片，或者其他类型文件）
+        var fileObj = Easemob.im.Helper.getFileUrl("fileInput");
+        if (fileObj.url == null || fileObj.url == '') {
+            $.Frame.Message.ShowMsg("请选择发送图片");
+            return;
+        }
+        var filetype = fileObj.filetype;
+        var filename = fileObj.filename;
+        if (filetype in {
+                        "jpg": true,
+                        "gif": true,
+                        "png": true,
+                        "bmp": true
+        }) {
+            showOverlay();
+            var opt = {
+                fileInputId: "fileInput",
+                to: to,
+                onFileUploadError: function (error) {
+                    closeOverlay();
+                    $.Frame.Message.ShowMsg("图片发送失败");
+                },
+                onFileUploadComplete: function (data) {
+                    $("#send-cancel").click();
+                    closeOverlay();
+                    //处理图片上传成功，如本地消息显示
+                }
+                // ext:{"extmsg":"extends messages"}//用户自扩展的消息内容（群聊用法相同）
+            };
+            conn.sendPicture(opt);
+            return;
+        }
+        $.Frame.Message.ShowMsg("不支持此图片类型" + filetype);
+    };
+
+    function auto2anchor() {
+        if ($(".myself").size() > 0 && $(".other").size() > 0) {
+            if ($(".myself").last().offset().top > $(".other").last().offset().top) {
+                $("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000)
+            } else {
+                $("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000)
+            }
+        } else if ($(".myself").size() > 0) {
+            $("html,body").animate({ scrollTop: $(".myself").last().offset().top }, 1000)
+        } else if ($(".other").size() > 0) {
+            $("html,body").animate({ scrollTop: $(".other").last().offset().top }, 1000)
+        }
+    }
+</script>

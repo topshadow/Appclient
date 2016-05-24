@@ -1,0 +1,351 @@
+.OfficePatientTab {width:100%;}
+.txtRight {text-align:right}
+.txtLeft {text-align:left}
+.txtLeft .active,  .txtRight .active{border-bottom:2px solid #fff;}
+.hidden{display:none;}
+.txtCenter {text-align: center}
+
+.item-content.active{ background-color: #d2d2d2; }
+.js_droptitle {color: #8e8e93;}
+.js_dropitem {
+    position:absolute;
+    background-color: #fff;
+    width:100%;
+    z-index:9999;
+    top:44px;
+    box-shadow:5px 5px 3px #aaaaaa;
+    margin-left: -15px;
+}
+.js_dropitem .js_dropitem_content { padding: 10px;text-align: left }
+.js_dropitem .js_dropitem_content .row > [class*="col-"]{ margin-bottom: 5px; }
+
+.threetabnav { width: 100%;float: left;line-height: 41px;overflow: hidden;color:#000000;padding-left: 0;padding-right: 0;background-color: #FFFFFF;font-size: 15px; }
+.threetabnav .threetabnav-item { float: left;width: 33%;text-align: center; }
+.threetabnav .threetabnav-item.actived { border-bottom: 3px solid #4d98eb;color:#4d98eb; }
+.threetabnav .threetabnav-item a { color:#000000; }
+/******************chat-screen***********************************/
+/*#chat-screen li {
+    list-style: none;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+!*时间显示*!
+#chat-screen li.time-record {
+    display: inline-block;
+    text-align: center;
+}
+#chat-screen li.time-record time {
+    color: #EBEBEB;
+    text-align: center;
+    margin: 0px auto 20px auto;
+    padding: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 4px;
+    clear: both;
+}
+
+!*自己所说的话*!
+#chat-screen li.myself {
+    width: 100%;
+    clear:right;
+    overflow:hidden;
+}
+#chat-screen li.self {
+    display: inline-block;
+}
+#chat-screen li.myself p {
+    position: relative;
+    float: right;
+    margin: 0px;
+    margin-right: 20px;
+    !*border: 1px #ccc solid;*!
+    border-radius: 15px;
+    display: inline-block;
+    padding: 12px 12px;
+    font-size: 18px;
+    color:#FFFFFF;
+    background-color: #00ADFC;
+    max-width: 70%;
+    max-width: calc(100% - 90px);
+    word-break: break-all;
+    word-wrap: break-word;
+}
+#chat-screen li.myself img {
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 20px;
+    display: inline-block;
+    float: right;
+}
+#chat-screen li.myself p:after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 12px;
+    width: 0px;
+    height: 0px;
+    border-top: 7px solid transparent;
+    border-left: 14px solid #00ADFC;
+    border-bottom: 7px solid transparent;
+}
+
+!*他人所说的话*!
+#chat-screen li.other {
+    width: 100%;
+    clear:right;
+}
+#chat-screen li.other img {
+    position: relative;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    border-radius: 20px;
+    margin: 0px;
+    float: left;
+}
+#chat-screen li.other p {
+    position: relative;
+    font-size: 18px;
+    margin: 0px;
+    padding: 12px 12px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    display: inline-block;
+    max-width: 70%;
+    color:#000000;
+    margin-left: 20px;
+    max-width: -moz-calc(100% - 90px);
+    max-width: calc(100% - 90px);
+    word-break: break-all;
+    word-wrap: break-word;
+}
+#chat-screen li.other p:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 12px;
+    width: 0px;
+    height: 0px;
+    border-top: 7px solid transparent;
+    border-right: 14px solid #FFFFFF;
+    border-bottom: 7px solid transparent;
+}
+
+!*最后一条的bottom*!
+#chat-screen li:last-child {
+    margin-bottom: 0;
+}
+#chat-screen li:last-child p {
+    margin-bottom:70px!important;
+}*/
+.messages-content .messages{ margin-bottom: 50px; }
+.messages-auto-layout .message-avatar { opacity: 1; }
+.messages-date span {
+    line-height: 26px;
+    display: block;
+    width: 100px;
+    height: 26px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #cecece;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*输入框*/
+#chat-input {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    background-color: #e6e6e6;
+    border-top: 1px  solid #ccc;
+    height: 60px;
+}
+#chat-input input {
+    margin: 10px 0;
+    padding: 0 10px;
+    width: 65%;
+    width: -moz-calc(100% - 75px);
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #aeaeae;
+    float: left;
+    color: #333;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+/*图片按钮*/
+.send-images{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    float:left;
+    margin:15px 5px 15px 5px;
+}
+.send-images img{
+    width: 100%;
+    height: 100%;
+}
+
+.btn{
+    margin: 10px 0;
+    padding: 6px 12px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 8px;
+    font-size: 18px;
+    float: right;
+    color: #333;
+    margin-right:5px;
+}
+
+
+#send-cancel {
+    height:24px;
+    width:50px;
+    font-size:14px;
+    margin-top:8px;
+    border-radius:3px;
+    border:0;
+    margin-left:10px;
+}
+
+#uploadImage {
+    height:24px;
+    width:50px;
+    font-size:14px;
+    margin-top:8px;
+    border-radius:3px;
+    border:0;
+    background-color:#45c018;
+    color:white;
+    float:right;
+    margin-right:10px;
+}
+
+/*确认弹窗*/
+#delivery-confirmation-background {
+    position:absolute;
+    height:100%;
+    width:100%;
+    left:0;
+    top:0;
+    background-color:#1a1a1a;
+    z-index:1;
+    display:none;
+}
+#delivery-confirmation {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+    display:none;
+}
+#delivery-confirmation2 {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+    display:none;
+}
+.delivery-confirmation-top {
+    position:fixed;
+    height:40px;
+    width:100%;
+    background-color: rgba(64,70,70,0.8);
+    top:0;
+    z-index:4;
+}
+#delivery-confirmation img {
+    width:100%;
+}
+
+
+/* 诊疗记录 正方形图片列表*/
+.figure-list{
+    margin: 0;
+    padding: 0;
+}
+.figure-list:after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.figure-list li{
+    list-style: none;
+    float: left;
+    width: 23%;
+    margin: 0 2% 2% 0;
+    background-color: #FFFFFF;
+}
+.figure-list figure{
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 100%; /* 关键就在这里 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.figure-list figure a{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.OfficePatientNav {background-color:#ffffff;padding:15px 20px; border-bottom: 1px solid #c8c7cc;}
+.OfficePatientNav .col-33 {text-align:center}
+.OfficePatientNav img {width:40px; height:40px;margin-bottom:6px;}
+.OfficePatientNav a {color:#777777;margin-top:5px;}
+
+.titlec2d { height:90px;}
+.titlec2d .navbar-inner:nth-child(2) { top: 52px; height: 31px;}
+.titlec2d .navbar-inner:nth-child(1) { top:-20px; }
+
+.DoctorList li {border-bottom:1px solid #ccc;font-size:1em}
+.DoctorList .item-inner{padding:10px 0;}
+.DoctorList .item-title{white-space: normal;}
+
+.DoctorList .item-inner::after {height:0px;}
+.DoctorList .item-media img {width:50px;height:50px;margin-bottom:15px;border-radius:50%;}
+.DoctorList .item-media label {position:absolute;background-color:#fe3f30;border-radius:6px;color:#fff;padding: 0px 5px;
+    left: 15px;font-size:12px;bottom:20px;}
+.DoctorList .item-content {padding:20px 20px;font-size:0.8em;background-color:#f7f7f9;}
+.bg-yellow-lbl {background-color:#eec551 !important;}
+.bg-purple-lbl {background-color:#bda1f5 !important;}
+.bg-blue-lbl {background-color:#87cce9 !important;left:20px;}
+.bg-green-lbl {background-color:#add447 !important;}
+.DoctorList .item-text {font-size:0.9em;}
+.DoctorList .item-text span:nth-child(1) {color:#222222;}
+.DoctorList .item-text span:nth-child(2) {color:#777777;}
+
+.invisibletoolbar { background: #FFFFFF;}
+.invisibletoolbar .toolbar-inner { padding-bottom: 40px; padding-left: 80px; padding-right: 80px; }
+.invisibletoolbar:before  { background: none;}

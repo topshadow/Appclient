@@ -1,0 +1,160 @@
+﻿<!--我的资料-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="PatientInfo" class="page">
+                <div class="navbar  titlec2d">
+                    <div class="navbar-inner">
+                        <div class="left" id="turntodefinedpage">
+                            <a href="#" class="link" onclick="ReturnMyPatient()">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center sliding" id="cname"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="navbar-inner" style="padding-left: 0px;padding-right: 0px;">
+                        <div class="threetabnav">
+                            <div class="threetabnav-item actived" id="tabDoctor">患者主页</div>
+                            <div class="threetabnav-item" id="tabTalk">
+                               <a href="#">联系患者</a>
+                            </div>
+                            <div class="threetabnav-item" id="tabRecords">
+                                <a href="#">咨询记录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content contacts-content PatientInfo">
+
+                    <div class="list-block PatientInfos" style="margin-top: 60px;">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <!--<img id="headimg" src="img/ab.png" />-->
+                                        <img id="headimg"  />
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="name">
+                                            <span></span>
+                                            <img src="img/male.png" />
+                                        </div>
+                                    </div>
+                                    <div class="collectstylediv" >
+                                        <div><img id="collectoruncollect"></div>
+                                        <div id="forcollect">
+                                            <!--<label></label>-->
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block  InfoItems">
+                        <ul>
+                            <li>
+                                <a class="item-link" id="contactpatient" onclick="ContactPatient(this)">
+                                    <div class="item-content">
+
+                                        <div class="item-media">
+                                            <img src="img/info-telphone.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                电话
+                                            </div>
+                                            <div id="telphone" class="item-title">
+                                                
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="list-block  InfoItems" id="tvisit">
+                        <ul>
+                            <li>
+                                    <div class="item-content">
+
+                                        <div class="item-media">
+                                            <img src="img/info-visit.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                术后随访
+                                            </div>
+                                        </div>
+                                        <div class="item-after">
+                                            <a href="#" class="button button-fill color-blue" onclick="CheckVisitPlan()"  id="chevisit" style="background:#4D98EB">查看</a>
+                                            <a href="" class="button button-fill color-blue" onclick="GotoVisitPlan()" id="addvisit" style="background:#4D98EB">上传</a>
+                                        </div>
+                                    </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="list-block InfoRecord">
+                        <ul>
+                            <li >
+                                <a class="item-link">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <img src="img/info-record.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                就诊记录<span>点击查看后可修改</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
+                            
+                        </ul>
+
+                        <ul id="binddiagnosisrecord">
+
+                        </ul>
+
+                        <ul>
+                            <li id="bindtreatrecord">
+                                <a class="item-link">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <img src="img/info-record.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                治疗记录<span>点击查看后可修改</span>
+                                            </div>
+                                            <div class="item-after" style="color:#38b3ff" id="createnewtreatrecord">
+                                                新建
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

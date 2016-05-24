@@ -1,0 +1,259 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link href="css/MyVisitPlan.css" rel="stylesheet" />
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+
+</head>
+<body>
+    <!-- 状态栏-->
+    <div class="statusbar-overlay"></div>
+    <!-- View -->
+    <div class="views">
+        <div class="view view-main">
+            <!--Page-->
+            <div class="pages ">
+                <div data-page="none" class="page">
+                    <div class="page-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--随访计划列表-->
+    <script type="text/x-jquery-tmpl" id="VisitIndexListTmpl">
+
+        {{if sno != undefined}}
+        <li>
+            <a href="AddVisitToCustomer.html?templateid=${templateid}&sno=${sno}" class="item-link item-content">
+                <div class="item-inner">
+                    <div class="item-title">${templatename}</div>
+                </div>
+            </a>
+        </li>
+        {{else}}
+        <li>
+            <a href="EditVisitTemplate.html?templateid=${templateid}" class="item-link item-content">
+                <div class="item-inner">
+                    <div class="item-title">${templatename}</div>
+                </div>
+            </a>
+        </li>
+        {{/if}}
+    </script>
+    <!--编辑随访计划-->
+    <script type="text/x-jquery-tmpl" id="EditVisitTmpl">
+
+        {{if no == 0}}
+        <div class="Time-line">
+            <div class="row Time-line-title">
+
+                <div class="col-33"><input type="text" class="EditTmpl" onclick="EditPickerDate(this,'${type}')" name="tinterval" mode="start" data-tintervaldate="${tinterval}" data-ttype="${type}" value="${BeforeTime}" /></div>
+                <div class="col-33">
+                    <label class="EditTmpl" name="ttitle">${ttitle}</label>
+                </div>
+                <div class="col-33"><input type="text" onclick="ShowPickerTime(this)" class="EditTmpl" name="ttime" value="${ttime}" /></div>
+                <input type="hidden" class="EditTmpl" name="templateid" value="${templateid}" />
+                <input type="hidden" class="EditTmpl" name="templatename" id="templatenameEdit" />
+            </div>
+            <div class="Time-line-Content">
+                <textarea class="EditTmpl" name="tcontent">${tcontent}</textarea>
+            </div>
+            <div class="Time-line-Arrow"></div>
+        </div>
+        {{else}}
+        <div class="Time-line-Edit ">
+            <div class="row Time-line-EditTitle">
+                <img src="img/icon-delvisittemp.png" onclick="DelVisitPlan(this)" />
+                <div class="col-33"><input type="text" class="EditTmpl" name="tinterval" onclick="EditPickerDate(this, '${type}')" mode="start" data-tintervaldate="${tinterval}" data-ttype="${type}" value="${BeforeTime}" /></div>
+                <div class="col-33">
+                    <label class="EditTmpl" name="ttitle">${ttitle}</label>
+                </div>
+                <div class="col-33">
+                    <input class="EditTmpl" type="text" onclick="ShowPickerTime(this)" name="ttime" value="${ttime}" />
+                </div>
+            </div>
+            <div class="Time-line-EditContent">
+                <textarea class="EditTmpl" name="tcontent">${tcontent}</textarea>
+            </div>
+            <div class="Time-line-Arrow"></div>
+        </div>
+        {{/if}}
+
+
+    </script>
+
+    <!--添加随访模板计划-->
+    <script type="text/x-jquery-tmpl" id="AddVisitToCustomerTmpl">
+
+        {{if no == 0}}
+        <div class="Time-line">
+            <div class="row Time-line-title">
+
+                <div class="col-33"><input type="text" class="EditTmpl" onclick="EditPickerDate(this,'${type}')" name="tinterval" mode="start" data-tintervaldate="${tinterval}" data-ttype="${type}" value="${BeforeTime}" /></div>
+                <div class="col-33">
+                    <label class="EditTmpl" name="ttitle">${ttitle}</label>
+                </div>
+                <div class="col-33"><input type="text" onclick="ShowPickerTime(this)" class="EditTmpl" name="ttime" value="${ttime}" /></div>
+                <input type="hidden" class="EditTmpl" name="templateid" value="${templateid}" />
+                <input type="hidden" class="EditTmpl" name="templatename" id="templatenameAdd" />
+            </div>
+            <div class="Time-line-Content">
+                <textarea class="EditTmpl" name="tcontent">${tcontent}</textarea>
+            </div>
+            <div class="Time-line-Arrow"></div>
+        </div>
+        {{else}}
+        <div class="Time-line-Edit ">
+            <div class="row Time-line-EditTitle">
+                <img src="img/icon-delvisittemp.png" onclick="DelVisitPlan(this)" />
+                <div class="col-33"><input type="text" class="EditTmpl" name="tinterval" onclick="EditPickerDate(this, '${type}')" mode="start" data-tintervaldate="${tinterval}" data-ttype="${type}" value="${BeforeTime}" /></div>
+                <div class="col-33">
+                    <label class="EditTmpl" name="ttitle">${ttitle}</label>
+                </div>
+                <div class="col-33">
+                    <input class="EditTmpl" type="text" onclick="ShowPickerTime(this)" name="ttime" value="${ttime}" />
+                </div>
+            </div>
+            <div class="Time-line-EditContent">
+                <textarea class="EditTmpl" name="tcontent">${tcontent}</textarea>
+            </div>
+            <div class="Time-line-Arrow"></div>
+        </div>
+        {{/if}}
+
+
+    </script>
+
+    <!--查看随访模板-->
+    <script type="text/x-jquery-tmpl" id="CheckVisitTmpl">
+        <div class="Time-line-Check">
+            <div class="row Time-line-title-Check">
+                <div class="col-33">${BeforeTime}</div>
+                <div class="col-33">${ttitle}</div>
+                <div class="col-33">${ttime}</div>
+            </div>
+            <div class="Time-line-Content-Check">
+                <p>${tcontent}</p>
+            </div>
+        </div>
+    </script>
+
+
+
+    <!--医生主页 擅长项目模板-->
+    <script type="text/x-jquery-tmpl" id="tmpldata">
+        <li>${productname}</li>
+    </script>
+
+    <!--术后随访日程-->
+    <script type="text/x-jquery-tmpl" id="VisitTemplateScheduleTmpl">
+        <li class="accordion-item">
+            <a href="#" class="item-content item-link">
+                <div class="item-media"><img src="img/icon-Schedule.png" /></div>
+                <div class="item-inner">
+                    <label>${messtemplatename}（日程）</label>
+                </div>
+            </a>
+            <div class="accordion-item-content">
+                <div class="content-block" id="VisitPlanToAdd">
+                    {{each(i,arg) items}}
+                    {{if arg.itemno =='end'}}
+                    <div class="Time-line-ScheduleEnd">
+                        <div class="Time-line-Schedule-Title">
+                            术后${arg.messinterval}<span style="float:right">${arg.messsendtime.format("yyyy-MM-dd HH:mm")}</span>
+                            <img src="img/icon-timelineend.png" />
+                        </div>
+
+                        <div class="Time-line-ScheduleContentEnd">
+                            ${arg.messcontent}
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="Time-line-Schedule">
+                        <div class="Time-line-Schedule-Title">
+                            术后${arg.messinterval}<span style="float:right">${arg.messsendtime.format("yyyy-MM-dd HH:mm")}</span>
+                            <img src="img/icon-timelineclock.png" />
+                        </div>
+                        <div class="Time-line-ScheduleContent">
+                            ${arg.messcontent}
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+
+
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <!--预约项目菜单模板-->
+    <script type="text/x-jquery-tmpl" id="datalist">
+        {{if seqno==1}}
+        <li class="active"><a href="#tab${seqno}" class="active tab-link"><i class="iconfont ${typeicon}"></i>${typename}</a></li>
+        {{else}}
+        <li><a href="#tab${seqno}" class="tab-link"><i class="iconfont ${typeicon}"></i>${typename}</a></li>
+        {{/if}}
+    </script>
+
+    <!--预约项目子菜单模板-->
+    <script type="text/x-jquery-tmpl" id="datalist2">
+        {{if seqno==1}}
+        <ul id="tab${seqno}" class="tab active">
+            {{each(i,arg) items}}
+            <li><a href="#" class="SelectProductItem" onclick="GetSno('${arg.sno}', '${arg.name}')" item="${arg.sno}">${arg.name}</a></li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <ul id="tab${seqno}" class="tab">
+            {{each(i,arg) items}}
+            <li><a href="#" class="SelectProductItem" onclick="GetSno('${arg.sno}', '${arg.name}')" item="${arg.sno}">${arg.name}</a></li>
+            {{/each}}
+        </ul>
+        {{/if}}
+    </script>
+
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.min.js"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+    <script src="Scripts/FrameJs/base64.js"></script>
+    <!-- 随访计划-->
+    <script type="text/javascript" src="js/my-visitplan.js"></script>
+</body>
+</html>

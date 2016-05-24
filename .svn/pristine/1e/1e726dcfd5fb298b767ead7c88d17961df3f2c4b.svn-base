@@ -1,0 +1,39 @@
+<!-- 这里是 消息-小秘书设置 page, 实际的母页是 MsgHome.html -->
+
+<div data-page="Msg_ConsultingRecords" class="page navbar-fixed toolbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar titlec2d" >
+        <div class="navbar-inner">
+            <div class="left">
+                <a id="backlink" class="link">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center sliding"></div>
+            <div class="right"></div>
+        </div>
+        <div class="navbar-inner" style="padding-left: 0px;padding-right: 0px;">
+            <div class="threetabnav">
+                <div class="threetabnav-item" id="tabDoctor">患者主页</div>
+                <div class="threetabnav-item" id="tabTalk">联系患者</div>
+                <div class="threetabnav-item actived" id="tabRecords">咨询记录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 聊天显示窗体-->
+    <div class="page-content">
+        <!-- 下面是正文 -->
+        <div class="content-block" style="margin-top: 100px;margin-bottom: 10px">
+            <div class="row">
+                <div class="color-red col-100">咨询记录照片自动将为您保存7天,7天后将自动删除,您可在诊疗记录中挑选咨询记录照片上传</div>
+            </div>
+            <div class="row" style="margin-top: 10px;margin-bottom: 10px">
+                <select class="col-100" id="selRecordDt">
+                </select>
+            </div>
+            <ul class="figure-list">
+            </ul>
+        </div>
+    </div>
+
+</div>

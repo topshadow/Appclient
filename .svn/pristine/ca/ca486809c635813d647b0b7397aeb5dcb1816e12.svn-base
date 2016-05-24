@@ -1,0 +1,56 @@
+<!-- 这里是 消息-小秘书设置 page, 实际的母页是 MsgHome.html -->
+
+<div data-page="Msg_Talking" class="page navbar-fixed toolbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar titlec2d">
+        <div class="navbar-inner">
+            <div class="left">
+                <a id="backlink" class="link">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center sliding"></div>
+            <div class="right"></div>
+        </div>
+        <div class="navbar-inner" style="padding-left: 0px;padding-right: 0px;">
+            <div class="threetabnav">
+                <div class="threetabnav-item" id="tabDoctor">患者主页</div>
+                <div class="threetabnav-item actived" id="tabTalk">联系患者</div>
+                <div class="threetabnav-item" id="tabRecords">咨询记录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 聊天显示窗体-->
+    <div id="talkpagecontent" class="page-content messages-content native-scroll pull-to-refresh-content"  style="margin-top: 90px">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+
+        <div class="messages">
+
+        </div>
+    </div>
+    <!-- 对话框-->
+    <div class="toolbar messagebar">
+        <div class="toolbar-inner" style="margin-left: 50px;">
+            <input type="file" id="fileInput" accept="image/*" capture="camera" class="upload hidden" />
+            <a id="message-photo" href="#" class="link icon-pic icon-only "><i class="iconfont icon-tupian  message-send"></i></a>
+            <!--<a href="#" class="link icon-voice icon-only"><i class="iconfont icon-yuyin"></i></a>-->
+            <textarea id="chat-content" placeholder="" class="message-textarea" ></textarea><a href="#" class="link send-message">发送</a>
+        </div>
+    </div>
+
+    <!-- 对话模版-->
+    <script type="text/template7" id="TemplateTalkItem2">
+        {{#if day}}
+        <div class="messages-date"><span>{{day}}</span></div>
+        {{/if}}
+        <div class="message message-{{type}} {{#if hasImage}}message-pic{{/if}} message-with-avatar" id="{{msgid}}" >
+            {{#if name}}<div class="message-name">{{name}}</div>{{/if}}
+            <div class="message-avatar" style="background-image:url({{avatar}})"></div>
+            <div class="message-text">{{text}}</div>
+            {{#if label}}<div class="message-label">{{label}}</div>{{/if}}
+        </div>
+    </script>
+</div>

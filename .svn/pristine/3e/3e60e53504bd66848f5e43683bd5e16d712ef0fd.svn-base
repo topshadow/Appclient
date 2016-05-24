@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+  </head>
+  <body>
+      <div id="view-more" class="view tab">
+          <div class="navbar">
+              <div class="navbar-inner">
+                  <div class="center sliding">更多</div>
+              </div>
+          </div>
+          <div class="pages navbar-fixed">
+              <div data-page="index-more" class="page">
+                  <div class="page-content">
+                      <div class="list-block more-list">
+                          <ul style="padding-top: 44px;">
+                              <li>
+                                  <a href="#" class="item-link ulogin external">
+                                      <div class="item-content">
+                                          <div class="item-media"><i class="iconfont icon-bianjiziliao"></i></div>
+                                          <div class="item-inner">
+                                              <div class="item-title">完善资料</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+							  	<a href="javascript:void(0)" onclick="window.location.href = 'http://weixincs.jumeiyiyun.com/HTML/2.0/storehome.html?doctorsno=' + localStorage.getItem('doctorSno')" class="item-link">
+							  		<div class="item-content">
+							  			<div class="item-media"><i class="iconfont icon-jifen"></i></div>
+							  			<div class="item-inner">
+							  				<div class="item-title">美币商城</div>
+							  			</div>
+							  		</div>
+							  	</a>
+                              </li>
+                              <!--<li>
+                                  <a href="#" class="item-link">
+                                      <div class="item-content">
+                                          <div class="item-media"><i class="iconfont icon-tuijian"></i></div>
+                                          <div class="item-inner" onclick="javascript: myApp.alert('专属定制，资料勿泄')">
+                                              <div class="item-title">推荐医生</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>-->
+                              <li>
+                                  <a href="#" class="item-link tmpl external">
+                                      <div class="item-content">
+                                          <div class="item-media"><i class="iconfont icon-tuijian"></i></div>
+                                          <div class="item-inner">
+                                              <div class="item-title" onclick="myApp.alert('专属定制，资料勿泄')">随访模板管理</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+
+                              <li>
+                                  <a href="#" class="item-link feed external">
+                                      <div class="item-content">
+                                          <div class="item-media"><i class="iconfont icon-yijianfankui"></i></div>
+                                          <div class="item-inner">
+                                              <div class="item-title">意见反馈</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" id="logoff" class="item-link">
+                                      <div class="item-content">
+                                          <div class="item-media"><i class="iconfont icon-tuichu"></i></div>
+                                          <div class="item-inner">
+                                              <div class="item-title">退出登录</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  <!-- <div class="toolbar tabbar tabbar-labels bottom-tabbar" style="bottom:50px;">
+	  <div class="toolbar-inner"><a href="index.html" class="tab-link external view1"><i class="iconfont icon-home"></i><span class="tabbar-label">首页</span></a><a href="" class="tab-link external view2"><i class="icon iconfont icon-dongtai"><span class="badge bg-red">4</span></i><span class="tabbar-label">消息</span></a><a href="" class="tab-link external view3"><i class="icon iconfont icon-zixun"><span class="badge bg-red">1</span></i><span class="tabbar-label">动态</span></a><a href="" class="tab-link active external view4"><i class="iconfont icon-gengduo"></i><span class="tabbar-label">更多</span></a></div>
+  </div>-->
+
+  	<div class="toolbar tabbar tabbar-labels bottom-tabbar" style="bottom:50px;">
+  		<div class="toolbar-inner"><a href="index.html" class="tab-link external view1"><i class="iconfont icon-home"></i><span class="tabbar-label">首页</span></a><a href="" class="tab-link view2"><i class="icon iconfont icon-dongtai"></i><span class="tabbar-label">消息</span></a><a href="" class="tab-link external view3"><i class="icon iconfont icon-zixun"></i><span class="tabbar-label">动态</span></a><a href="" class="tab-link active external view4"><i class="iconfont icon-gengduo"></i><span class="tabbar-label">更多</span></a></div>
+  	</div>
+  <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="Scripts/FrameJs/global.js"></script>
+      <script>
+          $$('#logoff').on('click', function () {
+
+              myApp.confirm('', '退出当前帐号，将不能<br/>实时查看客户留言', function () {
+                  $.Frame.Ajax.Ajax({
+                      url: $.Frame.Config.Constant.ServerUrl + "doctor.doctorlogoff.go",
+                      postdata: {
+                          doctorsno: localStorage.getItem("doctorSno"),
+                          userType: "Doctor",
+                          deviceType: G_DEVICE_TYPE,
+                          registrationId: G_JPUSH_REGISTR_ID
+                      },
+                      success: function (rtn) {
+                          if (rtn.issuccess) {
+                              myApp.alert("登出成功",function(){
+                                  window.location.href = "index.html";
+                                  localStorage.clear();
+                              });
+                          } else {
+                              myApp.alert("登出失败");
+                          }
+                      },
+                      fail:function(){
+                          myApp.alert("ERROR");
+                      }
+                  });
+              });
+          });
+          $(function() {
+	          var url = location.search;
+	          $('.view2').attr("href", "MsgHome.html" + url);
+	          $('.view3').attr("href", "trends.html" + url);
+	          $('.feed').attr("href", "Feedback.html" + url);
+	          $('.tmpl').attr("href", "VisitPlan.html"+ url);
+	          $('.feed').attr("href", "Feedback.html" + url);
+	          $('.ulogin').attr("href", "user-info.html" + url);
+          });
+
+         var link = "http://weixincs.jumeiyiyun.com/HTML/2.0/storehome.html?doctorsno=" + localStorage.getItem("doctorSno");
+
+         function clearInfo(){
+             //将手机号存入缓存
+             localStorage.setItem("messPhone", "");
+
+             //将密码存入缓存
+             localStorage.setItem("messPwd", "");
+
+             //将医生编号存入缓存
+             localStorage.setItem("doctorSno", "");
+
+             console.log("本地存储:\n" +
+                       +"手机号:" + localStorage.getItem("messPhone") + "\n"
+                       + "密码:" + localStorage.getItem("messPwd") + "\n"
+                       + "编号" + localStorage.getItem("doctorSno" + "\n"));
+         }
+      </script>
+  </body>
+</html>

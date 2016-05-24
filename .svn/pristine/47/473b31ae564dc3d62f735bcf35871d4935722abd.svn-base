@@ -1,0 +1,449 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link href="css/MyPatient.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+
+    <link rel="stylesheet" href="css/my-msg.css">
+</head>
+<body>
+    <!-- 状态栏-->
+    <div class="statusbar-overlay"></div>
+    <!-- View -->
+    <div class="views">
+        <div class="view view-main">
+            <!--Page-->
+            <div class="pages ">
+                <div data-page="none" class="page">
+                    <div class="page-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MyPatient页面-->
+    <!--自定义分组的模板-->
+    <script type="text/x-jquery-tmpl" id="docdefinedgrouplist">
+        <li class="accordion-item " >
+            <!--<a href='AddNewGroup.html?doctorsno=${doctorsno}&groupid=${groupid}&groupname=${groupname}' class="item-link item-content doctordefined">-->
+            <a data-doctorsno="${doctorsno}" data-groupid="${groupid}" data-groupname="${groupname}" href="#" class="item-link item-content doctordefined">
+                <div class="item-inner">
+                    <div class="item-title">${groupname}<span>（${groupnum}）</span></div>
+                </div>
+            </a>
+        </li>
+    </script>
+        <!--已诊断模板-->
+        <script type="text/x-jquery-tmpl" id="diagnosislist">
+            <!--<li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">${truename}</div>
+                </div>
+            </li>-->
+            <li data-sno="${customersno}" data-mark="patientindex" onclick="GetPatientInfo(this)">
+                <div class="item-content">
+                    <div class="item-media">
+                        <img src="${picsrc}" />
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            ${truename}
+                            {{if sextype == '0'}}
+                            <img src="img/male.png" />
+                            {{/if}}
+                            {{if sextype == '1'}}
+                            <img src="img/female.png" />
+                            {{/if}}
+                            {{if sextype != '0' && sextype != '1'}}
+                            <img src="" />
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="item-after">
+                        
+                    </div>
+                </div>
+            </li>
+        </script>
+        <!--已治疗模板-->
+        <script type="text/x-jquery-tmpl" id="treatlist">
+            <li data-sno="${customersno}" data-mark="patientindex" onclick="GetPatientInfo(this)">
+                <div class="item-content">
+                    <div class="item-media">
+                        <img src="${picsrc}" />
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            ${truename}
+                            {{if sextype == '0'}}
+                            <img src="img/male.png" />
+                            {{/if}}
+                            {{if sextype == '1'}}
+                            <img src="img/female.png" />
+                            {{/if}}
+                            {{if sextype != '0' && sextype != '1'}}
+                            <img src="" />
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="item-after">
+                        
+                    </div>
+                </div>
+            </li>
+            <!--<li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">${truename}</div>
+                </div>
+            </li>-->
+        </script>
+        <!--已收藏模板-->
+        <script type="text/x-jquery-tmpl" id="collectlist">
+            <li data-sno="${customersno}" data-mark="patientindex" onclick="GetPatientInfo(this)">
+                <div class="item-content">
+                    <div class="item-media">
+                        <img src="${picsrc}" />
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            ${truename}
+                            {{if sextype == '0'}}
+                            <img src="img/male.png" />
+                            {{/if}}
+                            {{if sextype == '1'}}
+                            <img src="img/female.png" />
+                            {{/if}}
+                            {{if sextype != '0' && sextype != '1'}}
+                            <img src="" />
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="item-after">                       
+                    </div>
+                </div>
+            </li>
+            <!--<li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">${truename}</div>
+                </div>
+            </li>-->
+        </script>
+        <!--按自定义分组-->
+    <script type="text/x-jquery-tmpl" id="definedgroupinfo">
+        <li class="accordion-item">
+            <a href="" class="item-link item-content">
+                <div class="item-inner">
+                    <div class="item-title" id="diagnosiscount">${groupname}<span>（${groupnum}）</span></div>
+                </div>
+            </a>
+            <div class="accordion-item-content page-content contacts-content">
+                <div class="list-block">
+                    <ul>
+                        {{each(i,arg) items}}
+                        <li data-sno="${customersno}" data-mark="patientindex" onclick="GetPatientInfo(this)">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img src="${picsrc}" />
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        ${truename}
+                                        {{if sextype == '0'}}
+                                        <img src="img/male.png" />
+                                        {{/if}}
+                                        {{if sextype == '1'}}
+                                        <img src="img/female.png" />
+                                        {{/if}}
+                                        {{if sextype != '0' && sextype != '1'}}
+                                        <img src="" />
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="item-after">
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+            </div>
+        </li>
+    </script>
+        <!--按患者首字母排序的模板-->
+        <script type="text/x-jquery-tmpl" id="alphasortlist">
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">${pinyin}</li>
+                    {{each(i,arg) items}}
+                    <li data-pinyin="${pinyin}" data-mark="alphasort" data-sno="${arg.sno}" data-truename=" ${arg.truename}" data-product="${arg.buyproductnames}" data-sextype="${arg.sextype}" data-picsrc="${arg.picsrc}" data-createdt="${changedatafomat(arg.createdt)}" onclick="GetPatientInfo(this)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img src="${arg.picsrc}" />
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    ${arg.truename}
+                                    {{if arg.sextype == '0'}}
+                                    <img src="img/male.png" />
+                                    {{/if}}
+                                    {{if arg.sextype == '1'}}
+                                    <img src="img/female.png" />
+                                    {{/if}}
+                                    {{if arg.sextype != '0' && arg.sextype != '1'}}
+                                    <img src="" />
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-after">
+                                <!--${changedatafomat(arg.createdt)}-->
+
+                            </div>
+
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>
+
+        <!--按患者首字母排序后搜索的模板-->
+        <!--<script type="text/x-jquery-tmpl" id="alphasortsearchlist">
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">${pinyin}</li>
+                    {{each(i,arg) items}}
+                    <li data-sno="${arg.sno}" data-pinyin="${pinyin}" data-truename=" ${arg.truename}" data-product="${arg.buyproductnames}" data-sextype="${arg.sextype}" data-picsrc="${arg.picsrc}" data-createdt="${changedatafomat(arg.createdt)}" data-mark="alphasort" onclick="GetPatientInfo(this)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img src="${arg.picsrc}" />
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    ${arg.truename}
+                                    {{if arg.sextype == '0'}}
+                                    <img src="img/male.png" />
+                                    {{/if}}
+                                    {{if arg.sextype == '1'}}
+                                    <img src="img/female.png" />
+                                    {{/if}}
+                                    {{if arg.sextype != '0' && arg.sextype != '1'}}
+                                    <img src="" />
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-after">
+                                ${changedatafomat(arg.createdt)}
+
+                            </div>
+
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>-->
+
+        <!--添加患者的模板-->
+        <script type="text/x-jquery-tmpl" id="searchoraddlist">
+            <li data-sno="${customersno}" data-mark="newaddpatient" onclick="GetPatientInfo(this)">
+                <div class="item-content">
+                    <div class="item-media">
+                        <img src="${picsrc}" />
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            ${truename}
+                            {{if sextype == '0'}}
+                            <img src="img/male.png" />
+                            {{/if}}
+                            {{if sextype == '1'}}
+                            <img src="img/female.png" />
+                            {{/if}}
+                            {{if sextype != '0' && sextype != '1'}}
+                            <img src="" />
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="item-after">
+                        ${createdt.format("yyyy-MM-dd HH:mm")}
+                    </div>
+                </div>
+            </li>
+        </script>
+
+        <!--添加分组成员的模板-->
+        <script type="text/x-jquery-tmpl" id="addgroupmember">
+            <div class="AddList deleteall col-20" data-sno="${sno}" >
+                <a>
+                    <img src="${picsrc}" class="selectmember" data-sno="${sno}" onclick="CheckOrNot(this)" />
+                    <!--<img src="img/iconfont-dui.png" style="position:absolute;width:15px;right:0;top:0" />-->
+                </a>
+                <a>${truename}</a>
+            </div>
+        </script>
+
+        <!--为分组添加成员的模板-->
+        <script type="text/x-jquery-tmpl" id="selectgroupmember">
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">${pinyin}</li>
+                    {{each(i,arg) items}}
+                    <li data-sno="${arg.sno}" data-pinyin="${pinyin}" data-truename="${arg.truename}" data-product="${arg.buyproductnames}" data-sextype="${arg.sextype}" data-picsrc="${arg.picsrc}" data-createdt="${changedatafomat(arg.createdt)}">
+                        <label class="label-checkbox item-content">
+                            <!-- Checked by default -->
+                            <input type="checkbox" name="my-checkbox">
+                            <div class="item-media">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-media">
+                                <img src="${picsrc}" />
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    ${truename}
+                                    {{if sextype == '0'}}
+                                    <img src="img/male.png" />
+                                    {{/if}}
+                                    {{if sextype == '1'}}
+                                    <img src="img/female.png" />
+                                    {{/if}}
+                                    {{if sextype != '0' && sextype != '1'}}
+                                    <img src="" />
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </label>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>
+
+    <!--Patient-info的模板-->
+    <!--得到患者基本信息-->
+    <script type="text/x-jquery-tmpl" id="diagnosisrecord">
+        <li>
+            <div class="item-content ">
+                <div class="item-inner">
+                    <div class="item-title TimeSiver">
+                        ${createdt.format("yyyy-MM-dd HH:mm")}
+                    </div>
+                    <div class="item-title ItemBlue">
+                        ${productname}
+                    </div>
+
+                    {{if isempty}}
+                    <div style="position: relative; right: 15px;">
+                        <a class="button" herf="#" onclick="location.href =
+    'diagnosis-record.html?ordersno=' + $(this).data('ordersno') + '&&sno=' + $(this).data('sno') + '&&doctorsno=' + $(this).data('doctorsno') + '&&fp=MyPatient&&loadpagename=PatientInfo.html'" 
+                
+                           data-ordersno="${ordersno}" data-doctorsno="${doctorsno}" data-sno="${customersno}">上传</a>
+                    </div>
+                    {{else}}
+                    <div style="position: relative; right: 15px;">
+                        <a class="button" herf="#" onclick="location.href =
+    'diagnosis-record.html?ordersno=' + $(this).data('ordersno') + '&&sno=' + $(this).data('sno') + '&&doctorsno=' + $(this).data('doctorsno') + '&&fp=MyPatient&&loadpagename=PatientInfo.html'"
+    data-ordersno=" ${ordersno}" data-doctorsno="${doctorsno}" data-sno="${customersno}">查看</a>
+                    </div>
+                    {{/if}}
+
+                    <!--<div class="item-after">
+                        {{if isempty }}<a onclick="window.location.href = 'diagnosis-record.html?ordersno=' + $(this).data('ordersno') + '&fp=mypatient&doctorsno='+$(this).data('doctorsno')+'&sno='+$(this).data('sno')"
+   data-ordersno="${ordersno}" data-doctorsno="${doctorsno}" data-sno="${sno}" class="button">上传</a> 
+                        {{else}} 
+                        <a onclick="window.location.href = 'diagnosis-record.html?ordersno=' + $(this).data('ordersno') + '&fp=mypatient'"
+   data-ordersno="${ordersno}" class="button">查看</a> 
+                        {{/if}}
+                    </div>-->
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/x-jquery-tmpl" id="treatrecord">
+        <li>
+            <div class="item-content ">
+                <div class="item-inner">
+                    <div class="item-title TimeSiver">
+                        ${createdt.format("yyyy-MM-dd HH:mm")}
+                    </div>
+                    <div class="item-title ItemBlue">
+                        ${productname}
+                    </div>
+                </div>
+                {{if isempty}}
+                <div style="position: relative; right: 15px;">
+                    <a class="button" herf="#" onclick="location.href =
+    'treat-record.html?ordersno=' + $(this).data('ordersno') + '&&sno=' + $(this).data('sno') + '&&doctorsno=' + $(this).data('doctorsno') + '&&fp=MyPatient&&loadpagename=PatientInfo.html'"
+                       data-ordersno="${ordersno}" data-doctorsno="${doctorsno}" data-sno="${customersno}">上传</a>
+                </div>
+                {{else}}
+                <div style="position: relative; right: 15px;">
+                    <a class="button" herf="#" onclick="location.href =
+    'treat-record.html?ordersno=' + $(this).data('ordersno') + '&&sno=' + $(this).data('sno') + '&&doctorsno=' + $(this).data('doctorsno') + '&&fp=MyPatient&&loadpagename=PatientInfo.html'"
+                       data-doctorsno="${doctorsno}" data-sno="${customersno}">查看</a>
+                </div>
+                {{/if}}
+
+            </div>
+        </li>
+    </script>
+
+
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.tmpl.min.js"></script>
+        <script src="Scripts/FrameJs/global.js"></script>
+        <script src="Scripts/FrameJs/frame.ajax2.js"></script>
+
+        <!-- 我的患者-->
+        <script type="text/javascript" src="js/my-Patient.js"></script>
+        <script type="text/javascript">
+            function changedatafomat(odate) {
+                //var ndate = Date.parseExact(odate, "MM-dd-yyyy THH:mm:ss");
+                var ndate = Date.parseFormat(odate, "yyyy-MM-dd HH:mm:ss")
+                return "添加于" + ndate.getFullYear() + "-" + (ndate.getMonth() + 1) + "-" + ndate.getDay();
+            }
+            //加载指定页面
+            var fp = GetQueryString("loadpagename");
+            if (fp) {
+                mainView.loadPage(fp+".html?"+location.search);
+            }
+
+
+        </script>
+</body>
+</html>

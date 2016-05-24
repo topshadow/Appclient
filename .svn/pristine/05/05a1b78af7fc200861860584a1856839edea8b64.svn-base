@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+    <style>
+        textarea {
+        }
+    </style>
+</head>
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a  class=" link"><i class="icon icon-back"></i></a></div>
+                    <div class="center sliding">意见反馈</div><div class="right"><a href="#" class="link send-button">提交</a></div>
+
+                </div>
+            </div>
+            <div class="pages">
+                <div class="page">
+
+                    <div class="page-content">
+                        <textarea placeholder="在此输入您遇到的问题或对产品的建议等，您的反馈是我们产品进步的动力！
+" style="
+    padding-left:3%;
+    padding-right:3%;
+    width:96%;
+    height: 300px;
+    font-size: 16px;
+    margin-top: 44px;
+    border:none;
+" class=""></textarea>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+
+    <script src="Scripts/FrameJs/global.js"></script>
+    <script src="Scripts/FrameJs/frame.ajax.js"></script>
+
+    <script type="text/javascript">
+        $('.send-button').click(function () {
+                                
+                                if ($("textarea").val() == '') {
+                                myApp.alert("不能发送空内容", "提示");
+                                return;
+                                }
+                                
+                                
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "doctor.sendsuggestion.go",
+                postdata: {
+                              
+                    content: $("textarea").val(),
+                    doctorsno: GetQueryString("doctorsno")
+                },
+                success: function (rtn) {
+                    if (rtn.issuccess) {
+                        myApp.hideIndicator();
+                        $("textarea").val('');
+                        $("#keleyi_com").val('');
+                              
+                        myApp.alert('提交成功，感谢您的反馈！我们将尽快处理您的反馈，感谢您的支持！', '提示!', function () {
+                            location.href = "more.html?drsno=" + localStorage.getItem('doctorSno');
+                            });
+
+                    } else {
+                        myApp.alert(rtn.msg, "错误");
+                    }
+                }, before: function () {
+                    myApp.showIndicator();
+                }
+
+            })
+        })
+        
+        $(".left").click(function () {
+
+            if ($("textarea").val() == '') {
+                history.go(-1);
+            } else {
+                myApp.confirm("", "是否要保存内容？", function () { deleterequst() }, function () { showalert() });
+            }
+
+
+        });
+
+
+        function deleterequst() {
+            savercontent();
+        }
+
+        function showalert() {
+            history.go(-1);
+        }
+
+        function savercontent() {
+
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "doctor.sendsuggestion.go",
+                postdata: {
+
+                    content: $("textarea").val(),
+                    doctorsno: GetQueryString("doctorsno")
+                },
+                success: function (rtn) {
+                    if (rtn.issuccess) {
+                        myApp.hideIndicator();
+                        $("textarea").val('');
+                        $("#keleyi_com").val('');
+
+                        myApp.alert('提交成功，感谢您的反馈！我们将尽快处理您的反馈，感谢您的支持！', '提示!', function () {
+                            location.href = "more.html";
+                        });
+
+                    } else {
+                        myApp.alert(rtn.msg, "错误");
+                    }
+                }, before: function () {
+                    myApp.showIndicator();
+                }
+
+            })
+        }
+
+        
+        
+    </script>
+</body>
+</html>

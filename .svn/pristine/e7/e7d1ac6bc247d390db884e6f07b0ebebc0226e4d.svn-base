@@ -1,0 +1,76 @@
+﻿        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#"  class="back link"><i class="icon icon-back"></i></a></div>
+                    <div class="center sliding">请输入个人信息</div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <!-- Page, data-page contains page name-->
+                <div data-page="register-info" class="page forgot-password">
+                    <!-- Scrollable page content-->
+                    <div class="page-content">
+                        <div class="list-block">
+                            <div style="
+    margin-top: 55px;
+    font-size: 13px;
+    color: rgba(147,147,147,1);
+    text-align: center;
+    margin-bottom: 10px;
+    /* background-color: rgb(242,243,244); */
+    padding: 4px;
+">为了给您提供更好的服务,请您务必填写真实信息</div>
+
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">姓名</div>
+                                            <div class="item-input">
+                                                <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">医院</div>
+                                            <div class="item-input">
+                                                <input type="text" id="hospital" name="hospital" placeholder="请输入您所在的医院" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">科室</div>
+                                            <div class="item-input">
+                                                <input type="text" id="department" name="department" placeholder="请输入您所在的科室" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">职称</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="主任医师" value="主任医师" id="workname" name="workname" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <p><a href="#" id="register-info-btn" class="button button-big active">立即体验</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

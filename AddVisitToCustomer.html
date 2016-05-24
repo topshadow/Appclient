@@ -1,0 +1,104 @@
+﻿<!--添加术后随访-->
+<div data-page="AddVisitToCustomer" class="page navbar-fixed toolbar-fixed">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center">添加术后随访</div>
+            <div class="right">
+                <a class="link" href="#" id="SaveAddVisit">保存</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="page-content AddVisitToCustomer">
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-media">
+                        <img src="img/icon-qiumeizhe.png" /></div>
+                    <div class="item-inner">
+                        <div class="item-title">当前求美者：<span id="VisitCustomerName"></span></div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="item-link item-content">
+                        <div class="item-media"><img src="img/icon-zhiliaotime.png" /></div>
+                        <div class="item-inner">
+                            <div class="item-title">治疗时间：<span id="VisitCustomerDate"></span></div>
+                            <input type="hidden" id="VisitCustomerDateGMT" />
+                        </div>
+                    </a>
+                </li>
+
+                <li class="item-content">
+                    <div class="item-media">
+                        <img src="img/icon-tixing.png" />
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">发送给求美者时提醒我</div>
+                        <div class="item-after">
+                            <label class="label-switch">
+                                <input type="checkbox" >
+                                <div class="checkbox" id="IsSendMe" data-isinformdoc ="0"></div>
+                            </label>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img src="img/icon-addtemp.png" />
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input type="text" id="AddVisitTempName">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-33">
+                <div>回访周期</div>
+            </div>
+            <div class="col-33">
+                <div>随访事项</div>
+            </div>
+            <div class="col-33">
+                <div>提醒时间</div>
+            </div>
+        </div>
+
+        <div id="AddVisitToCustomerList">
+
+        </div>
+
+        <div class="Time-line-add">
+            <img src="img/icon-addvisittemp.png" onclick="AddVisitPlan()" />
+            <label>添加随访次数</label>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+

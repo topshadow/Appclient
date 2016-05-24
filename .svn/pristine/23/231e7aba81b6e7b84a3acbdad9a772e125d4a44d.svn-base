@@ -1,0 +1,118 @@
+
+<div data-page="Msg_GroupPatientIndex" class="page navbar-fixed toolbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="row OfficePatientTab">
+                <div class="col-50 txtRight">
+                    <a href="MsgMyPatientIndex.html" class="tab-link">我的患者</a>
+                </div>
+                <div class="col-50 txtLeft">
+                    <a href="MsgGroupPatientIndex.html" class="tab-lin active">科室患者</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search bar overlay -->
+    <div class="searchbar-overlay"></div>
+    <form class="searchbar searchbar-init" data-search-list=".list-block-search" data-search-in=".item-title" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">取消</a>
+    </form>
+
+    <div class="page-content">
+        <div class="content-block searchbar-not-found" style="margin-top: 0;">
+            <div class="content-block-inner">查无资料</div>
+        </div>
+        <div class="OfficePatientNav">
+            <div class="row">
+                <div class="col-33">
+                    <a href="MsgGroupDoctorList.html"><img src="css/images/officemember.png" /></a><br />
+                    <a href="MsgGroupDoctorList.html">科室成员</a>
+                </div>
+                <div class="col-33" >
+                    <a href="MsgGroupPatientList.html"><img src="css/images/allpatient.png" /></a><br />
+                    <a href="MsgGroupPatientList.html">全部患者</a>
+                </div>
+                <div class="col-33">
+                    <a href="MsgNoDisturb.html"><img src="css/images/nomsg.png" /></a><br />
+                    <a href="MsgNoDisturb.html">消息拒收</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content-block-title">最近消息</div>
+        <div class="list-block  media-list list-block-search searchbar-found">
+            <ul id="ulGroupContactList">
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="toolbar tabbar tabbar-labels bottom-tabbar" >
+        <div class="toolbar-inner">
+            <a href="index.html" class="tab-link external view1">
+                <i class="iconfont icon-home"></i>
+                <span class="tabbar-label">首页</span>
+            </a>
+            <a href="#" class="tab-link external view2 active">
+                <i class="icon iconfont icon-dongtai"><!--<span class="badge bg-red">4</span>--></i>
+                <span class="tabbar-label">消息</span>
+            </a>
+            <a href="#" class="tab-link external view3">
+                <i class="icon iconfont icon-zixun"><!--<span class="badge bg-red">1</span>--></i>
+                <span class="tabbar-label">动态</span>
+            </a>
+            <a href="#" class="tab-link external view4">
+                <i class="iconfont icon-gengduo"></i>
+                <span class="tabbar-label">更多</span>
+            </a>
+        </div>
+    </div>
+    <!-- 模版-小秘书列表 -->
+    <script type="text/template7" id="TempalteGroupContactList">
+        {{#each contactlist}}
+        <li class="swipeout">
+            <div class="swipeout-content item-content" data-asdoctorsno="{{doctorsno}}" data-customersno="{{customersno}}">
+                <div class="item-media">
+                    <img src="{{customerpic}}" style="width: 50px" />
+                </div>
+                <div class="item-inner">
+                    <div class="item-title-row">
+                        <div class="item-title">{{customername}}</div>
+                        <div class="item-after">{{showdate}}</div>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="item-text" style="max-height: 25px; width: 100%">
+                            {{lastmsgcontent}}
+                        </div>
+                        {{#js_compare "this.noreadcount > 0"}}
+                        <div class="item-after" style="max-height: 20px;"><span class="badge bg-red">{{noreadcount}}</span></div>
+                        {{/js_compare}}
+                    </div>
+                </div>
+            </div>
+            <div class="swipeout-actions-right">
+                {{#js_compare "this.marktop > 0"}}
+                <a href="#" class="action bg-gray" data-summarysno="{{summarysno}}" data-action="markuntop">取消置顶</a>
+                {{else}}
+                <a href="#" class="action bg-gray" data-summarysno="{{summarysno}}" data-action="marktop">置顶</a>
+                {{/js_compare}}
+
+                {{#js_compare "this.noreadcount > 0"}}
+                <a href="#" class="action bg-orange" data-summarysno="{{summarysno}}" data-action="markread">已读</a>
+                {{else}}
+                <a href="#" class="action bg-orange" data-summarysno="{{summarysno}}" data-action="markunread">未读</a>
+                {{/js_compare}}
+
+                <a href="#" class="action bg-red " data-summarysno="{{summarysno}}" data-action="markunshow">删除</a>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+</div>

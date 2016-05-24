@@ -1,0 +1,68 @@
+<!-- 这里是 科室医生列表 page, 实际的母页是 MsgHome.html -->
+
+<div data-page="Msg_GroupDoctorList" class="page navbar-fixed toolbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center">科室成员</div>
+        </div>
+    </div>
+    <form class="searchbar searchbar-init" data-search-list=".list-block-search" data-search-in=".item-title, .item-text" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索医生姓名/所在地域">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">取消</a>
+    </form>
+    <div class="searchbar-overlay"></div>
+
+    <div class="page-content DoctorList" style="padding-top: 68px;">
+        <div class="content-block searchbar-not-found" style="margin-top: 0;">
+            <div class="content-block-inner">抱歉，未找到搜索结果</div>
+        </div>
+        <div class="list-block list-block-search searchbar-found media-list">
+            <input type="hidden" id="toPage" value="1" />
+            <input type="hidden" id="Count_per_Page" value="10" />
+            <ul id="uldoctorlist">
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/template7" id="TempalteDoctorList">
+        {{#each datalist}}
+        <li>
+            <div class="item-content">
+                <div class="item-media">
+                    <img src="{{headpic}}" /><br />
+                    {{#js_compare "this.posttype == 1"}}
+                    <label class="bg-yellow-lbl">{{postname}}</label>
+                    {{/js_compare}}
+                    {{#js_compare "this.posttype == 2"}}
+                    <label class="bg-purple-lbl">{{postname}}</label>
+                    {{/js_compare}}
+                    {{#js_compare "this.posttype == 3"}}
+                    <label class="bg-blue-lbl">{{postname}}</label>
+                    {{/js_compare}}
+                    {{#js_compare "this.posttype == 4"}}
+                    <label class="bg-green-lbl">{{postname}}</label>
+                    {{/js_compare}}
+                </div>
+                <div class="item-inner">
+                    <div class="item-title-row">
+                        <div class="item-title"><span style="margin-right: 10px">{{doctorname}}</span>{{hospitalnames}}</div>
+                    </div>
+                    <div class="item-text">
+                        <span>擅长：</span>
+                        <span>{{goodatitems}}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+</div>

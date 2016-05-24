@@ -1,0 +1,1 @@
+D:\workspace\APPClient\obj\x86\Debug\appclient.csprojResolveAssemblyReference.cache

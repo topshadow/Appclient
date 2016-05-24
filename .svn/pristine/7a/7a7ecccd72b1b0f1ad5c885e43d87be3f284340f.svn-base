@@ -1,0 +1,197 @@
+﻿.MyVisitPlan {margin-top:40px;padding:25px 0px;position:relative}
+.VisitTitle {border-top:2px solid #aaaaaa;}
+.VisitText {text-align:center;width:90%;position: absolute;top: 10px;}
+.VisitText label {background-color:#F2F3F4;padding:0 5px;color:#aaaaaa;}
+.VisitImg {text-align:center;padding:50px 0 0;}
+.VisitImg img {margin: auto;display: block;width:59px}
+.VisitImg label {color:#aaaaaa;}
+.VisitIndexList {margin-top:10px;}
+    .VisitIndexList li {font-size:0.8em}
+.VisitBottom {height:100px;}
+.VisitBottom div {padding:0 20px;}
+.yellow-btn {background-color:#f5a623;border:1px solid #f5a623;color:#fff!important;height:30px;line-height:30px;}
+.yellow-btn img,.green-btn img {width: 17px;
+vertical-align: middle;
+margin-right:10px;}
+.green-btn {background-color:#b1cb3b !important;border:1px solid #b1cb3b; color:#fff!important;height:30px;line-height:30px; margin-top:10px; background-color:#F2F3F4}
+.VisitBottom::before {height:0px;}
+
+/*===新建随访模板===*/
+.AddVisitTemplate {margin-top:44px;}
+.AddVisitTemplate .list-block-title img{width:15px; vertical-align:middle;float:right;}
+.AddVisitTemplate .list-block ul::after {height:0px;}
+.AddVisitTemplate .list-block ul::before {height:0px;}
+.AddVisitTemplate .item-inner::after {height:0px;}
+.AddVisitTemplateTitle {margin-bottom:0;}
+.AddVisitTemplate .item-media img {width:30px;}
+.AddVisitTemplate .item-input input {font-size:0.8em;}
+.AddVisitTemplate .item-input {border-left:1px solid #eeeeee;padding-left:10px;}
+.AddVisitTemplate .item-title {font-size:0.8em;width:25% !important;}
+.AddVisitTemplate li {border:1px solid #eeeeee;}
+.AddVisitList {margin-bottom:0}
+.AddTemp {background-color:#ffffff;margin-top:0;text-align:center;line-height:40px;}
+.AddTemp img {width:20px;vertical-align:middle;}
+.AddTemp label {font-size:0.9em;color:#4d98eb;}
+
+
+/*===查看随访模板===*/
+
+.CheckVisitTemplate {margin-top:44px;}
+.CheckVisitTemplate .list-block-title {text-align:center;background-color:#ffffff;color:#222222;font-size:1.1em;margin:15px 0;line-height:40px}
+.CheckVisitInput {border:none;background-color:#ffffff;margin:15px 0;line-height:40px}
+.CheckVisitInput ul::before {height:0;}
+.CheckVisitInput ul::after {height:0;}
+.CheckVisitInput input {text-align:center;font-size:0.9em !important;color:#222222;} 
+.CheckVisitTemplate .row {padding:10px 25px;}
+.CheckVisitTemplate .col-33 {text-align:center}
+.CheckVisitTemplate .col-33 div{border:1px dotted #4d98eb;border-radius:8px;color:#4d98eb;padding:2px;}
+.Time-line-Check {position: relative;padding: 0 30px;padding-bottom: 10px;margin-top:4px;margin-bottom:8px;}
+.Time-line-Check::before {content: '';position: absolute;top: 0;left: 19px;height: 100%;width: 3px;background: #4d98eb;}
+.Time-line-title-Check {padding:0 !important;}
+.Time-line-title-Check:before {content: '';position: absolute;top: 0;left: 14px;height: 13px;width: 13px;background: #4d98eb;border-radius: 50%;}
+.Time-line-Content-Check {position:relative;padding:5px;}
+.Time-line-Content-Check::before {content: '';position: absolute;top: 28px;left: -8px;height: 2px;width: 4px;background: #4d98eb;}
+.Time-line-Content-Check p::before{left: -16px;content: '';position: absolute;width: 0;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;
+border-top: 10px solid #4d98eb;bottom: -18px;}
+.CheckAddBtn {
+    padding:5px 10px;
+}
+/*===编辑模板===*/
+.EditVisitTemplate {margin-top:44px;}
+.EditVisitInput {border:none;background-color:#ffffff;margin:15px 0;line-height:40px}
+.EditVisitInput ul::before {height:0;}
+.EditVisitInput ul::after {height:0;}
+.EditVisitInput input {text-align:center;font-size:0.9em !important;color:#222222;} 
+.EditVisitTemplate .row {padding:10px 25px;}
+.EditVisitTemplate .col-33 {text-align:center}
+.EditVisitTemplate .col-33 input {border:0;outline:0;border-radius:8px;text-align:center;width:100%;line-height:25px;}
+.EditVisitTemplate .col-33 label {line-height:25px;}
+.EditVisitTemplate .col-33 div{border:1px dotted #4d98eb;border-radius:8px;color:#4d98eb;padding:2px;}
+.Time-line {position: relative;padding: 0 30px;padding-bottom: 10px;margin-top:4px;}
+.Time-line-title {padding:0 !important;}
+.Time-line::before {content: '';position: absolute;top: 0;left: 19px;height: 100%;width: 5px;background: #4d98eb;}
+.Time-line-title:before {content: '';position: absolute;top: 0;left: 14px;height: 15px;width: 15px;background: #4d98eb;border-radius: 50%;}
+.Time-line-Content {position:relative;}
+.Time-line-Content::before {content: '';position: absolute;top: 24px;left: -6px;height: 2px;width: 4px;background: #4d98eb;}
+.Time-line-Content p::before{left: -18px;content: '';position: absolute;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;
+border-top: 15px solid #4d98eb;bottom: -27px;}
+.Time-line-Arrow:before {left: 16px;content: '';position: absolute;width: 0;height: 0;border-left: 6px solid transparent;border-right: 6px solid transparent;
+border-top: 10px solid #4d98eb;bottom: -8px;}
+.Time-line-Content textarea {border:0;outline:0;border-radius:8px;width:100%;margin:10px 0;font-size:0.9em;padding:8px;}
+.Time-line-EditContent textarea {border:0;outline:0;border-radius:8px;width:100%;margin:10px 0;font-size:0.9em;padding:8px;}
+.Time-line-Edit {position: relative;padding: 0 30px;padding-bottom: 10px;margin-top:4px;}
+.Time-line-EditTitle {padding:0 !important;}
+.Time-line-Edit::before {content: '';position: absolute;top: 0;left: 19px;height: 100%;width: 5px;background: #4d98eb;}
+.Time-line-EditContent {position:relative;}
+.Time-line-EditContent::before {content: '';position: absolute;top: 24px;left: -6px;height: 2px;width: 4px;background: #4d98eb;}
+.Time-line-EditContent p::before{left: -18px;content: '';position: absolute;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;
+border-top: 15px solid #4d98eb;bottom: -27px;}
+.Time-line-EditTitle img {width:25px;position:absolute;left:9px;top:1px;}
+.Time-line-add img{width:25px;margin:4px;vertical-align:middle;}
+.Time-line-add {color:#08d129;padding:4px 5px;}
+
+/*===术后随访日程===*/
+.VisitTemplateSchedule {margin-top:44px;}
+    .VisitTemplateSchedule .accordion-item a{
+    background-color:#666666;
+    color:#fff;
+    }
+    .VisitTemplateSchedule ul::before {
+        height:0;
+    }
+
+        .VisitTemplateSchedule li {
+        border-bottom:1px solid #fff;
+    }
+
+.VisitTemplateSchedule .item-inner::after {
+    height:0;
+}
+    .VisitTemplateSchedule .item-media img {
+    width:18px;
+    }
+        .VisitTemplateSchedule .item-inner {
+    font-size:0.8em;
+    }
+
+    /*.VisitTemplateSchedule .content-block {
+    background-color:#fff;
+    }*/
+    .Time-line-Schedule{position: relative;padding: 0 25px;padding-bottom: 10px;margin-top:14px;margin-bottom:20px;}
+    .Time-line-Schedule::before {content: '';position: absolute;top: 0;left: 5px;height: 115%;width: 4px;background: #999999;}
+
+.Time-line-Schedule-Title{font-size: 1.1em;
+color: #222;
+}
+.Time-line-Schedule-Title img {position:absolute;left: -6px;width: 25px;}
+.Time-line-ScheduleContent {position:relative;border-bottom: 1px solid #ccc;
+padding-bottom: 10px;}
+.Time-line-ScheduleContent::before{left: -23px;
+content: '';
+position: absolute;
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 10px solid #999999;
+bottom: -32px;}
+
+.Time-line-ScheduleContentEnd {
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+    .Time-line-ScheduleEnd{position: relative;padding: 0 25px;padding-bottom: 10px;margin-top:14px;margin-bottom:10px;}
+.Time-line-scheduleTreat {
+text-align:center
+}
+    .Time-line-scheduleTreat img {
+    width:20px;
+    vertical-align:middle;
+    margin-right:20px;
+
+    }
+
+.Time-line-scheduleTreat {
+        padding-bottom:10px;
+}
+
+/***===添加术后随访===***/
+.AddVisitToCustomer {margin-top:44px;}
+.AddVisitToCustomer li{font-size:0.8em;}
+.AddVisitToCustomer li:nth-child(1){background-color:#f2f3f4;}
+.AddVisitToCustomer li:nth-child(4){background-color:#dfe1e2}
+.AddVisitToCustomer li {border-top:1px solid #eeeeee;}
+.AddVisitToCustomer .item-media img {width:20px;}
+.AddVisitToCustomer .item-inner::after {height:0;}
+.AddVisitToCustomer .row {padding:10px 25px;}
+.AddVisitToCustomer .col-33 {text-align:center}
+.AddVisitToCustomer .col-33 input {border:0;outline:0;border-radius:8px;text-align:center;width:100%;line-height:25px;}
+.AddVisitToCustomer .col-33 label {line-height:25px;}
+.AddVisitToCustomer .col-33 div{border:1px dotted #4d98eb;border-radius:8px;color:#4d98eb;padding:2px;}
+
+
+/*===随访模板库===*/
+.TemplateBase {margin-top:40px;}
+.TemplateBaseTitle {padding:15px;text-align:center;background-color:#eeeeee;color:#aaaaaa;font-size:1.1em}
+.project-navbar {float: left;width: 40%;background: #F2F3F4;}
+.project-content {float: left;width: 60%;min-height: 550px;background: #fff;}
+.project-navbar ul li a {display: block;width: 100%;height: 50px;padding: 15px 16px;font-size: 15px;color: #666;
+background: #F2F3F4;border-bottom: 1px solid #ddd;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.project-navbar ul li:last-child a {border-bottom: none;}
+.project-navbar ul li a.active {background: #fff;border-bottom: none;}
+.project-navbar li .iconfont {display: inline-block;width: 20px;height: 20px;margin-right: 4px;font-size: 15px;
+border-radius: 50%;color: #fff;text-align: center;opacity: .8;}
+.project-content ul {padding-left: 15px;}
+.project-content li a {display: block;height: 40px;line-height: 40px;padding-left: 20px;color: #333;border-bottom: 1px solid #eee;}
+.goodat-list .list-title i.icon-icon11, .project-navbar i.icon-icon11 { background-color: #FF8822;}
+.goodat-list .list-title i.icon-icon12, .project-navbar i.icon-icon12 {background-color: #66CCEE;}
+.goodat-list .list-title i.icon-bosom, .project-navbar i.icon-bosom {background-color: #FF2D55;font-size: 20px;}
+.goodat-list .list-title i.icon-shentimei, .project-navbar i.icon-shentimei {background-color: #A8DD99;}
+.goodat-list .list-title i.icon-female118, .project-navbar i.icon-female118 {background-color: #7485F2;font-size: 20px;}
+.goodat-list .list-title i.icon-brunette, .project-navbar i.icon-brunette {background-color: #FF725F;}
+.goodat-list .list-title i.icon-zhenguan, .project-navbar i.icon-zhenguan {background-color: #FF9500;}
+.project-navbar i.icon-yanqing,.project-navbar i.icon-zhongyao {background-color: #50E3C2;}
+.project-navbar li .iconfont {display: inline-block;width: 20px;height: 20px;margin-right: 4px;font-size: 15px;border-radius: 50%;
+color: #fff;text-align: center;opacity: .8;}

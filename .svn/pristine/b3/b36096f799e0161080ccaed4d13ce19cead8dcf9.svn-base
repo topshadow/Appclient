@@ -1,0 +1,62 @@
+﻿<!--添加新分组-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="AddNewGroup" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left" onclick="ReturnGroupManage()">
+                            <a  class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center" id="sharedgroup">添加新分组</div>
+                        <div class="right">
+                            <a href="#" class="link" id="savedocpatientgroup">
+                                保存
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="page-content contacts-content AddNewGroup">
+                    <div class="content-block-title">分组名称</div>
+                    <div class="list-block">
+                        <ul>
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <textarea id="inputgroupname"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block-title AddMember">分组成员</div>
+                    <div class="AddList" id="selectmemberlist">
+                        <div class="row">
+                            <div class="col-20" id="bindaddgroupmember">
+                               <!-- <a class="item-link" href="AddAllPatient.html"><img src="img/groupmore.png" /></a>-->
+                                <a class="item-link" onclick="GetSelectPatient(this)"><img src="img/groupmore.png" /></a>
+                            </div>
+                            <div class="col-20" >
+                                <img src="img/groupless.png" id="deletegroupmember" onclick="DeleteGroupMember(this)" />
+                            </div>
+                        </div>
+                    </div>
+                    <p class="buttons-row" >
+                        <a id="btndelgroup" class="button button-raised" onclick="DelCurrentGroup(this)">删除分组</a>
+                    </p>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

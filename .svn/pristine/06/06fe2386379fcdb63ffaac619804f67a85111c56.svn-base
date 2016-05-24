@@ -1,0 +1,201 @@
+﻿<!--分组管理-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="GroupManage" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left" onclick="ReturnPatientIndex()">
+                            <a  class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">分组管理</div>
+                    </div>
+                </div>
+                <div class="page-content contacts-content GroupManage">
+
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <a href="AddNewGroup.html" class="item-link">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <img src="img/addgroup.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                添加新分组
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                    <div class="list-block accordion-list">
+                        <ul>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="showdiagnosiscount">就诊患者<span>（2）</span></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content">
+                                    <div class="list-block">
+                                        <ul id="showbinddiagnosislist"></ul>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="showtreatcount">治疗患者<span>（2）</span></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content">
+                                    <div class="list-block">
+                                        <ul id="showbindtreatlist"></ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="showcollectcount">收藏患者<span>（2）</span></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content">
+                                    <div class="list-block">
+                                        <ul id="showbindcollectlist"></ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul id="docdefinedgroup">
+                            <!--<li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">自定义分组<span>（2）</span></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">自定义分组<span>（2）</span></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">自定义分组<span>（2）</span></div>
+                                    </div>
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <!--<div class="list-block accordion-list">
+                                <ul>
+                                    <li class="accordion-item">
+                                        <a href="" class="item-link item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">就诊患者<span>（2）</span></div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="list-block">
+                                                <ul>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">张三</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">李四</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">王五</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="" class="item-link item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">治疗患者<span>（2）</span></div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="list-block">
+                                                <ul>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">张三</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">李四</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">王五</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="" class="item-link item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">收藏患者<span>（2）</span></div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="list-block">
+                                                <ul>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">张三</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">李四</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">王五</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>-->
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

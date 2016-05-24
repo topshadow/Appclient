@@ -1,0 +1,45 @@
+﻿<!--字母排序列表-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="AlphaSort" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left" onclick="ReturnPatientIndex()">
+                            <a  class="link back">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">字母排序</div>
+                    </div>
+                </div>
+                <div class="Search-bar">
+                    <label id="searchindex">姓名<img src="css/images/arrow-down.png" /></label>
+                    <input id="searchmain" placeholder="搜索姓名、项目">
+                    <a id="searchpatient" onclick="SearchPatientsOnAlphaSortPage()"><img src="css/images/search-icon.png" /></a>
+                    <div class="Search-box" id="searchbox">
+                        <span class="arrow"></span>
+                        <span class="arrow2">
+                        </span>
+                        <ul>
+                            <li>姓名</li>
+                            <li>项目</li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <div class="page-content contacts-content">
+                    <div class="list-block contacts-block" id="capitallettersort">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

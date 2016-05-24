@@ -1,0 +1,1185 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="blank">
+    <!-- Your app title -->
+    <title>就诊记录</title>
+    <!-- Path to Framework7 Library CSS, iOS Theme -->
+    <link rel="stylesheet" href="css/framework7.ios.css" />
+    <!-- Path to Framework7 color related styles, iOS Theme -->
+    <link rel="stylesheet" href="css/framework7.ios.colors.css" />
+    <!-- Path to your custom app styles-->
+    <!--<link rel="stylesheet" href="css/my-app.css">-->
+    <!--<link rel="stylesheet" href="css/yangjie.css" />-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="img/smalltile.png">
+    <meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="img/widetile.png">
+    <meta name="msapplication-square310x310logo" content="img/largetile.png">
+       <link rel="stylesheet" href="css/my-app.css" />
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/my-msg.css" />
+    <style>
+        .navbar {
+            background-color: rgb(77, 152, 235);
+            color: #f7f7f7;
+        }
+        .project {
+            margin-top: 61px;
+        }
+            /*美容项目提示文字*/
+            .project .item-input {
+         
+                color: #222222;
+            }
+        /*美容选择项目*/
+        .item-title.label {
+            text-align: right;
+            color: purple;
+            font-weight: 400;
+            text-align: right;
+        }
+.record-image{
+	height:60px;	
+	width:100%;
+}
+        textarea.no-record {
+            width: 97%;
+            font-size: 1.3em;
+            padding-left: 10px;
+            border: none;
+            color: black;
+        }
+
+        .textarea-placeholder {
+            word-break: break-all;
+            text-align: center;
+            padding-top: 75px;
+            height: 75px;
+        }
+        .textarea-shuru {
+            padding-top: 0px;
+            height: 150px;
+        }
+        /**空行**/
+        .col-25 {
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        /**添加图片的div*/
+        .add-image {
+            background-image: url('img/add-image.png');
+            width: 21%;
+            background-color: #d7d7d7;
+            float: left;
+            margin: 20px 0px 0px 4%;
+            height: 0px;
+            padding-bottom: 21%;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-position: center center;
+            background-size: contain;
+        }
+    .buttons-row{
+	margin-top: 40px;
+    }
+
+        /**添加图片的图标*/       
+        .add-image img{
+    height: 40px;
+    width: 60%;
+    margin-top: 20px;
+      margin: 10px 20% 20px 20%;
+        }
+  
+        .del-image button{
+        	    margin: 0px;
+    padding: 0px;
+    border: none;
+        }
+        .del-image img{
+        	width: 100%;
+    border: none;
+        }
+  	li.time .item-input{
+  		width:30%
+  		
+  	}
+  	
+  	  li.itemlist a{
+        	color:gray;
+        }
+        li.itemlist.active a{
+        	color:white;	
+        }
+  .list-block .item-title.label{
+  	width:auto;
+    
+
+  }
+  .list-block{
+  	margin-bottom: 15px;
+  
+  }
+  
+#select{
+	color:black
+}  
+textarea{
+	border: none;
+}
+  .caption{
+      border: none;
+      width: 100%;
+      font-size: 0.5em;
+      border-radius: 10px;
+      text-align: center;
+
+  }
+
+        .photo-browser-del {
+            white-space: nowrap;
+        }
+
+        figure input {
+            width: 30px;
+            height: 30px;
+            float: right;
+            -webkit-appearance: checkbox;
+        }
+        .navbar-inner.cached {
+            display: block;
+            justify-content: space-between;
+        }
+        .threetabnav .threetabnav-item.actived {
+            border-bottom: none;
+        }
+        img.record-image{
+            height:0px;
+           margin: 0px;
+           padding-bottom: 100%;
+       }
+      </style>
+ 
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Views -->
+    <div class="views" >
+    
+        <div class=" view view-main ">
+        
+        		<div class=" navbar ">
+                    		<div class=" navbar-inner ">
+                    			<div class=" left "><a  class="exit" ><i class=" icon icon-back  "></i></a></div>
+    <div class="center sliding ">治疗记录</div>
+    <div class="right sliding save-record " style="color: #f9f9f9 ">保存</div>
+    </div>
+    </div>
+    <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+    <div class="pages navbar-through toolbar-through ">
+
+        <!-- Page, "data-page " contains page name -->
+        <div data-page="diagnosis-record " class="page ">
+            <!-- Scrollable page content -->
+            <div class="page-content ">
+                <div class="list-block project">
+                    <ul>
+                        <li class="time">
+                           <a href="#" class="item-link"> 
+                             <div class="item-content ">
+                                <div class="item-inner">
+                                    <div class="item-input "><input type="text" readonly value="治疗时间" /></div>
+                                    <div class="item-input label"  style="width: 60%;text-align: center;border: none;" ><input id="treatdt" readonly style="text-align: right;" type="text" value="2016年12月25日"></input></div>
+                                </div>
+                            </div>
+                               </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                  <div class="list-block">
+                    <ul>
+                 <li>
+                     <div class="item-link">
+                         <div class="item-content">
+                             <div class="item-inner">
+                                 <div class="item-input"><input type="text" readonly value="治疗项目" /></div>
+                                 <div class="item-title label "><a href="beauty-project.html" id="select">请选择</a></div>
+                             </div>
+                         </div>
+                     </div>
+                        </li>
+                       </ul>
+                      </div>
+                <textarea class="no-record textarea-placeholder" placeholder="您还没有添加治疗记录"></textarea>
+                <div class="content-block ">
+                    <div class="row">
+                            <div class="add-image">
+
+                        </div>
+
+                    </div>
+
+               
+                
+                <p class="buttons-row"><a href="#" class="button button-big color-gray button-fill del-image" style="
+    width: 25%;
+">删除</a><a href="#" class="button button-big active view-diagnosis">查看就诊记录</a></p>
+                   <input type="file" id="inputFile"  hidden />
+            
+                </div><!--end pageContent-->
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+  
+
+    
+    <script type="text/x-jquery-tmpl" id="pic">
+        <div class="col-25">
+
+            <img  style="background-image:url(${src});    background-size: 100% 100%; " class="record-image" style="" file="${file}" data-medicalhistoryimagesno="${medicalhistoryimagesno}">
+            <div  style="width: 100%; text-align: center;background-color:white; border-radius:10px;">
+                <input class="caption" type="text" placeholder="治疗图片" value="${name}"  />
+            
+            </div>
+        </div>
+    </script>
+   
+<script type="text/x-jquery-tmpl" id="datalist">
+        <div class="item" style="white-space: nowrap;">
+            <div class="list-title"><i class="iconfont ${typeicon}"></i>${typename}</div>
+            <ul class="clearfix" id="${typename}">
+                {{each(i,arg) items}}
+                {{if i==8}}
+                <li class="view-more"><i class="iconfont icon-shuangjianxia"></i></li>
+                <li class="itemlist"><a itemno="${arg.sno}">${arg.name}</a></li>
+                {{else}}
+                <li class="itemlist"><a itemno="${arg.sno}">${arg.name}</a></li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.min.js "></script>
+    <script type="text/javascript" src="Scripts/jquery.tmpl.min.js "></script>
+    <script type="text/javascript" src="Scripts/FrameJs/global.min.js "></script>
+    <script type="text/javascript" src="Scripts/FrameJs/frame.ajax2.js "></script>
+    <script type="text/javascript" src="js/framework7.min.js "></script>
+    <script src="js/mytool.js"></script>
+    <script type="text/javascript" src="Scripts/FrameJs/configs/constant.config.js "></script>
+    <script src="js/LocalResizeIMG.js"></script>
+    <script src="js/patch/mobileBUGFix.mini.js"></script>
+    <script src="Scripts/FrameJs/base64.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
+    <script src="plugins/cordova-plugin-camera/www/camera.js"></script>
+    <script src="plugins/cordova-plugin-whitelist/whitelist.js"></script>
+    
+    <script type="text/javascript">
+        //来源页面
+        var fromPage =GetQueryString("frompage") ||  GetQueryString("fp");
+        var doctorsno = GetQueryString("doctorsno");
+        if (fromPage&&fromPage!='treat-record') {
+            backurl = fromPage + ".html" + location.search;
+            //            backurl = fromPage + ".html?doctorsno=" + doctorsno + "&&sno=" + GetQueryString("sno");
+        } else if (fromPage == 'treat-record') {
+            backurl =  "reservation-status.html?showTab=tab4&&doctorsno=" + doctorsno;
+        } else {
+             backurl = "reservation-status.html?showTab=tab4&&doctorsno=" + doctorsno;
+
+        }
+
+function Days(num){
+	var days28="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28".split(",");
+	switch(num){
+	case 28:
+	return days28;
+	case 29:
+	return days28.concat(["29"]);
+	break;
+	case 30:
+	return days28.concat(["29","30"]);
+	break;
+	case 31:
+	return days28.concat(["29","30","31"]);
+	}
+}
+
+        //退出
+$(".exit").click(function () {
+    if (isPageChanged()) {
+        myApp.confirm("", "是否保存治疗记录?", function () {
+            saveRecord();
+        }, function () {
+            window.location.href = backurl;
+        })
+    } else {
+        window.location.href = backurl;
+    }
+});
+
+//=====================================Cordova Code Start =========================================================
+document.addEventListener("deviceready", onDeviceReady, false);
+// device APIs are available    //      
+function onDeviceReady() {        // Register the event listener          
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;
+}
+
+//use Camera function
+function useCamera() {
+    navigator.camera.getPicture(onSuccess, onFail, {
+        quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    });
+}
+
+
+       // Handle the back button    //      
+       function onBackKeyDown() {
+           if (isShowingImage) {
+               myPhotoBrowser.close();
+           } else {
+               window.location.href = "reservation-status.html?showTab=tab4";
+           }
+       }
+
+
+       function onSuccess(file) {
+           var imageData = {
+               src: "data:image/jpeg;base64," + file,
+               url: "data:image/jpeg;base64," + file,
+               caption: "摄像头图片",
+               file: file
+           };
+           var img = $("#pic").tmpl(imageData)
+           .insertBefore(".add-image")
+           .find("img.record-image")
+           .addClass("upload-image")
+           .data("image", imageData);
+           ViewImages();
+           captionChange();
+           autoHideAddImage();
+       }
+
+       function onFail(message) {
+           // alert('Failed because: ' + message);
+       }
+       //====================================================Cordova Code End=======================
+
+var customersno;
+$(function(){
+$('#inputFile').localResizeIMG({
+      width: 400,
+      quality: 1,
+      success: function (result) {  
+          console.log("压缩图片开始ing");
+		var  base64Data=result.clearBase64;
+               var url ="data:image/png;base64,"+base64Data;
+               var imageData = {
+                   url:url,
+                   src:url,
+                   caption:"治疗图片",
+                   file:base64Data
+               };
+               var img = $("#pic").tmpl(imageData).insertBefore(".add-image").find("img.record-image").addClass("upload-image").data("image",imageData);
+               captionChange();
+               ViewImages();
+               autoHideAddImage();
+        }});
+});
+
+
+var ordersno = GetQueryString("ordersno");
+            var medicalhistorysno;
+            var recordtype = "treat";
+            var myApp = new Framework7();
+            var deleteImages =[];
+            var oldSelect ;
+            var treatdt;
+            // Export selectors engine
+            var $$ = Dom7;
+            var $textarea = $("textarea");
+
+            /**
+      *存储页面原有数据,若页面数据发生变化,修改后的页面的数据和修改前的对比,  则提示用户是否保存
+      *content     
+      *project  
+      *productname
+      *images
+      */
+            var currentProject = "";
+            var currentProductname = "";
+            var oldPageData = { content: "", project: "", productname: "", images: [] };
+            var getCurrentPageData = function () {
+                var currentPageData = {
+                    content: (function () { return $("textarea").val() })(),
+                    project: currentProject,
+                    productname: currentProductname,
+                    images: (function () {
+                        var images = [];
+                        $(".col-25 img").each(function () {
+                            images.unshift({ caption: $(this).parent().find(".caption").val(), src: $(this).data("image").src });
+                        });
+                        return images;
+                    })()
+                };
+                return currentPageData;
+            };
+
+            var isPageChanged = function () {
+                return !isObjectValueEqual(oldPageData, getCurrentPageData());
+
+            };
+            var autoHideAddImage = function () {
+                if ($(".col-25").size() >= 8) {
+                    $(".add-image").hide();
+                }
+            };
+            var $textarea = $("textarea");
+            $textarea.on("valuechange", function () {
+               
+                if ($(this).val() == "") {
+                    $(this).removeClass("textarea-shuru").addClass("textarea-placeholder");
+                } else {
+                    $(this).addClass("textarea-shuru").removeClass("textarea-placeholder");
+                    
+                }
+
+            });
+            $("textarea").focus(function () {
+                $(this).attr("placeholder", "");
+            }).blur(function () {
+                $(this).attr("placeholder", "您还没有添加治疗记录")
+            });
+
+            var isShowingImage = false;
+            var myPhotoBrowser;
+
+     
+        
+
+            function captionLengthLimit() {
+                $(".caption").change( function () {
+                    if ($(this).val().length >= 6) {
+                        $(this).val($(this).val().substring(0, 5));
+                    }
+                });
+            }
+
+            var mainView = myApp.addView('.view-main', {
+                // Because we use fixed-through navbar we can enable dynamic navbar
+                dynamicNavbar: true,
+                domCache: true
+            });
+           // Generate dynamic page
+            var dynamicPageIndex = 0;
+            function createContentPage() {
+                mainView.router.loadContent(
+                    '<!-- Top Navbar-->' +
+                    '<div class="navbar ">' +
+                    '  <div class="navbar-inner ">' +
+                    '    <div class="left "><a href="# " class="back link "><i class="icon icon-back "></i><span>Back</span></a></div>' +
+                    '    <div class="center sliding ">Dynamic Page ' + (++dynamicPageIndex) + '</div>' +
+                    '  </div>' +
+                    '</div>' +
+                    '<div class="pages ">' +
+                    '  <!-- Page, data-page contains page name-->' +
+                    '  <div data-page="dynamic-pages " class="page ">' +
+                    '    <!-- Scrollable page content-->' +
+                    '    <div class="page-content ">' +
+                    '      <div class="content-block ">' +
+                    '        <div class="content-block-inner ">' +
+                    '          <p>Here is a dynamic page created on ' + new Date() + ' !</p>' +
+                    '          <p>Go <a href="# " class="back ">back</a> or go to <a href="services.html ">Services</a>.</p>' +
+                    '        </div>' +
+                    '      </div>' +
+                    '    </div>' +
+                    '  </div>' +
+                    '</div>'
+                );
+                return;
+            }
+            
+			var    reserveTime; 
+		$(".time .label").click(function(){
+if(reserveTime){
+		    reserveTime.close();
+            reserveTime.destroy();                            
+}
+                            var  $this = $(this);//预约时间按钮
+                            var item = $(".reserve-item").has($(this));//预约时间的数据块
+                       
+                            var today = new Date();
+                             reserveTime = myApp.picker({
+                                input: ".time .label input",
+                                toolbarTemplate: '<div class="toolbar">' +
+                                    '<div class="toolbar-inner">' +
+                                    '<div class="left"><a href="#" class="link  destroy-picker">取消</a></div>' +
+                                    '<div class="center">请选择预约时间</div>' +
+                                    '<div class="right">' +
+                                    '<a href="#" class="link destroy-picker save" id="save">完成</a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>',
+                                toolbar: true,
+                                rotateEffect: true,
+                                onClose: function (picker) {
+                                    $$('.modal-overlay').removeClass('modal-overlay-visible');
+								    reserveTime.close();
+                                    reserveTime.destroy();
+                                },
+                                value: [today.getFullYear(), today.getMonth(), today.getDate(), '上午'],
+                                onChange: function (picker, values, displayValues) {
+                                    var daysInMonth = new Date(picker.value[2], picker.value[0] * 1 + 1, 0).getDate();
+                                    if (values[1] > daysInMonth) {
+                                        picker.cols[1].setValue(daysInMonth);
+                                    }
+                                    console.log(new Date(picker.value[0],picker.value[1]*1+2,picker.value[2]*1+1));
+                                    var today = new Date();
+
+
+                                    //医生不能选取当前时间之前的时间作为治疗时间
+                                   if(new Date(picker.value[0],picker.value[1]*1,picker.value[2]*1+1) <=today ){
+                                       console.error("不能设置超过当前时间");
+                                       console.log( "当前时间:"+today);
+                                       console.log("选取的时间:"+new Date(picker.value[0],picker.value[1]*1+2,picker.value[2]*1+1));
+                                       //返回到当前时间
+                                       picker.cols[0].setValue(today.getFullYear());
+                                       picker.cols[1].setValue(today.getMonth()*1);
+                                       picker.cols[2].setValue(today.getDate()+1);
+                                   }
+
+                                   var  treatdatetime ;
+                                    switch (picker.value[3]){
+                                        case "上午":
+                                           treatdatetime = "11:59";
+                                        break;
+                                        case "下午":
+                                            treatdatetime = "23:59";
+                                        break;
+                                    }
+                        //将设置的治疗时间放在对应的input的data("treatdt"),
+                                    var treatdt = picker.value[0]+"-"+(picker.value[1]*1+1)+"-"+picker.value[2] +" "+ treatdatetime;
+                                    console.log(treatdt);
+                                    $("#treatdt").data("treatdt",treatdt);
+                                    //重新设置值
+                                    var maxDays = new Date(picker.value[0],picker.value[1]*1+1,0).getDate();
+                                    var days = Days(maxDays);
+                                if(days.length!=picker.cols[2].values.length)
+                                picker.cols[2].replaceValues(days,days);
+                                },
+                                formatValue: function (p, values, displayValues) {
+                                    return displayValues[0] + '年' + displayValues[1] + '月' + values[2] + '日' + values[3];
+                                }, onOpen: function (picker) {
+                                    $('.destroy-picker').on('click', function () {
+                                        picker.close();
+                                        picker.destroy();
+                                    });
+
+                              	console.info(treatdt);
+                                },
+                                cols: [
+                                    // Years
+                                    {
+                                        values: (function () {
+                                            var arr = [];
+                                            for (var i = 1950; i <= 2030; i++) {
+                                                arr.push(i);
+                                            }
+                                            return arr;
+                                        })(),
+                                        textAlign: 'right'
+                                    },
+                                    // Months
+                                    {
+                                        values: ('0 1 2 3 4 5 6 7 8 9 10 11').split(' '),
+                                        displayValues: ('1 2 3 4 5 6 7 8 9 10 11 12').split(' '),
+                                        textAlign: 'left'
+                                    },
+                                    // Days
+                                    {
+                                        values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+                                        textAlign: 'left'
+                                    },
+                                    // Hours
+                                    {
+                                        values: ['上午', '下午'],
+                                        textAlign: 'left'
+                                    }
+                                ]
+                            });
+                            reserveTime.open();
+                        });
+
+ $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "doctor.getmedicalhistorysno.go",
+                postdata: {
+                    ordersno: ordersno,
+                    recordtype: recordtype
+                },
+                success: function (rtn) {
+                    if (rtn.issuccess){
+                  	medicalhistorysno=rtn.medicalhistorysno;
+                  	init();
+                    }else {
+                       // myApp.alert(rtn.msg);
+                    }
+                }
+            });
+          
+          function init(){      
+            getRecordImages();//获取就诊记录图片
+            getRecord();//获取就诊记录
+          }
+     
+            //删除记录
+            $$(".del-image").click(function(){
+          //删除记录
+            $.Frame.Ajax.Ajax({
+            	url:$.Frame.Config.Constant.ServerUrl+"doctor.deletemedicalhistory.go",
+            	postdata:{
+            		medicalhistorysno:medicalhistorysno
+            	},
+            	success:function(rtn){
+            		if(rtn.issuccess){
+            				myApp.alert(rtn.msg,"提示");
+            		}else{
+            			myApp.alert(rtn.msg,"正确",function(){
+            				window.location.href=backurl;
+            			});
+            		}
+            	}
+            });
+            });
+            $(".view-diagnosis").click(function(){
+            	window.location.href="diagnosis-record.html?frompage=treat-record&&ordersno="+ordersno+"&&doctorsno="+doctorsno;
+            });
+            $(".add-image").click(function(){
+            	choseImage();	
+            });
+             function choseImage(){
+            	var buttons1 = [
+                {
+                    text: '拍照',
+                    color: 'black',
+                    onClick: function () {
+                    useCamera();     
+                    }
+                },
+              {
+                  text: '<a href="ConsultingRecordImage.html">从咨询相册中选择</a>',
+                  color: 'black',
+                  onClick: function () {
+                  }
+              },
+                {
+                    text: '<label for="inputFile" style="display:block">从手机相册选取</label>',
+                    color: 'black',
+                    onClick: function () {
+                        console.log("相册");
+                        console.log("相册调用完成");
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    color: 'black'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            myApp.actions(groups);
+            }
+            
+            $(".save-record").click(function(){
+                saveRecord();
+        });
+
+
+            function saveRecord() {
+               
+                    //删除数据
+                    $.Frame.Ajax.Ajax({
+                        url: $.Frame.Config.Constant.ServerUrl + "myorder.saverecord.go",
+                        before: function () {
+                            myApp.showIndicator();
+                        },
+                        postdata: {
+                            doctorsno: doctorsno,
+                            ordersno: ordersno,
+                            medicalhistorysno: medicalhistorysno,
+                            project: currentProject,
+                            treatdt:$("#treatdt").data("treatdt"), 
+                            productname: currentProductname,
+                            content: $("textarea").val(),
+                            deleteimage: function () {
+                                var deleteimage = [];
+                                $(".delete-image").each(function () {
+                                    deleteimage.push($(this).data("image").medicalhistoryimagesno);
+                                });
+                                return $.base64({ data: JSON.stringify(deleteimage) });
+                            }(),
+                            uploadimage: function () {
+                                var uploadimage = [];
+                                $(".upload-image").each(function () {
+                                    var imageData = $(this).data("image");
+                                    uploadimage.push({ file: imageData.file, caption: imageData.caption });
+                                });
+                                return $.base64({ data: JSON.stringify(uploadimage) });
+                            }(),
+                            modifyimage: function () {
+                                var modifyimage = [];
+                                $(".modify-image").each(function () {
+                                    var imageData = $(this).data("image");
+                                    modifyimage.push({ medicalhistoryimagesno: imageData.medicalhistoryimagesno, caption: imageData.caption });
+                                });
+                                return $.base64({ data: JSON.stringify(modifyimage) });
+                            }(),
+
+
+                            addurlimage: function () {
+                                var addurlimage = [];
+                                $(".addurlimage").each(function () {
+                                    var imageData = $(this).data("image");
+                                    addurlimage.push({ src: imageData.src, caption: imageData.caption });
+                                });
+                                return $.base64({ data: JSON.stringify(addurlimage) });
+                            }(),
+                        },
+                        success: function (rtn) {
+                            myApp.hideIndicator();
+                            myApp.alert("成功保存记录", "提示", function (rtn) {
+                                window.location.href = backurl;
+                            });
+                        }
+                    });
+                }
+                
+            
+        
+        
+        	
+        
+
+        function  getRecordImages(){
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl+"doctor.getmedicalhistoryimage.go",
+                postdata:{
+                    medicalhistorysno: medicalhistorysno
+                    },
+                    success:function(rtn){
+                     var img;
+                     var item;
+                     if (rtn.issuccess) {
+                         var images = [];
+                         rtn.data.forEach(function (element) {
+                             images.push({ caption: element.caption, src: element.url });
+                         });
+                         $.extend(oldPageData.images, images);
+                         for (var i = 0; i < rtn.data.length; i++) {
+                             item = rtn.data[i];
+                             var imageData = {
+                                 medicalhistoryimagesno: item.sno,
+                                 url: item.url,
+                                 src: item.url,
+                                 name: item.caption,
+                                 caption:item.caption
+                             };
+                           var  image=$("#pic").tmpl(imageData)
+                           .prependTo(".row").find("img.record-image")
+                           .data("image",imageData).addClass("download-image");
+                            ViewImages();
+                             captionChange();
+                             autoHideAddImage();
+                         }
+                     } else {
+                         myApp.alert(rtn.msg,"错误");
+                     }
+            }});
+            
+             }
+        function captionChange(){
+            captionLengthLimit();
+            $(".caption").each(function () {
+                $(this).change(function(){
+                    var image = $(".col-25").has($(this)).find(".record-image");
+            var imageData = image.data("image");
+            imageData.caption = $(this).val();
+            image.data("image",imageData);
+            if(image.hasClass("download-image")){
+                image.addClass("modify-image"); 
+            }  
+        });});
+        }
+
+        function getRecord(){
+           //获取订单的就诊记录编号
+           //界面初始化,得到订单的记录
+            $.Frame.Ajax.Ajax({
+                url: $.Frame.Config.Constant.ServerUrl + "doctor.getmedicalhistory.go",
+                postdata: {
+                    ordersno: ordersno,
+                    medicalhistorysno: medicalhistorysno,
+                    recordtype: recordtype
+                },
+                success: function (rtn) {
+                    if (rtn.issuccess){
+                      //时间格式转换一下
+                        console.log("treatdt:"+rtn.data.treatdt);
+                        var treatdt = rtn.data.treatdt.format("yyyy-MM-dd hh:mm");
+                        console.log("treatdt:"+treatdt);
+                        $.extend(oldPageData, {
+                            content: rtn.data.content,
+                            project: rtn.project[0].topname,
+                            productname: rtn.item[0].productname,
+                            treatdt :treatdt
+                        });
+                        if (rtn.data.content) {
+                            $("textarea").removeClass("textarea-placeholder").addClass("textarea-shuru");
+                            $("textarea").val(rtn.data.content);
+                        }
+                         currentProject = rtn.project[0].topname;
+                         currentProductname = rtn.item[0].productname;
+                        $("#select").text(rtn.item[0].productname);
+
+                        $("#treatdt").val(rtn.data.treatdate+rtn.data.treatdatetime).data("treatdt",treatdt);
+                        !rtn.isempty ? $(".del-image").show() : $(".del-image").hide();
+
+                  		customersno= rtn.data.customersno;
+                    }else {
+                        console.error(rtn.msg);
+                    }
+                }
+            });
+        }
+        function ViewImages() {
+            //图片预览
+            $(".col-25 img.record-image ").each(
+            function () {
+                $(this).unbind("click");
+                $(this).click(function () {
+                    var medicalhistoryimagesno = this.dataset.medicalhistoryimagesno;//该图片的编号
+                    var $image = $(this);//改图片对象
+                     myPhotoBrowser = myApp.photoBrowser({
+                        zoom: true,
+                        photos: getCurrentPageData().images.map(function (item) {
+                            var result = {};
+                            result.url= item.src;
+                            result.caption =item.caption;
+                            return result;
+                        }).reverse(),
+                        theme: "dark",
+                        type: "standalone",
+                        backLinkText: "取消",
+                        ofText: "/",
+                        navbarTemplate: '<div class="navbar">' + //图片预览模板,添加删除按钮
+'<div class="navbar-inner">' +
+'<div class="left sliding">' +
+'<a href="#" class="link close-popup photo-browser-close-link {{#unless backLinkText}}icon-only{{/unless}} {{js "this.type === \'page\' ? \'back\' : \'\'"}}">' +
+    '<i class="icon icon-back {{iconsColorClass}}"></i>' +
+    '{{#if backLinkText}} <span style="white-space: nowrap;">{{backLinkText}}</span>{{/if}}' +
+'</a>' +
+'</div>' +
+'<div class="center sliding">' +
+'<span class="photo-browser-current"></span>' +
+'<span class="photo-browser-of">{{ofText}}</span>' +
+'<span class="photo-browser-total"></span>' +
+'</div>' +
+'<div class="right "><a href="#" class="link delete" >删除</a></div>' +
+'</div>' +
+'</div>',
+                        onOpen: function (photoBrowser) {
+                            isShowingImage = true;
+                            $(".delete").click(function () {
+                                myPhotoBrowser.close();
+                                if ($image.data("medicalhistoryimagesno")) {
+                                    $image.addClass("delete-image").addClass(".delete-image").parent().hide();
+                                } else {
+                                    $image.parent().remove();
+                                    $(".add-image").show();
+                                }
+                            });
+                        }, onClose: function (photoBrowser) {
+                            isShowingImage = false;
+                        }
+                    });
+                    myPhotoBrowser.open($(".record-image").index($(this)));
+                }
+            )
+            });
+        }
+        
+
+       
+              function  AjaxDeleteMedicalHistoryImage(medicalHistoryImageSno,cellback){
+                  ///<summary>发送doctor.delmedicalhistoryimage.go</summary>
+                  ///<param name="medicalHistoryImageSno" type="string">诊疗图片</parame>
+                  ///<param name="cellback" type="function">回调函数</param>
+                  $.Frame.Ajax.Ajax({
+                      url: $.Frame.Config.Constant.ServerUrl + "doctor.delmedicalhistoryimage.go",
+                      postdata: {
+                          doctorsno: doctorsno,
+                          medicalhistorysno: medicalhistorysno,
+                          medicalhistoryimagesno: medicalHistoryImageSno
+                      },
+                      success:cellback
+                  });
+               }
+          
+              
+              myApp.onPageInit("beauty-project", function () {
+
+
+
+                  var prodata;
+                  $.Frame.Ajax.Ajax({
+                      url: $.Frame.Config.Constant.ServerUrl + "baike.loadpro.go",
+                      postdata: {
+                          //doctorsno: "f82245a1-1dfb-4dfe-bb45-f464b344571b"
+                          doctorsno: doctorsno
+                      },
+                      success: function (rtn) {
+                          myApp.hidePreloader();
+                          $(".list-block").show();
+                          $("#textinfo").show();
+                          if (rtn.issuccess) {
+                              $(".goodat-list").empty();
+                              $("#datalist").tmpl(rtn.data).appendTo(".goodat-list");
+                              $('.goodat-list ul').each(function () {
+                                  $(this).find('.view-more').nextAll().hide();
+                              });
+                              $('.goodat-list ul li.view-more').click(function () {
+                                  var viewMore = $(this);
+                                  var viewLess = $(this).clone().addClass("view-less").removeClass("view-more").css("-webkit-transform", "rotate(180deg)", "-moz-transform", "rotate(180deg)");
+                                  //后面元素显示出来,并且隐藏自身,显示后面的列表
+                                  $(this).nextAll().show();
+                                  $(this).hide();
+                                  viewLess.appendTo($(this).parent()).show();
+                                  viewLess.click(function () {
+                                      viewMore.nextAll().hide();
+                                      viewMore.show();
+                                      $(this).remove();
+                                  });
+                              });
+                              var counter = 0;
+                              $("ul.clearfix li").not(".view-more").click(function () {
+                                  $(this).toggleClass("active");
+                                  $("ul.clearfix li").not(".view-more").not($(this)).removeClass("active");
+                              });
+
+                              //将治疗页面的项目加上active
+                              $(".itemlist").each(function () {
+                                  if ($(this).text() == currentProductname) {
+                                      $(this).addClass("active");
+                                  }
+                              })
+
+                          } else {
+                              $.Frame.Message.ShowMsg(rtn.msg);
+                          }
+                      },
+                      before: function (rtn) {
+                          myApp.showPreloader('加载中...')
+                      }
+
+                  })
+
+
+                  $$('.goodat-save').on('click', function () {
+                      var docinputpro = $("#doctorinput").val();
+
+                      if ($("li.active").length > 1) {
+                          myApp.alert("您最多只能选择1个");
+                          return;
+                      } else if ($(".active").length < 1) {
+                          //没有输入自定义项目
+                          if ($("#doctorinput").val()) {
+                              //发送添加项目的请求
+                              mainView.router.back();
+                          } else {
+                              mainView.router.back();
+                          }
+                      } else {
+                          //选择了项目
+                          myApp.confirm('', '是否保存编辑？',
+                             function () {
+                                 // myApp.alert('已保存');
+                                 changeSelect()
+                                 mainView.router.back();
+                             },
+                             function () {
+                                 mainView.router.back();
+                             }
+                         );
+                      }
+
+
+                  });
+
+
+
+                  function changeSelect() {
+
+                      var $project = $(".item").has(".active").find(".list-title");
+                      var $item = $("li.active");
+                      currentProject = $project.text();
+                      currentProductname = $item.text();
+                      $("#select").text(currentProductname);
+
+                  }
+              });
+        myApp.onPageBeforeRemove("beauty-project", function () {
+            $(".navbar-inner").removeClass("cache");
+
+        });
+
+
+        myApp.onPageInit("record-chooseimg", function () {
+
+
+
+            var objPage = $("div.page[data-page='record-chooseimg']");
+            var aryRecords; //* 图片列表,keydt=图片日期,picsrc=图片地址
+
+
+            loadConsultingRecords();
+            //* 进入画面载入日期和图片列表.初始化下拉选单
+            function loadConsultingRecords() {
+                $.Frame.Ajax.Ajax({
+                    url: $.Frame.Config.Constant.ServerUrl + "webim2.getconsultingrecords.go",
+                    postdata: {
+                        customersno: customersno,
+                        doctorsno: doctorsno
+                    },
+                    before: function () {
+                        myApp.showPreloader();
+                        objPage.find("#selRecordDt").html("");  //* 下拉选单清空
+                    },
+                    success: function (rtn) {
+                        if (rtn.issuccess) {
+                            if (rtn.data.length > 0) {
+                                aryRecords = rtn.data;
+                                for (var i = 0; i < aryRecords.length; i++) {
+                                    aryRecords[i].keydt = aryRecords[i].lastchangedt.format("yyyyMMdd");
+                                    if (objPage.find("#selRecordDt option[value='" + aryRecords[i].keydt + "']").size() <= 0)
+                                        objPage.find("#selRecordDt").append("<option value='" + aryRecords[i].keydt + "'>" + aryRecords[i].lastchangedt.format("yyyy年MM月dd日") + "</option>");
+                                }
+                                objPage.find("#selRecordDt").change();
+                            } else {
+                                //* 没记录
+                                objPage.find("#selRecordDt").append("<option value=''>近7天无可供显示的图片</option>");
+                            }
+                        } else {
+                            myApp.alert(rtn.msg);
+                        }
+                    },
+                    error: function () {
+                        myApp.alert("error");
+                    },
+                    complete: function () {
+                        myApp.hidePreloader();
+                    }
+                });
+            }
+
+            //* 当日期选择改变时带出该天的图片信息
+            objPage.find("#selRecordDt").change(function () {
+                var dt = objPage.find("#selRecordDt").val();
+                if (aryRecords == undefined || aryRecords.length <= 0
+                    || objPage.find("#selRecordDt").val() == undefined || objPage.find("#selRecordDt").val() == "")
+                    return;
+
+                objPage.find("ul.figure-list").html("");    //* 下方LIST
+                var aryImg = new Array()
+                for (var i = 0; i < aryRecords.length; i++) {
+                    if (aryRecords[i].keydt == dt && aryRecords[i].picsrc.length > 0) {
+                        //* 是这天的图片记录就列在下面
+                        objPage.find("ul.figure-list").append(
+                            "<li data-no='" + aryImg.length + "'><figure style='background-image:url(" + aryRecords[i].picsrc + ")'>"
+                            + "<input type='checkbox'  value='" + aryRecords[i].picsrc + "'  >"
+                            + "</figure></li>");
+                        aryImg[aryImg.length] = aryRecords[i].picsrc;
+
+                    }
+                }
+                //为选矿添加事件
+                $("input[type=checkbox]").click(function (event) {
+
+                    $(this).attr("checked", true);
+                    event.stopPropagation();
+                });
+
+                var myPhotoBrowserPopupDark = myApp.photoBrowser({
+                    photos: aryImg,
+                    theme: 'dark'
+                })
+                ;
+                $("ul.figure-list li").unbind("click").click(function () {
+                    console.log($(this).data("no"));
+                    myPhotoBrowserPopupDark.open($(this).data("no"));
+                });
+
+                //返回与保存
+                $(".image-save").click(function () {
+                    var result = [];
+                    $(".navbar-inner").removeClass("cached");
+                    $("input[type=checkbox]:checked").each(function () {
+                        var imageData = { src: $(this).val(), url: $(this).val(), caption: "咨询图片", file: $(this).val() };
+                        $("#pic").tmpl(imageData)
+                .insertBefore(".add-image")
+                .find("img.record-image")
+                .addClass("addurlimage")
+                .data("image", imageData);
+                        console.log($(this).val());
+
+                    });
+                    captionChange();
+                    ViewImages();
+                    autoHideAddImage();
+                    mainView.router.back();
+                });
+
+            
+
+            });
+
+
+        });
+        myApp.onPageBeforeRemove("record-chooseimg", function () {
+        
+
+        });
+        
+        
+
+
+    </script>
+</body>
+</html>

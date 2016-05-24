@@ -1,0 +1,118 @@
+﻿<!--我的患者列表-->
+<div class="views toolbar-through">
+    <div class="view view-main">
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="PatientIndex" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left" >
+
+                            <a class="link back" href="#">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">我的患者</div>
+                    </div>
+                    <div class="Search-bar">
+                        <label id="SelToggle">姓名<img src="css/images/arrow-down.png" /></label>
+                        <input type="search" placeholder="搜索姓名、项目">
+                        <a><img src="css/images/search-icon.png" /></a>
+                        <div class="Search-box">
+                            <span class="arrow"></span>
+                            <span class="arrow2">
+                            </span>
+                            <ul>
+                                <li>姓名</li>
+                                <li>项目</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                
+
+                
+                <div class="page-content">
+                    <div class="row PatientToolBar">
+                        <div class="col-33">
+                            <a href="NewAddPatient.html?type=enter">
+                                <img src="css/images/newadd.png" />
+                            </a>
+                        </div>
+                        <div class="col-33">
+                            <a href="AlphaSort.html">
+                                <img src="css/images/zimuorder.png" />
+                            </a>
+                        </div>
+                        <div class="col-33">
+                            <a href="GroupManage.html">
+                                <img src="css/images/group.png" />
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="row PatientToolTxt">
+                        <div class="col-33">最新添加</div>
+                        <div class="col-33">字母排序</div>
+                        <div class="col-33">分组管理</div>
+                    </div>
+
+                    <div class="list-block accordion-list">
+                        <ul>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="diagnosiscount"></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content page-content contacts-content" >
+                                       <div class="list-block">
+                                                <ul id="binddiagnosislist"></ul>
+                                            </div>
+
+                                        </div>
+                                </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="treatcount"></span></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content">
+                                    <div class="list-block">
+                                        <ul id="bindtreatlist"></ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a href="" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" id="collectcount"></div>
+                                    </div>
+                                </a>
+                                <div class="accordion-item-content">
+                                    <div class="list-block">
+                                        <ul id="bindcollectlist"></ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul id="docdefinedgroupindex">
+
+                        </ul>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+

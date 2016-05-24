@@ -1,0 +1,50 @@
+<!-- 这里是 科室医生列表 page, 实际的母页是 MsgHome.html -->
+
+<div data-page="Msg_GroupPatientList" class="page navbar-fixed toolbar-fixed">
+    <!-- 导航 -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center">全部患者</div>
+        </div>
+    </div>
+    <form class="searchbar searchbar-init" data-search-list=".list-block-search-patientlist" data-search-in=".item-title" data-found=".searchbar-found-patientlist" data-not-found=".searchbar-not-found-patientlist">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">取消</a>
+    </form>
+    <div class="searchbar-overlay"></div>
+
+    <div class="page-content">
+        <div class="content-block searchbar-not-found searchbar-not-found-patientlist" style="margin-top: 0;">
+            <div class="content-block-inner">抱歉，未找到搜索结果</div>
+        </div>
+        <div class="list-block list-block-search searchbar-found list-block-search-patientlist searchbar-found-patientlist">
+            <ul id="ulPatientList">
+
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/template7" id="TempaltePatientList">
+        {{#each data}}
+        <li>
+            <a class="item-content" data-customersno="{{customersno}}" href="MsgPatientDetail.html?customersno={{customersno}}" style="color:#000000;">
+                <div class="item-media">
+                    <img src="{{picsrc}}" style="width: 50px; height:50px; border-radius: 25px;" class="lazy" />
+                </div>
+                <div class="item-inner">
+                    <div class="item-title">{{truename}}</div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+</div>
+</div>

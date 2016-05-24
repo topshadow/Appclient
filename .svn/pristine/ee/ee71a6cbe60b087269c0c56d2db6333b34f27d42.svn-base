@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>聚美医</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+	<link rel="stylesheet" href="css/framework7.ios.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.css">
+	<!-- Path to your custom app styles-->
+	<link rel="stylesheet" href="css/my-app.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+	<meta name="msapplication-square70x70logo" content="img/smalltile.png">
+	<meta name="msapplication-square150x150logo" content="img/mediumtile.png">
+	<meta name="msapplication-wide310x150logo" content="img/widetile.png">
+	<meta name="msapplication-square310x310logo" content="img/largetile.png">
+</head>
+<body>
+    <input type="hidden" id="initflag" value="1" />
+    <input type="hidden" id="toPage" value="1" />
+    <input type="hidden" id="Count_per_Page" value="10" />
+    <div id="view-message" class="view tab">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="center sliding">消息</div>
+			</div>
+		</div>
+		<div class="pages navbar-through">
+			<div data-page="index-message" class="page">
+				<form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init">
+					<div class="searchbar-input">
+						<input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+					</div><a href="#" class="searchbar-cancel">取消</a>
+				</form>
+				<div class="searchbar-overlay"></div>
+				<div class="page-content" style="padding-bottom:50px;">
+					<div class="list-block searchbar-not-found">
+						<ul>
+							<li class="item-content">
+								<div class="item-inner">
+									<div class="item-title">
+										没有找到
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="list-block media-list message-list search-here searchbar-found">
+						<ul id="historylist">
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- <div class="toolbar tabbar tabbar-labels bottom-tabbar" style="bottom:50px;">
+	<div class="toolbar-inner"><a href="index.html" class="tab-link external"><i class="iconfont icon-home"></i><span class="tabbar-label">首页</span></a><a href="message-list.html" class="tab-link external active "><i class="icon iconfont icon-dongtai"><span class="badge bg-red">4</span></i><span class="tabbar-label">消息</span></a><a href="trends.html" class="tab-link external view3"><i class="icon iconfont icon-zixun"><span class="badge bg-red">1</span></i><span class="tabbar-label">动态</span></a><a href="more.html" class="tab-link external view4"><i class="iconfont icon-gengduo"></i><span class="tabbar-label">更多</span></a></div>
+</div>-->
+
+	<div class="toolbar tabbar tabbar-labels bottom-tabbar" style="bottom:50px;">
+		<div class="toolbar-inner"><a href="index.html" class="tab-link external"><i class="iconfont icon-home"></i><span class="tabbar-label">首页</span></a><a href="message-list.html" class="tab-link external active view2 " ><i class="icon iconfont icon-dongtai"></i><span class="tabbar-label">消息</span></a><a href="trends.html" class="tab-link external view3"><i class="icon iconfont icon-zixun"></i><span class="tabbar-label">动态</span></a><a href="more.html" class="tab-link external view4"><i class="iconfont icon-gengduo"></i><span class="tabbar-label">更多</span></a></div>
+	</div>
+
+<script type="text/javascript" src="js/framework7.min.js"></script>
+	<!-- Path to your app js-->
+	<script type="text/javascript" src="js/my-app.js"></script>
+	<script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+
+	<script src="Scripts/FrameJs/global.js"></script>
+	<script src="Scripts/FrameJs/frame.ajax.js"></script>
+    <script src="Scripts/FrameJs/base64.js"></script>
+    
+	<script src="Scripts/jquery.tmpl.js"></script>
+	<script src="js/framework7.js"></script>
+	<script type="text/javascript">
+
+	var mySearchbar = myApp.searchbar('.searchbar', {
+		searchList: '.list-block-search',
+		searchIn: '.item-title'
+	});
+    
+</script>
+
+<script type="text/x-jquery-tmpl" id="itemdata">
+	<li>
+		<a href="${link}" class="item-content external">
+			<div class="item-media">
+				<img src='${headpic}' height="50" width="50" alt="">
+			</div>
+			<div class="item-inner">
+				<div class="item-title-row">
+					<div class="item-title">${fromname}</div>
+					<div class="item-after">
+						<div class="item-time">${createtime}</div>
+					</div>
+				</div>
+				<div class="item-text">${msg}</div>
+				{{if noreadcount == 0}}
+					<div class="message-badge" hidden><span class="badge bg-red">${noreadcount}</span></div>
+				{{else}}				
+					<div class="message-badge"><span class="badge bg-red">${noreadcount}</span></div>					
+				{{/if}}
+			</div>
+			<!--<div class="swipeout-actions-right">
+				<a href="#" class="demo-actions">置顶</a><a href="#" class="demo-mark bg-orange">标记未读</a><a href="#" data-confirm="你确定删除该条信息吗?" class="swipeout-delete swipeout-overswipe">删除</a>
+			</div>-->
+		</a>
+		
+	</li>
+	
+	</script>
+
+<script type="text/javascript">
+	window.onload = function () {
+		var url = location.search;
+		$('.view2').attr("href", "message-list.html" + url);
+		$('.view3').attr("href", "trends.html" + url);
+		$('.view4').attr("href", "more.html" + url);
+	}
+	var nextkey = "";
+
+	$("#view2").click(function() {
+
+	});
+
+	if ($("#initflag").val() == "1") {
+		$("#toPage").val(1);
+	}
+	$(function (e) {
+
+		more();
+	});
+    
+	function more() {
+		$.Frame.Ajax.Ajax({
+			url: $.Frame.Config.Constant.ServerUrl + "webim.getmsgsummary.go",
+			postdata: {
+				usersno: GetQueryString("drsno"),
+				usertype: "Doctor",
+				keys: $("#keys").val(),
+				nextkey: nextkey
+			},
+			success: function(rtn) {
+				if (rtn.issuccess) {
+					var dl = rtn.data;
+					for (var i = 0; i < dl.length; i++) {
+						dl[i].createdate = dl[i].createdt.format("yyyy-MM-dd");
+						dl[i].createtime = dl[i].createdt.format("HH:mm");
+
+						console.log("加密fromname:" + window.btoa(unescape(encodeURIComponent(dl[i].fromname))));
+						//dl[i].link = "message.html?from=" + dl[i].from + "&to=" + dl[i].to + "&drsno=" + GetQueryString("drsno") + "&headpic=" + dl[i].headpic + "&fromname=" +dl[i].fromname;//"&headpic" + dl[i].headpic
+						dl[i].link = "message.html?drsno=" + GetQueryString("drsno") + "&customersno=" + dl[i].customersno;
+						console.log(dl[i].link);
+					}
+
+					$("#more").remove();
+					$("#itemdata").tmpl(dl).appendTo("#historylist");
+					if (rtn.totalpage > parseInt($("#toPage").val())) {
+						$("#toPage").val(parseInt($("#toPage").val()) + 1);
+					}
+					//nextkey = rtn.nextkey;
+					$("#initflag").val("0");
+
+				} else {
+					$.Frame.Message.ShowMsg(rtn.msg);
+				}
+			}
+		});
+	}
+</script>
+
+</body>
+</html>

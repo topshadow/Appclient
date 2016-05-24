@@ -1,0 +1,740 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>聚美医</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1453083508_4721825.css">
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+</head>
+<body>
+    <div class="views view-main">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left"><a href="#" class="form-back link"><i class="icon icon-back"></i></a></div>
+                <div class="center sliding">可预约患者数量</div>
+                <div class="right"><a href="#" class="link time-save">保存</a></div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="my-time" class="page">
+                <div class="page-content">
+                    <!-- Top Navbar-->
+                    
+                    <div class="user-time">
+                        <form action="">
+                            <table class="user-time-table" style="margin-top:44px">
+                                <tr class="table-title">
+                                    <th class="w-16">时间</th>
+                                    <th class="w-22">上午</th>
+                                    <th class="w-22">下午</th>
+                                    <th class="w-40">地点</th>
+                                </tr>
+                                <tr>
+                                    <td>星期一</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期二</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" id="time-numb1" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期三</td>
+                                    <td>
+                                        <input type="text" placeholder="" value=" " readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期四</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期五</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期六</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>星期日</td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-numb" />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="" value="" readonly="readonly" class="time-add" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="list-block my-list">
+                        <ul>
+                            <li>
+                                <a href="" class="item-link external time-stop-list">
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-oval"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">停诊时间</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js"></script>
+        <script src="Scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+        <script src="Scripts/FrameJs/global.js"></script>
+        <script src="Scripts/FrameJs/frame.ajax.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            // device APIs are available    //      
+            function onDeviceReady() {        // Register the event listener          
+                document.addEventListener("backbutton", onBackKeyDown, false);
+                pictureSource = navigator.camera.PictureSourceType;
+                destinationType = navigator.camera.DestinationType;
+            }
+
+            function onBackKeyDown(){
+                var am_orderquantity = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(1).find("input").val()
+                        );
+                var pm_orderquantity = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(2).find("input").val()
+                    );
+                var place = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(3).find("input").val()
+                    );
+                for (i = 0; i < 7; i++) {
+                    if (am_orderquantity[i] == am_orderquantityold[i] && pm_orderquantity[i] == pm_orderquantityole[i] && place[i] == placeold[i]) {
+                        if (i == 6) {
+                            history.back();
+                        }
+                    }
+                    else {
+                        myApp.confirm('', '是否保存编辑？',
+                   //点击确定
+                   function () {
+                       myApp.showPreloader('保存中...');
+                       //星期一
+                       var monday = new Array();
+                       for (i = 0; i < am_orderquantity[0]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[0] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               monday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               monday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[0]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[0] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           monday[parseInt(am_orderquantity[0]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期二
+                       var tuesday = new Array();
+                       for (i = 0; i < am_orderquantity[1]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[1] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               tuesday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               tuesday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[1]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[1] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           tuesday[parseInt(am_orderquantity[1]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期三
+                       var wednesday = new Array();
+                       for (i = 0; i < am_orderquantity[2]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[2] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               wednesday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               wednesday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[2]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[2] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           wednesday[parseInt(am_orderquantity[2]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期四
+                       var thursday = new Array();
+                       for (i = 0; i < am_orderquantity[3]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[3] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               thursday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               thursday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[3]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[3] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           thursday[parseInt(am_orderquantity[3]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期五
+                       var friday = new Array();
+                       for (i = 0; i < am_orderquantity[4]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[4] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               friday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               friday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[4]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[4] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           friday[parseInt(am_orderquantity[4]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期六
+                       var saturday = new Array();
+                       for (i = 0; i < am_orderquantity[5]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[5] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               saturday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               saturday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[5]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[5] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           saturday[parseInt(am_orderquantity[5]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       //星期天
+                       var sunday = new Array();
+                       for (i = 0; i < am_orderquantity[6]; i++) {
+                           var arr = "";
+                           arr = 8 + 4 / am_orderquantity[6] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           if (arr < 10) {
+                               sunday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                           }
+                           else {
+                               sunday[i] = parseInt(arr) + ":" + arr1[1];
+                           }
+                       }
+                       for (i = 0; i < pm_orderquantity[6]; i++) {
+                           var arr = "";
+                           arr = 14 + 3.5 / pm_orderquantity[6] * i;
+                           var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                           sunday[parseInt(am_orderquantity[6]) + i] = parseInt(arr) + ":" + arr1[1]
+                       }
+                       $.Frame.Ajax.Ajax({
+                           url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctororderquantity.go",
+                           postdata: {
+                               doctorsno: localStorage.getItem("doctorSno"),
+                           },
+                           success: function (rtn) {
+                               if (rtn.issuccess) {
+                                   for (i = 0 ; i < 7 ; i++) {
+                                       if ($(".user-time-table").find("tr").eq(i + 1).find("td").eq(1).find("input").val() < (am[i] - rtn.data[i].am)) {
+                                           myApp.alert("星期" + (i + 1) + "上午已被预约" + (am[i] - rtn.data[i].am) + "单");
+                                           return false;
+                                       }
+                                       else if ($(".user-time-table").find("tr").eq(i + 1).find("td").eq(2).find("input").val() < (pm[i] - rtn.data[i].pm)) {
+                                           myApp.alert("星期" + (i + 1) + "下午已被预约" + (pm[i] - rtn.data[i].pm) + "单");
+                                           return false;
+                                       }
+                                   }
+                                   $.Frame.Ajax.Ajax({
+                                       url: $.Frame.Config.Constant.ServerUrl + "doctor.setdoctortimenew.go",
+                                       postdata: {
+                                           doctorsno: localStorage.getItem("doctorSno"),
+                                           am_orderquantity: am_orderquantity,
+                                           pm_orderquantity: pm_orderquantity,
+                                           place: place,
+                                           setweek: setweek,
+                                           monday: monday,
+                                           tuesday: tuesday,
+                                           wednesday: wednesday,
+                                           thursday: thursday,
+                                           friday: friday,
+                                           saturday: saturday,
+                                           sunday: sunday
+                                       },
+                                       success: function (rtn) {
+                                           if (rtn.issuccess) {
+                                               history.back();
+                                           }
+                                       }
+                                   })
+                               }
+                           }
+                       })
+
+                   },
+                   function () {
+                       history.back();
+                   }
+               );
+                        return;
+                    }
+                }
+            }
+            var myApp = new Framework7();
+
+            var $$ = Dom7;
+
+            var am = new Array();
+            var pm = new Array();
+            var am_orderquantityold = new Array();
+            var pm_orderquantityole = new Array();
+            var placeold = new Array();
+            //加载页面显示当前每天上下午可预约的单数和坐诊地点
+            window.onload = function () {
+                var url = location.search;
+                $(".time-stop-list").attr("href", "time-stop-list.html" + url)
+                $.Frame.Ajax.Ajax({
+                    url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctortimenew.go",
+                    postdata: {
+                        doctorsno: GetQueryString("doctorsno"),
+                    },
+                    success: function (rtn) {
+                        if (rtn.issuccess) {
+                            if (rtn.data.length == 0) {
+                                $.Frame.Ajax.Ajax({
+                                    url: $.Frame.Config.Constant.ServerUrl + "doctor.adddoctortimenew.go",
+                                    postdata: {
+                                        doctorsno: GetQueryString("doctorsno"),
+                                    },
+                                    success: function (rtn) {
+                                        if (rtn.issuccess) {
+                                            $.Frame.Ajax.Ajax({
+                                                url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctortimenew.go",
+                                                postdata: {
+                                                    doctorsno: GetQueryString("doctorsno"),
+                                                },
+                                                success: function (rtn) {
+                                                    if (rtn.issuccess) {
+                                                        for (i = 0; i < 7; i++) {
+                                                            am_orderquantityold[i] = rtn.data[i].am_orderquantity;
+                                                            pm_orderquantityole[i] = rtn.data[i].pm_orderquantity;
+                                                            placeold[i] = rtn.data[i].place;
+                                                        }
+                                                        for (var i = 0; i < 7; i++) {
+                                                            $(".user-time-table").find("tr").eq(i + 1).find("td").eq(1).find("input").attr("value", rtn.data[i].am_orderquantity);
+                                                            $(".user-time-table").find("tr").eq(i + 1).find("td").eq(2).find("input").attr("value", rtn.data[i].pm_orderquantity);
+                                                            $(".user-time-table").find("tr").eq(i + 1).find("td").eq(3).find("input").attr("value", rtn.data[i].place);
+                                                            am[i] = rtn.data[i].am_orderquantity;
+                                                            pm[i] = rtn.data[i].pm_orderquantity;
+                                                        }
+                                                    }
+                                                }
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                            else {
+                                for (i = 0; i < 7; i++) {
+                                    am_orderquantityold[i] = rtn.data[i].am_orderquantity;
+                                    pm_orderquantityole[i] = rtn.data[i].pm_orderquantity;
+                                    placeold[i] = rtn.data[i].place;
+                                }
+                                for (var i = 0; i < 7; i++) {
+                                    $(".user-time-table").find("tr").eq(i + 1).find("td").eq(1).find("input").attr("value", rtn.data[i].am_orderquantity);
+                                    $(".user-time-table").find("tr").eq(i + 1).find("td").eq(2).find("input").attr("value", rtn.data[i].pm_orderquantity);
+                                    $(".user-time-table").find("tr").eq(i + 1).find("td").eq(3).find("input").attr("value", rtn.data[i].place);
+                                    am[i] = rtn.data[i].am_orderquantity;
+                                    pm[i] = rtn.data[i].pm_orderquantity;
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+
+            $$('.time-numb').on('click', function () {
+                if ($$('.picker-modal.modal-in').length > 0) {
+                    myApp.closeModal('.picker-modal.modal-in');
+                }
+                var name = $$(this);
+                var number = $$(this).val();
+                var timeNumb = myApp.picker({
+                    input: name,
+                    toolbarTemplate: '<div class="toolbar">' +
+                        '<div class="toolbar-inner">' +
+                        '<div class="left"><a href="#" class="link destroy-picker">取消</a></div>' +
+                        '<div class="center">请选择预约数量</div>' +
+                        '<div class="right">' +
+                        '<a href="#" class="link close-picker">完成</a>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>',
+                    cols: [{
+                        textAlign: 'center',
+                        values: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+                    }],
+                    formatValue: function (p, values, displayValues) {
+                        return values;
+                    }, onOpen: function (picker) {
+                        picker.setValue([number]);
+                        picker.container.find('.destroy-picker').on('click', function () {
+                            picker.close();
+                            picker.destroy();
+                        });
+                    }
+                });
+                timeNumb.destroy();
+                timeNumb.open();
+                //timeNumb.setValue(number,1000);
+            });
+
+            $$('.time-add').on('click', function () {
+                var name = $$(this);
+                var value = $$(this).val();
+                myApp.prompt('<div class="s-modal-title">工作地点将在患者预约后以短信方式通知患者</div>', '请输入工作地点', function (value) {
+                    name.attr('value', value);
+                });
+                $(".modal-text-input").val(value);
+            });
+
+            var setweek = new Array(1, 2, 3, 4, 5, 6, 7);
+
+            // 点击返回，按钮提示保存
+            $$('.left').on('click', function () {
+                onBackKeyDown();
+                
+            });
+
+
+
+
+            $$('.time-save').on('click', function () {
+                var am_orderquantity = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(1).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(1).find("input").val()
+                    );
+                var pm_orderquantity = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(2).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(2).find("input").val()
+                    );
+                var place = new Array(
+                        $(".user-time-table").find("tr").eq(1).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(2).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(3).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(4).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(5).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(6).find("td").eq(3).find("input").val(),
+                        $(".user-time-table").find("tr").eq(7).find("td").eq(3).find("input").val()
+                    );
+                for (i = 0; i < 7; i++) {
+                    if (am_orderquantity[i] == am_orderquantityold[i] && pm_orderquantity[i] == pm_orderquantityole[i] && place[i] == placeold[i]) {
+                        if (i == 6) {
+                            history.back();
+                        }
+                    }
+                    else{
+                myApp.confirm('', '是否保存编辑？',
+                    function () {
+                        myApp.showPreloader('保存中...');
+                        //星期一
+                        var monday = new Array();
+                        for (i = 0; i < am_orderquantity[0]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[0] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                monday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                monday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[0]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[0] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            monday[parseInt(am_orderquantity[0]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期二
+                        var tuesday = new Array();
+                        for (i = 0; i < am_orderquantity[1]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[1] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                tuesday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                tuesday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[1]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[1] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            tuesday[parseInt(am_orderquantity[1]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期三
+                        var wednesday = new Array();
+                        for (i = 0; i < am_orderquantity[2]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[2] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                wednesday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                wednesday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[2]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[2] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            wednesday[parseInt(am_orderquantity[2]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期四
+                        var thursday = new Array();
+                        for (i = 0; i < am_orderquantity[3]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[3] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                thursday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                thursday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[3]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[3] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            thursday[parseInt(am_orderquantity[3]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期五
+                        var friday = new Array();
+                        for (i = 0; i < am_orderquantity[4]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[4] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                friday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                friday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[4]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[4] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            friday[parseInt(am_orderquantity[4]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期六
+                        var saturday = new Array();
+                        for (i = 0; i < am_orderquantity[5]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[5] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                saturday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                saturday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[5]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[5] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            saturday[parseInt(am_orderquantity[5]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        //星期天
+                        var sunday = new Array();
+                        for (i = 0; i < am_orderquantity[6]; i++) {
+                            var arr = "";
+                            arr = 8 + 4 / am_orderquantity[6] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            if (arr < 10) {
+                                sunday[i] = "0" + parseInt(arr) + ":" + arr1[1];
+                            }
+                            else {
+                                sunday[i] = parseInt(arr) + ":" + arr1[1];
+                            }
+                        }
+                        for (i = 0; i < pm_orderquantity[6]; i++) {
+                            var arr = "";
+                            arr = 14 + 3.5 / pm_orderquantity[6] * i;
+                            var arr1 = (((arr - parseInt(arr)) / 100 * 60).toFixed(2)).split(".");
+                            sunday[parseInt(am_orderquantity[6]) + i] = parseInt(arr) + ":" + arr1[1]
+                        }
+                        $.Frame.Ajax.Ajax({
+                            url: $.Frame.Config.Constant.ServerUrl + "doctor.getdoctororderquantity.go",
+                            postdata: {
+                                doctorsno: localStorage.getItem("doctorSno"),
+                            },
+                            success: function (rtn) {
+                                if (rtn.issuccess) {
+                                    for (i = 0 ; i < 7 ; i++) {
+                                        if ($(".user-time-table").find("tr").eq(i + 1).find("td").eq(1).find("input").val() < (am[i] - rtn.data[i].am)) {
+                                            myApp.alert("星期" + (i + 1) + "上午已被预约" + (am[i] - rtn.data[i].am) + "单");
+                                            return false;
+                                        }
+                                        else if ($(".user-time-table").find("tr").eq(i + 1).find("td").eq(2).find("input").val() < (pm[i] - rtn.data[i].pm)) {
+                                            myApp.alert("星期" + (i + 1) + "下午已被预约" + (pm[i] - rtn.data[i].pm) + "单");
+                                            return false;
+                                        }
+                                    }
+                                    $.Frame.Ajax.Ajax({
+                                        url: $.Frame.Config.Constant.ServerUrl + "doctor.setdoctortimenew.go",
+                                        postdata: {
+                                            doctorsno: localStorage.getItem("doctorSno"),
+                                            am_orderquantity: am_orderquantity,
+                                            pm_orderquantity: pm_orderquantity,
+                                            place: place,
+                                            setweek: setweek,
+                                            monday: monday,
+                                            tuesday: tuesday,
+                                            wednesday: wednesday,
+                                            thursday: thursday,
+                                            friday: friday,
+                                            saturday: saturday,
+                                            sunday: sunday
+                                        },
+                                        success: function (rtn) {
+                                            if (rtn.issuccess) {
+                                                history.back();
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                    },
+                    function () {
+
+                    }
+                );
+                return;
+            }
+        }
+
+            });
+
+        </script>
+</body>
+</html>

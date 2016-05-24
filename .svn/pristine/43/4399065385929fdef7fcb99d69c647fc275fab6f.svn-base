@@ -1,0 +1,63 @@
+﻿<!--查看随访模板-->
+<div data-page="EditVisitTemplate" class="page navbar-fixed toolbar-fixed">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="center">查看随访模板</div>
+            <div class="right">
+                <a class="link" href="#"  id="SaveEditTemplate">保存</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="page-content EditVisitTemplate">
+        <div class="list-block EditVisitInput">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input type="text" value="" id="Time-line-TitleText">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-33">
+                <div>回访周期</div>
+            </div>
+            <div class="col-33">
+                <div>随访事项</div>
+            </div>
+            <div class="col-33">
+                <div>提醒时间</div>
+            </div>
+        </div>
+
+        <div id="EditVisitList">
+
+        </div>
+
+        <div class="Time-line-add" onclick="AddVisitPlan()">
+            <img src="img/icon-addvisittemp.png" />
+            <label>添加随访次数</label>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
