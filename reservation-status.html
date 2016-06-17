@@ -91,7 +91,7 @@
               			<div class="right"></div>
               			 </div>
               			  <div class="tabs-navbar ">
-                                <div class="buttons-row"><a href="#tab1" class="active tab-link">待就诊</a><a href="#tab2" class="tab-link">已就诊</a><a href="#tab3" class="tab-link">待治疗</a><a href="#tab4" class="tab-link">已治疗</a></div>
+                                <div class="buttons-row"><a href="#tab1" class="active tab-link">网站建设</a><a href="#tab2" class="tab-link">App开发</a><a href="#tab3" class="tab-link">旅烨云</a><a href="#tab4" class="tab-link">服务数据库</a></div>
                             </div>
                              </div>
                 <div class="pages navbar-through">
@@ -123,9 +123,9 @@
                             <div class="box-content">
                                 <div class="avt"><img alt="" src="${picsrc}"></div>
                                 <div class="reservation-info">
-                                    <p><span>姓名：</span>${customername}</p>
+                                    <p><span>类型：</span>${customername}</p>
                                     <p><span>项目：</span>${productname}</p>
-                                    <p><span>待就诊时间：</span><span class="time">${bookdatetime}  第${num}单</span></p>
+                                    <!--<p><span>待就诊时间：</span><span class="time">${bookdatetime}  第${num}单</span></p>-->
                                 </div>
                             </div>
                             <div class="box-footer" >
@@ -246,10 +246,10 @@
                 <script type="text/javascript" src="js/framework7.min.js"></script>
                 <script type="text/javascript" src="Scripts/FrameJs/configs/constant.config.js"></script>
                 <script src="Scripts/order-common.js"></script>
-                <script src="cordova.js"></script>
-                <script src="cordova_plugins.js"></script>
-                <script src="plugins/cordova-plugin-camera/www/camera.js"></script>
-                <script src="plugins/cordova-plugin-whitelist/whitelist.js"></script>
+                <!--<script src="cordova.js"></script>-->
+                <!--<script src="cordova_plugins.js"></script>-->
+                <!--<script src="plugins/cordova-plugin-camera/www/camera.js"></script>-->
+                <!--<script src="plugins/cordova-plugin-whitelist/whitelist.js"></script>-->
                 <script type="text/javascript">
 
               document.addEventListener("deviceready", onDeviceReady, false);
@@ -267,173 +267,26 @@
                   }
               }
 //======================================================Cordova代码    END=========================================
- $(function(){
+ $(function() {
 //导航栏重构
- if(myApp.device.os=="ios"){
- $(".view-main .navbar:first").css("margin-top","34px");
- $(".page-content").css("margin-top","34px");
- }
- var showTab = GetQueryString("showTab");
-       	if(showTab){
-       		myApp.showTab("#"+showTab);
-       	}
-       });
+     if (myApp.device.os == "ios") {
+         $(".view-main .navbar:first").css("margin-top", "34px");
+         $(".page-content").css("margin-top", "34px");
+     }
+ });
+
+                    /**分成四个类型的数据
+                     * 网站建设:每一个对应一项模板,每个模板里面存放着图片,并且可以添加图片
+                     * App开发,每一个对应一个项目改模板
+                     * 旅烨云服务器类型，价格
+                     *
+                     * 左侧是图片,右侧两行字, 网站/app 类型:
+                     * 数据库类型和价格
+                     * 风格:
+                     ***/
 
 
-              $(".reserve-content .tab").on("show", function () {
-                  $(this).find("*").show();
-                  $(".reserve-content .tab").not($(this)).find("*").hide();
-                  $(".page-content").scrollTop(0);
-              });
-                    //处于取消订单页面
-              var isOrderCanceling = false;
 
-                    //当有上午第一单的时候，下午第一单隐藏
-              var autoHideAfternoonFirstOrder = function () {
-                  $("#tab1 .reserve-item").each(function () {
-                      //  console.log("条目" + $(this).find(".time").text());
-                      if ($(this).find(".time").text() == " 上午 第1单") {
-                          var time = $(this).find(".reserve-time").text();
-                          // console.log("上午第一单的条目"+time);
-                          //找出有没有当天的 下午 第1单  并隐藏时间
-                          $("#tab1 .reserve-item").each(function () {
-                              // console.log("当前条目的时间"+$(this).find(".time").text());
-                              if ($(this).find(".reserve-time").text() == time) {
-                                  if ($(this).find(".time").text() == " 下午 第1单") {
-                                      //                console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
-                                      $(this).find(".reserve-time").hide()
-                                  }
-                              }
-                          });
-                      }
-                  });
-                  $("#tab2 .reserve-item").each(function () {
-                      if ($(this).find(".time").text() == " 上午 第1单") {
-                          var time = $(this).find(".reserve-time").text();
-                          // console.log("上午第一单的条目"+time);
-                          //找出有没有当天的 下午 第1单  并隐藏时间
-                          $("#tab2 .reserve-item").each(function () {
-                              // console.log("当前条目的时间"+$(this).find(".time").text());
-                              if ($(this).find(".reserve-time").text() == time) {
-                                  if ($(this).find(".time").text() == " 下午 第1单") {
-                                      console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
-                                      $(this).find(".reserve-time").hide()
-                                  }
-                              }
-                          });
-                      }
-                  });
-                  $("#tab3 .reserve-item").each(function () {
-                      if ($(this).find(".time").text() == " 上午 第1单") {
-                          var time = $(this).find(".reserve-time").text();
-                          // console.log("上午第一单的条目"+time);
-                          //找出有没有当天的 下午 第1单  并隐藏时间
-                          $("#tab2 .reserve-item").each(function () {
-                              // console.log("当前条目的时间"+$(this).find(".time").text());
-                              if ($(this).find(".reserve-time").text() == time) {
-                                  if ($(this).find(".time").text() == " 下午 第1单") {
-                                      console.log("应该影藏时间为" + $(this).find(".reserve-item").text());
-                                      $(this).find(".reserve-time").hide()
-                                  }
-                              }
-                          });
-                      }
-                  });
-                  var times = new Map();
-
-                  $("#tab4 .reserve-item").each(function () {
-                      if (times.get($(this).find(".reserve-time").text())) {
-                          $(this).find(".reserve-time").hide();
-                      } else {
-                          times.set($(this).find(".reserve-time").text(), true);
-                      }
-                  });
-
-              };
-              $(function(){
-              	 myApp.showIndicator();
-              
-                    $.Frame.Ajax.Ajax({
-                        url: $.Frame.Config.Constant.ServerUrl + "myorder.list.go",
-                        postdata: {
-                            doctorsno: doctorsno,
-                        },
-                         //'9b503080-4649-4e5f-8a15-11007951f9b1'},
-                        success: function (rtn){
-              	 myApp.hideIndicator();
-              //发送成功
-                            if (rtn.issuccess) {
-                                 prefix = rtn.prefix;
-                                var todiagnosis = $("#todiagnosis");
-                                var diagnosis = $("#diagnosis");
-                                var totreamt = $("#totreamt");
-                                var treamt = $("#treamt");
-                                var tab1 = $("#tab1");
-                                var tab2 = $("#tab2");
-                                var tab3 = $("#tab3");
-                                var tab4 = $("#tab4");
-                                var todiagnosis = $("#todiagnosis");
-                                var diagnosis = $("#diagnosis");
-                                var totreat = $("#totreat");
-                                var treat = $("#treat");
-                                var tab1 = $("#tab1");
-                                var tab2 = $("#tab2");
-                                var tab3 = $("#tab3");
-                                var tab4 = $("#tab4");
-                                //这里第二个参数用数组写，然后修改数组里的数据
-                                changePicSrc(prefix,rtn.todiagnosis);
-                                changePicSrc(prefix,rtn.diagnosis);
-                                changePicSrc(prefix,rtn.totreat);
-                                changePicSrc(prefix,rtn.treat);
-                              
-                                
-                                todiagnosis.tmpl(rtn.todiagnosis).appendTo(tab1);
-                                
-                               
-                                 
-                                diagnosis.tmpl(rtn.diagnosis).appendTo(tab2);
-                                
-                                totreat.tmpl(rtn.totreat).appendTo(tab3);
-                                treat.tmpl(rtn.treat).appendTo(tab4);
-                                //重设页面高,否则只有一部分数据显示出来
-                                if($("#tab1 .reserve-item").size()<1){	
-                                	$("#remind").tmpl({}).appendTo("#tab1");
-                                };
-                                if($("#tab2 .reserve-item").size()<1){	
-                                	$("#remind").tmpl({}).appendTo("#tab2");
-                                };
-                                if($("#tab3 .reserve-item").size()<1){	
-                                	$("#remind").tmpl({}).appendTo("#tab3");
-                                };
-                                if($("#tab4 .reserve-item").size()<1){	
-                                	$("#remind").tmpl({}).appendTo("#tab4");
-                                };
-                                
-                                
-                                $(".tabs-animated-wrap").css("height", "auto");
-                                //固定导航栏和菜单栏
-                                $(".navbar").css("position", "fixed");
-                                $(".tabs-navbar").css({
-                                    "position": "relative",
-                                    "margin-top": "44px"
-                                });
-                                $(".toolbar-hidden").removeClass("toolbar-hidden");
-
-                                autoHideAfternoonFirstOrder();
-                                AddCancelReserve();//取消预约
-                                AddReserveTreatment();//预约时间
-                            } else {
-                                myApp.alert("错误的请求");
-                            }
-                        }
-                    });
-              });      
-                    function changePicSrc(prefix,datalist){
-                    	for(var i=0;i<datalist.length;i++){
-                    			datalist[i].picsrc=prefix+datalist[i].picsrc;
-                    	}
-                    }
-                    
 
                 </script>
 
