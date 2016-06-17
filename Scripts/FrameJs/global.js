@@ -71,8 +71,8 @@
         document.write("<script language=javascript src='Scripts/FrameJs/attrchange.min.js'></script>");
     }
     document.write("<script type='text/javascript' src='js/framework7.min.js'></script>");
-    document.write("<script type='text/javascript' src='cordova.js'></script>");
-    document.write("<script type='text/javascript' src='js/my-jpush.js'></script>");
+    // document.write("<script type='text/javascript' src='cordova.js'></script>");
+    // document.write("<script type='text/javascript' src='js/my-jpush.js'></script>");
 }(jQuery));
 
 String.format = function () {
